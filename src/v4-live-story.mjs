@@ -1,20 +1,20 @@
 // Twenty story steps; nineteen signed transactions and one local rejected request.
 // Fictional motives do not change contract capabilities. This wallet controls every demo key.
-export const V4_LIVE_ROLES=Object.freeze({Main:'You · seller, budget recovery and project beneficiary',Second:'Pip · buyer and paid worker',Third:'Third backer',explanation:'You control all three accounts in this test wallet. tKAS are test coins. The story gives the accounts different roles.'});
-export const V4_LIVE_PURPOSE=Object.freeze({title:'Help Pip make agreements and supply Sprout’s habitat.',line:'Pip wants to trade and organize the greenhouse without handing control of its plans to a bank or town operator. Suppliers, backers and workers want their own guarantees. Help them agree on rules they can enforce, then bring the harvest to Sprout.',boundary:'Testnet checks signed coin transfers and contract states. Parts, buildings, food and production are game rules. Neither a payment nor an approval proves a physical delivery or an honest person.'});
+export const V4_LIVE_ROLES=Object.freeze({Main:'You · seller, budget recovery and project beneficiary',Second:'Pip · your robot, buyer and paid worker',Third:'Third backer',explanation:'You control all three accounts in this test wallet. tKAS are test coins. The story gives the accounts different roles.'});
+export const V4_LIVE_PURPOSE=Object.freeze({title:'Direct Pip, your robot, and supply Sprout’s habitat.',line:'You direct Pip, your robot helper, as it trades and organizes the greenhouse. Suppliers, backers and workers want their own guarantees. Help them agree on rules they can enforce, then bring the harvest to Sprout.',boundary:'Testnet checks signed coin transfers and contract states. Parts, buildings, food and production are game rules. Neither a payment nor an approval proves a physical delivery or an honest person.'});
 export const V4_LIVE_STORY=Object.freeze([
   {
     "id": "shop",
     "kind": "market",
-    "title": "Pip needs parts. The supplier wants guarantees.",
-    "line": "Sprout needs a greenhouse. As the supplier, put a window frame, water pump and seedlings up for sale. Pip will buy them under a rule that requires payment.",
+    "title": "Your robot Pip needs parts.",
+    "line": "You direct Pip, the robot helping build Sprout’s greenhouse. First, play the supplier: put three parts up for sale from your account. Pip will buy them from its separate purse.",
     "button": "Put the parts up for sale",
     "networkKey": "custody",
     "chapterName": "Trade",
     "objective": "Get the greenhouse’s parts ready.",
     "connection": "The greenhouse cannot start without all three parts.",
     "dialogue": {
-      "speaker": "Supplier",
+      "speaker": "You · supplier",
       "line": "I have all three parts. How do I know Pip will pay?"
     },
     "contract": "contracts/public/v4-bundle.sil",
@@ -35,7 +35,7 @@ export const V4_LIVE_STORY=Object.freeze([
     "id": "budget",
     "kind": "agent",
     "title": "Give Pip room to act, with a clear limit.",
-    "line": "Give Pip a separate purse for the shopping trip. It can pay only the supplier, up to 0.05 tKAS per payment. Your recovery key can bring the unused coins home.",
+    "line": "Give Pip a separate purse for the shopping trip. You will direct its payments, but its key can pay only your supplier account, up to 0.05 tKAS each time. Your recovery key can return unused coins.",
     "button": "Give Pip a limited purse",
     "networkKey": null,
     "chapterName": "Trade",
@@ -103,13 +103,13 @@ export const V4_LIVE_STORY=Object.freeze([
     "kind": "agent",
     "title": "The supplier wants proof of payment.",
     "line": "Send the supplier a 0.05 tKAS preparation payment from Pip’s purse. Check the node’s acceptance report. This payment prepares the order; buying the parts is a separate exchange next.",
-    "button": "Send and check Pip’s payment",
+    "button": "Ask Pip to pay the supplier",
     "networkKey": "pow",
     "chapterName": "Trade",
     "objective": "Start the shopping trip within the rule.",
     "connection": "The supplier receives this payment; Pip still has money for the complete parts set.",
     "dialogue": {
-      "speaker": "Supplier",
+      "speaker": "You · supplier",
       "line": "“Payment sent” is easy to say. Show me the transaction."
     },
     "challenge": {
@@ -136,7 +136,7 @@ export const V4_LIVE_STORY=Object.freeze([
     "kind": "market",
     "title": "“Pay first.” “Parts first.”",
     "line": "Exchange another 0.05 tKAS from Pip’s purse for all three parts vouchers. Payment and ownership must change together, so neither side has to go first.",
-    "button": "Exchange payment and parts together",
+    "button": "Buy the parts with Pip",
     "networkKey": "realtime",
     "chapterName": "Trade",
     "objective": "Supply the greenhouse.",
@@ -201,7 +201,7 @@ export const V4_LIVE_STORY=Object.freeze([
     "id": "recover",
     "kind": "agent",
     "title": "Pip’s shopping access can end.",
-    "line": "Shopping is finished. Use your recovery key to return Pip’s unused purse to your Main account and end its spending access.",
+    "line": "Shopping is finished. Use your recovery key to return Pip’s unused purse to your account and end its spending access.",
     "button": "Bring the spare coins home",
     "networkKey": null,
     "chapterName": "Trade",
@@ -221,7 +221,7 @@ export const V4_LIVE_STORY=Object.freeze([
     },
     "effect": {
       "attempt": "Use your recovery key to close the purse",
-      "after": "The remaining purse returns to your Main account",
+      "after": "The remaining purse returns to your account",
       "next": "Visit Sprout and see its energy reserve"
     },
     "resultTitle": "Pip’s purse is closed. Spare coins are home."
@@ -230,7 +230,7 @@ export const V4_LIVE_STORY=Object.freeze([
     "id": "habitat",
     "kind": "terrarium",
     "title": "Sprout cannot live on promises.",
-    "line": "Visit Sprout while the greenhouse waits for funding. This walk has three steps and three energy. After the last step, return the visit’s deposit and find the backers.",
+    "line": "Test a movement rule: each accepted move keeps Sprout’s identity, changes one adjacent square and spends one energy. Three steps use the reserve; then close the session and return its deposit.",
     "button": "Start Sprout’s visit",
     "networkKey": null,
     "chapterName": "Care",
@@ -343,7 +343,7 @@ export const V4_LIVE_STORY=Object.freeze([
     "id": "habitat-refund",
     "kind": "terrarium",
     "title": "Close the visit and keep moving.",
-    "line": "The three-step walk is finished. Return its remaining deposit to your Main account. Sprout stays in town; the greenhouse’s backers come next.",
+    "line": "The three-step walk is finished. Return its remaining deposit to your account. Sprout stays in town; the greenhouse’s backers come next.",
     "button": "Return Sprout’s deposit",
     "networkKey": null,
     "chapterName": "Care",
@@ -498,7 +498,7 @@ export const V4_LIVE_STORY=Object.freeze([
     "id": "factory-pay",
     "kind": "coordination",
     "title": "Release the complete agreement.",
-    "line": "All three backers approved. Release their pledges together to your Main account, the agreed project beneficiary. In the game, that funding and Pip’s parts build the greenhouse.",
+    "line": "All three backers approved. Release their pledges together to your account, the agreed project beneficiary. In the game, that funding and Pip’s parts build the greenhouse.",
     "button": "Fund the greenhouse together",
     "networkKey": null,
     "chapterName": "Build",
@@ -589,7 +589,7 @@ export const V4_LIVE_STORY=Object.freeze([
     "id": "compute-refund",
     "kind": "computation",
     "title": "Pip has a working greenhouse. Sprout needs the food.",
-    "line": "Pip has been paid and the greenhouse is running. Return the job’s spare deposit to your Main account. Then deliver two game food to Sprout to finish the town’s first goal.",
+    "line": "Pip has been paid and the greenhouse is running. Return the job’s spare deposit to your account. Then deliver two game food to Sprout to finish the town’s first goal.",
     "button": "Recover the spare job coins",
     "networkKey": "participation",
     "chapterName": "Work",
@@ -609,7 +609,7 @@ export const V4_LIVE_STORY=Object.freeze([
     "why": "The owner signs the exit. Node-reported acceptance is evidence of this test-coin transition. The game can now check whether the greenhouse is running and the habitat has supplies.",
     "effect": {
       "attempt": "Close the completed job",
-      "after": "The remaining job deposit returns to Main",
+      "after": "The remaining job deposit returns to your account",
       "next": "Deliver two game food to Sprout’s habitat"
     },
     "resultTitle": "The spare job coins are back. Food is next."

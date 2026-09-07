@@ -24,16 +24,16 @@ Sources: https://raw.githubusercontent.com/kaspanet/kips/master/kip-0002.md, htt
 ## September 7
 
 ```text
-Two miners find a block at almost the same time. Neither has heard from the other yet.
+Two honest miners find blocks at almost the same time. Neither has received the other’s block yet. Messages take time to travel.
 
-Nobody cheated. Messages simply take time to travel.
+In Kaspa, a later block can reference both. The parallel blocks become part of the same connected graph.
 
-Kaspa lets a later block reference both. The blocks become part of a connected graph rather than competing for one place in a chain.
+Consensus determines their order and which transactions are accepted.
 
 $KAS
 ```
 
-Source: https://eprint.iacr.org/2018/104
+Sources: https://eprint.iacr.org/2018/104 and https://wiki.kaspa.org/en/kaspa. Verified September 7.
 
 ## September 8
 
