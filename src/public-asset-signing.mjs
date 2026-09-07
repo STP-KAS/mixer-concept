@@ -16,9 +16,27 @@ export function assetSignatureScript(asset,states,operation,sponsor,signature,is
 }
 function shape(tx){const value=JSON.parse(tx.serializeToSafeJSON());delete value.id;for(const i of value.inputs)delete i.signatureScript;return JSON.stringify(value);}
 function metadata(plan){const {transaction,...value}=plan;return JSON.stringify(value);}
-function scriptFor(plan,index,raw){if(!/^[0-9a-f]{128}01$/i.test(raw))throw new Error('A SIGHASH_ALL signature is required.');const signer=plan.signers[index],asset=(plan.tokens??plan.receipts)[index];return signer.kind==='native'?pushPublicData(raw):assetSignatureScript(asset,plan.states,plan.operation,plan.sponsor,raw,index===0);}
+function signatureContext(plan,index){
+ if(!plan.groups)return {states:plan.states,operation:plan.operation,leader:index===0};
+ const group=plan.groups.find(g=>index>=g.inputStart&&index<g.inputStart+g.inputCount);
+ if(!group)throw new Error('Missing covenant signing group.');
+ return {states:group.states,operation:group.operation,leader:index===group.inputStart};
+}
+function checkGroups(plan){
+ if(plan.groups===undefined)return;
+ if(!Array.isArray(plan.groups)||!plan.groups.length||plan.groups.length>3)throw new Error('Invalid covenant signing groups.');
+ let end=0;
+ for(const group of plan.groups){
+  if(!group||Object.keys(group).some(k=>!['inputStart','inputCount','states','operation'].includes(k))||group.inputStart!==end||!Number.isSafeInteger(group.inputCount)||group.inputCount<1||group.inputCount>3||!Array.isArray(group.states)||group.states.length>3||!Number.isSafeInteger(group.operation)||group.operation<0)throw new Error('Invalid covenant signing group.');
+  end+=group.inputCount;
+  if(end>plan.signers.length||plan.signers.slice(group.inputStart,end).some(s=>s.kind==='native'))throw new Error('Covenant group includes a native signer.');
+ }
+ if(plan.signers.slice(end).some(s=>s.kind!=='native'))throw new Error('Covenant groups do not cover every covenant signer.');
+}
+function scriptFor(plan,index,raw){if(!/^[0-9a-f]{128}01$/i.test(raw))throw new Error('A SIGHASH_ALL signature is required.');const signer=plan.signers[index],asset=(plan.tokens??plan.receipts)[index];if(signer.kind==='native')return pushPublicData(raw);const group=signatureContext(plan,index);return assetSignatureScript(asset,group.states,group.operation,plan.sponsor,raw,group.leader);}
 export function publicAssetPlanMass(plan,{feeRate=100}={}){const scripts=plan.transaction.inputs.map(i=>i.signatureScript);try{for(const [index] of plan.signers.entries())plan.transaction.inputs[index].signatureScript=scriptFor(plan,index,dummy);return publicTransactionMass(plan.transaction,{feeRate});}finally{plan.transaction.inputs.forEach((input,index)=>{input.signatureScript=scripts[index];});}}
 export function preparePublicAssetPlan(plan,{feeRate=100}={}){
+ checkGroups(plan);
  for(const [index,s]of plan.signers.entries()){if(s.index!==index)throw new Error('Signer order mismatch.');plan.transaction.inputs[index].signatureScript=scriptFor(plan,index,dummy);}
  const mass=publicTransactionMass(plan.transaction,{feeRate});plan.transaction.storageMass=BigInt(mass.storageMass);plan.mass=mass;
  const tx=plan.transaction,fee=tx.inputs.reduce((s,i)=>s+i.utxo.amount,0n)-tx.outputs.reduce((s,o)=>s+o.value,0n);
@@ -44,7 +62,7 @@ export async function signPublicAssetPlan(plan,signInput){
 export function kaspirePublicAssetSigningRequest(plan,index=0){
  validatePublicAssetPlan(plan);const signer=plan.signers[index];if(!signer)throw new Error('Unknown signer.');
  const params={psktTransactionJson:plan.transaction.serializeToSafeJSON(),submitTransaction:false,signInputs:[{index,sighashType:1}]};
- if(signer.kind!=='native'){const asset=(plan.tokens??plan.receipts)[index],c=asset.artifact.contracts[asset.contractName],entry=c.entries[index===0?c.cov_decl_to_abi.move:c.delegate_entry_abi];const args=assetArguments(asset,plan.states,plan.operation,plan.sponsor,index===0);args.push({type:'data',hex:entry.dispatch_tag});params.scripts=[{inputIndex:index,scriptHex:asset.script,signatureScript:{mode:'ordered-args',args}}];}
+ if(signer.kind!=='native'){const group=signatureContext(plan,index),asset=(plan.tokens??plan.receipts)[index],c=asset.artifact.contracts[asset.contractName],entry=c.entries[group.leader?c.cov_decl_to_abi.move:c.delegate_entry_abi];const args=assetArguments(asset,group.states,group.operation,plan.sponsor,group.leader);args.push({type:'data',hex:entry.dispatch_tag});params.scripts=[{inputIndex:index,scriptHex:asset.script,signatureScript:{mode:'ordered-args',args}}];}
  return {method:'signPskt',params};
 }
 function pushes(script){const a=hexBytes(script),out=[];let i=0;while(i<a.length){const op=a[i++];let n;if(op===0){out.push('');continue;}if(op>=81&&op<=96){out.push((op-80).toString(16).padStart(2,'0'));continue;}if(op<76)n=op;else if(op===76)n=a[i++];else if(op===77){n=a[i]+256*a[i+1];i+=2;}else throw new Error('Invalid wallet script.');if(!Number.isSafeInteger(n)||i+n>a.length)throw new Error('Truncated wallet script.');out.push(bytesHex(a.slice(i,i+n)));i+=n;}return out;}

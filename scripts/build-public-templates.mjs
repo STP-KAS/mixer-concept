@@ -5,6 +5,7 @@ import {execFileSync} from 'node:child_process';
 import {resolve} from 'node:path';
 import assert from 'node:assert/strict';
 import {applicationSpec} from './application-fixtures.mjs';
+import {v4TemplateSpecs} from './v4-template-specs.mjs';
 import {instantiatePublicContract,buildPublicFunding,buildPublicSpend,signPublicPlan,publicTransactionMass,kaspirePublicSigningRequest,acceptKaspirePublicSignature,publicUnlockScript,validatePublicPlan} from '../src/public-contracts.mjs';
 const root=resolve(import.meta.dirname,'..');process.chdir(root);
 const sdk=createRequire(import.meta.url)('../.cache/upstream/kaspa-wasm32-sdk/nodejs/kaspa');
@@ -81,6 +82,7 @@ for(const [kind,file,contractName,args] of [
 ]) {
  const artifact=await compile(file,args);templates[kind]={version:1,network:'testnet-10',kind,contractName,computeBudget:16,artifact};
 }
+for(const [kind,file,contractName,args] of v4TemplateSpecs(publicKeys)){const artifact=await compile(file,args);templates[kind]={version:1,network:'testnet-10',kind,contractName,computeBudget:kind==='bundle'?20:16,artifact};}
 await writeFile(resolve(output,'templates.json'),JSON.stringify({version:1,network:'testnet-10',templates}));
 await writeFile(resolve(output,'fixtures.json'),JSON.stringify({version:1,network:'testnet-10',unfunded:true,fixtures},null,2));
 console.log(JSON.stringify({publicTemplates:Object.keys(templates),unfundedFixtures:fixtures.length,source:'state-span patches matched fresh compiler output',output:'.cache/public-templates/templates.json'}));

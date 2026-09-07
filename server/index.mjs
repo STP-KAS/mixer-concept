@@ -11,7 +11,7 @@ export function createLocalServer({ directory = resolve('dist'), lookup = lookup
   let requests = [];
   const capability=randomBytes(32).toString('hex');
   let testRequests=[];
-  const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.mjs':'text/javascript; charset=utf-8', '.json':'application/json', '.svg':'image/svg+xml', '.png':'image/png', '.ico':'image/x-icon', '.pdf':'application/pdf', '.xml':'application/xml', '.webmanifest':'application/manifest+json', '.txt':'text/plain' };
+  const mime = { '.wasm':'application/wasm', '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.mjs':'text/javascript; charset=utf-8', '.json':'application/json', '.svg':'image/svg+xml', '.png':'image/png', '.ico':'image/x-icon', '.pdf':'application/pdf', '.xml':'application/xml', '.webmanifest':'application/manifest+json', '.txt':'text/plain' };
   return createServer(async (request, response) => {
     response.setHeader('X-Content-Type-Options', 'nosniff');
     response.setHeader('Referrer-Policy', 'no-referrer');

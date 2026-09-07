@@ -78,3 +78,20 @@ test('worker journals before submission, reuses a claim, observes change and enf
   wrongNetwork=true;assert.equal((await wallet.fetch(request())).status,503);assert.equal(submissions,3);
  }finally{delete globalThis.__faucetSecuritySDK;}
 });
+
+test('faucet CORS admits exact 8904 loopback origins and keeps unrelated origins denied',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ let source=await readFile(new URL('../faucet/worker.mjs',import.meta.url),'utf8');
+ source=source.replace(/^import \* as sdk[^\n]*\n/m,'const sdk={};\n').replace(/^import wasm[^\n]*\n/m,'const wasm=null;\n').replace("from './policy.mjs'",`from '${new URL('../faucet/policy.mjs',import.meta.url).href}'`);
+ const {default:worker}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
+ const env={FAUCET:{idFromName(){throw Error('Preflight must not enter the wallet');}}};
+ for(const origin of ['http://127.0.0.1:8904','http://localhost:8904','http://127.0.0.1:8912','http://localhost:8901','https://kaspaexplained.com','https://www.kaspaexplained.com']){
+  const response=await worker.fetch(new Request('https://example.invalid/api/faucet',{method:'OPTIONS',headers:{Origin:origin}}),env);
+  assert.equal(response.status,204,origin);assert.equal(response.headers.get('Access-Control-Allow-Origin'),origin);assert.equal(response.headers.get('Vary'),'Origin');
+ }
+ for(const origin of ['http://127.0.0.1:8905','http://localhost:89040','http://127.0.0.2:8904','http://localhost.evil.invalid:8904','https://localhost:8904','https://evil.invalid','null']){
+  const response=await worker.fetch(new Request('https://example.invalid/api/faucet',{method:'OPTIONS',headers:{Origin:origin}}),env);
+  assert.equal(response.status,403,origin);assert.equal(response.headers.get('Access-Control-Allow-Origin'),null);
+ }
+ const absent=await worker.fetch(new Request('https://example.invalid/api/faucet',{method:'OPTIONS'}),env);assert.equal(absent.status,403);assert.equal(absent.headers.get('Access-Control-Allow-Origin'),null);
+});

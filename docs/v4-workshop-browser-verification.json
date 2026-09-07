@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-09-06T21:12:14.962Z",
+  "scope": "Local mining model and keyboard dialogs; no wallet creation or network spending.",
+  "report": [
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "invalidRejected": true,
+      "validAccepted": true,
+      "changedCommitmentRejected": true,
+      "paused": true,
+      "keyboard": true,
+      "errors": []
+    },
+    {
+      "engine": "chromium",
+      "width": 628,
+      "invalidRejected": true,
+      "validAccepted": true,
+      "changedCommitmentRejected": true,
+      "paused": true,
+      "keyboard": true,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "invalidRejected": true,
+      "validAccepted": true,
+      "changedCommitmentRejected": true,
+      "paused": true,
+      "keyboard": true,
+      "errors": []
+    }
+  ]
+}

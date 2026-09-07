@@ -16,7 +16,10 @@
     "check:public": "npm run build && node --test tests/public-release-build.test.mjs tests/public-transaction.test.mjs tests/public-acceptance.test.mjs tests/public-recovery.test.mjs tests/public-asset-recovery.test.mjs tests/public-assets-state.test.mjs && node scripts/check-public-asset-signing.mjs",
     "check:public:browser": "npm run build && node scripts/check-public-browser.mjs chromium && node scripts/check-public-browser.mjs firefox && node scripts/check-public-browser.mjs webkit",
     "check:faucet": "node --test tests/faucet.test.mjs",
-    "check:guided": "npm run build:v1 && node scripts/check-guided-education.mjs"
+    "check:guided": "npm run build:v1 && node scripts/check-guided-education.mjs",
+    "check:v4": "npm run build && node --test tests/public-v4-protocol.test.mjs tests/public-v4-state.test.mjs tests/v4-dag-view.test.mjs tests/public-argent-protocol.test.mjs tests/v4-mining-model.test.mjs tests/faucet.test.mjs",
+    "check:v4:vm": "node scripts/v4-fixtures.mjs --check-vm && node scripts/v4-composed-fixtures.mjs --check-vm && node scripts/argent-fixtures.mjs --check-vm",
+    "check:v4:browser": "node scripts/check-v4-final-browser.mjs"
   },
   "devDependencies": {
     "playwright": "1.62.1",
