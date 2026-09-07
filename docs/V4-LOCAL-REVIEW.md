@@ -37,7 +37,7 @@ Transaction animation uses the real transaction ID and public input/output metad
 - Final browser flow: Chromium at 1440 and 628 px, WebKit at 390 px. Restored wallet, first goal, local care, free play, unfunded Argent entry, generated source viewer, network explanations, mining commitment change and no horizontal page overflow. Desktop reload restored the local care completion. See `v4-final-browser-verification.json`.
 - Mining browser branches and keyboard dialogs: invalid candidate, valid candidate, changed commitment, all participants paused, Escape dismissal and wallet focus containment at the same three widths. See `v4-workshop-browser-verification.json`.
 - All six legacy service adapters were inspected without spending; actual 3D entry into Shared vault was exercised. Screenshots are in `.cache/visual-review/v4-final/` and `.cache/v4-service-entered.png`.
-- Copy checks pass. The local faucet CORS origin was repaired and its worker deployed earlier; that is separate from the undeployed V4 site.
+- Copy checks pass. The local faucet CORS origin was repaired and its worker deployed earlier; that is separate from the V4 site publication.
 
 ## Remaining live validation
 
@@ -50,3 +50,7 @@ Physical-device performance and independent multi-user participation have not be
 User review exposed an ambiguous habitat loop and guide ending. The final UI uses three numbered moves through distinct covenant-valid squares, visible Sprout identification, acceptance-only position and energy changes, disabled pending actions, and an explicit finished-session card. Restarting a finished session is optional and only reveals setup; it sends no transaction. Room and service navigation cannot silently leave an active guide. Final care is separate from contract completion, and the saved care state marks subsequent exploration as optional.
 
 The static-only `check:v4:flows` gate passed the complete guide and bounded habitat lifecycle at desktop and mobile widths with mocked RPC and unfunded fixture inputs. It verifies navigation, pending duplicate prevention, completion, optional restarts and reload without new submissions. This is synthetic regression evidence; the earlier fresh live 19-transaction report remains separate. The full local V2 render gate passed 170 states after the touch-target fix. Mobile now starts with a compact live-block panel so the habitat stays visible. Animation defaults on, preserves explicit pause across visibility changes, respects reduced motion and makes no hidden model progress.
+
+## Production verification, September 7
+
+Release `88ee48d` deployed successfully in workflow `34101849128`. All 173 public files match the release. A production read-only restore at `/covenants` re-observed 19 accepted transactions and zero pending; the completed guide, five accomplishments and two food delivered/two remaining persist. No new transaction or faucet request was made. The shipped Activity inspector module matches the tested build. Use the canonical URL without a trailing slash.

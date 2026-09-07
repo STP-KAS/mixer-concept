@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-07T08:23:53.800Z",
+  "checkedAt": "2026-09-07T08:31:05.844Z",
   "scope": "Synthetic unfunded UTXOs; real UI and SDK signing; mock RPC only. No live network transactions.",
   "reports": [
     {
