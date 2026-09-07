@@ -40,6 +40,8 @@ jobs:
       - run: npm run check
       - name: Check world recovery, protocol and model boundaries
         run: npm run check:v4
+      - name: Check complete guided and optional habitat journeys without spending
+        run: npm run check:v4:flows
       - run: npm run check:public
       - run: npm run check:faucet
       - run: npm run check:public:browser

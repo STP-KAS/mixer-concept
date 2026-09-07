@@ -28,4 +28,5 @@ npm run check:copy
 if [[ "$mode" == head ]]; then
   npm run check:journeys
   npm run check:render
+  KASPA_RELEASE=v2 npm run check:render
 fi
