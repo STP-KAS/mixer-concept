@@ -224,9 +224,8 @@ if(document.querySelector('[data-wrap-app]')){
  const activity=mountV4Activity(document.body,{getRecords:()=>sdk?(session?.assets?.activity||[]).map(record=>normalizeV4ActivityRecord(sdk,record,{addresses:keys.map(key=>key.toAddress(PUBLIC_NETWORK).toString()),origin:'wrapping wallet'})):[],onCheck:()=>action(()=>assetsUI.check(),'Checking saved wrapping transactions…')});
  const shell=document.querySelector('[data-wrap-wallet-shell]');
  const showRecovery=()=>{shell.hidden=false;shell.querySelector('[data-public-apps]')?.scrollIntoView({behavior:'smooth',block:'start'});};
- let externalCapability=null;
- async function externalStatus(){const response=await fetch('/api/wrap-poc/status',{signal:AbortSignal.timeout(12000)});if(!response.ok)throw Error('Start the local bridge PoC to connect the test oracle.');const result=await response.json();externalCapability=result.capability;return result;}
- async function externalAction(action){if(!externalCapability)await externalStatus();const response=await fetch('/api/wrap-poc/action',{method:'POST',headers:{'content-type':'application/json','x-wrap-capability':externalCapability},body:JSON.stringify({action}),signal:AbortSignal.timeout(180000)});const result=await response.json();if(!response.ok)throw Error(result.error||'The bridge action did not complete. Check its saved status before retrying.');return result;}
+ const {createLocalWrapClient}=await import('./wrap-local-client.mjs');
+ const {externalStatus,externalAction}=createLocalWrapClient();
  wrapUI=mountWrapApp(document.querySelector('[data-wrap-app]'),{
   snapshot:()=>assetsUI.wrapping.snapshot(),wallet:()=>({ready:keys.length>0,balancesSompi:accountBalances.map(String),busy,message:q('message').textContent,error:q('message').dataset.error==='true'}),
   connect:()=>action(ensureWallet,'Preparing your test wallet…'),restore:showRecovery,backup:()=>{showRecovery();q('backup').hidden=false;},

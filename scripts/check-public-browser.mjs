@@ -8,10 +8,10 @@ import {staticPreview} from './static-preview.mjs';
 
 const engine=process.argv[2]||'chromium',browserType={chromium,firefox,webkit}[engine];
 assert(browserType,'Choose chromium, firefox, or webkit');
-const canonical=['index','what-is-kaspa','why-kaspa-matters','skeptical-case','kaspa-mining','build-on-kaspa','status','kaspa-origin-story','kips','moose','sources','playground','404','money','applications','search'];
+const canonical=['index','what-is-kaspa','why-kaspa-matters','skeptical-case','kaspa-mining','build-on-kaspa','status','kaspa-origin-story','kips','moose','sources','playground','404','money','applications','covenants','wrap','search'];
 for(const name of canonical)await access(`dist/${name}.html`);
 const sitemap=await readFile('dist/sitemap.xml','utf8');
-assert.equal((sitemap.match(/<loc>/g)||[]).length,16,'Public release contains seventeen canonical documents including 404');
+assert.deepEqual([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]).sort(),canonical.filter(name=>name!=='404').map(name=>'https://kaspaexplained.com/'+(name==='index'?'':name)).sort(),'Sitemap lists every canonical public route and excludes the error page');
 const templates=JSON.parse(await readFile('dist/assets/public-templates.json','utf8'));
 assert.deepEqual(Object.keys(templates.templates).sort(),['agent','bundle','compute','escrow','launch','prediction','proof','receipt','terrarium','token','treasury','vault']);
 const output=`.cache/visual-review/public-browser/${engine}`;await mkdir(output,{recursive:true});

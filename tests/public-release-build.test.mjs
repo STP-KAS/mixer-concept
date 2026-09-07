@@ -18,7 +18,33 @@ test('public V2 includes education and browser applications without local signer
  const sitemap=await readFile('dist/sitemap.xml','utf8');assert.match(sitemap,/<loc>https:\/\/kaspaexplained.com\/applications<\/loc>/);assert.doesNotMatch(sitemap,/<loc>[^<]*\/(?:testnet|contracts|split)<\/loc>/);
  for(const file of await readdir('dist/assets')){
   if(!file.endsWith('.mjs'))continue;
-  const js=await readFile('dist/assets/'+file,'utf8');assert.doesNotMatch(js,/['"`]\/api\//,file);
+  const js=await readFile('dist/assets/'+file,'utf8');
+  if(file==='wrap-local-client.mjs'){
+   assert.deepEqual([...js.matchAll(/['"`](\/api\/[^'"`]+)['"`]/g)].map(m=>m[1]).sort(),['/api/wrap-poc/action','/api/wrap-poc/status']);
+  }else assert.doesNotMatch(js,/['"`]\/api\//,file);
  }
- for(const file of ['public-apps.mjs','public-assets-ui.mjs','public-token.mjs','public-receipt.mjs','public-asset-signing.mjs','public-asset-recovery.mjs','public-contracts.mjs','public-templates.json','kaspa/kaspa.js','kaspa/kaspa_bg.wasm'])await access('dist/assets/'+file);
+ for(const file of ['public-apps.mjs','wrap-local-client.mjs','public-assets-ui.mjs','public-token.mjs','public-receipt.mjs','public-asset-signing.mjs','public-asset-recovery.mjs','public-contracts.mjs','public-templates.json','kaspa/kaspa.js','kaspa/kaspa_bg.wasm'])await access('dist/assets/'+file);
+});
+
+// Exercise the narrowly allowed local client, rather than trusting its caller's UI guard.
+test('local bridge client never requests an API from public origins',async()=>{
+ const {createLocalWrapClient}=await import('../src/wrap-local-client.mjs');
+ let requests=0;const fetch=async()=>{requests++;throw Error('Unexpected request');};
+ for(const hostname of ['kaspaexplained.com','www.kaspaexplained.com','localhost.example.com','127.0.0.1.example.com','192.168.1.2','']){
+  const client=createLocalWrapClient({location:{protocol:'https:',hostname},fetch});
+  await assert.rejects(client.externalStatus(),/loopback/);
+  await assert.rejects(client.externalAction('mint'),/loopback/);
+ }
+ await assert.rejects(createLocalWrapClient({location:{protocol:'file:',hostname:'localhost'},fetch}).externalStatus(),/loopback/);
+ assert.equal(requests,0);
+});
+test('loopback bridge client preserves the capability header and checks origin on every action',async()=>{
+ const {createLocalWrapClient}=await import('../src/wrap-local-client.mjs');
+ for(const hostname of ['localhost','127.0.0.1','[::1]','::1']){
+  const location={protocol:'http:',hostname},calls=[],client=createLocalWrapClient({location,fetch:async(path,options)=>{calls.push({path,options});return {ok:true,json:async()=>path.endsWith('/status')?{capability:'test-capability',stage:'ready'}:{stage:'minted'}};}});
+  assert.deepEqual(await client.externalAction('mint'),{stage:'minted'});
+  assert.deepEqual(calls.map(c=>c.path),['/api/wrap-poc/status','/api/wrap-poc/action']);
+  assert.equal(calls[1].options.method,'POST');assert.equal(calls[1].options.headers['x-wrap-capability'],'test-capability');assert.deepEqual(JSON.parse(calls[1].options.body),{action:'mint'});
+  location.hostname='kaspaexplained.com';await assert.rejects(client.externalAction('burn'),/loopback/);assert.equal(calls.length,2);
+ }
 });
