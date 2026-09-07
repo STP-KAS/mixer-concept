@@ -162,6 +162,8 @@ const assetsUI=createPublicAssetsUI(q('assets'),{
  sign:(tx,index,{owner:publicKey})=>{const key=keys.find(key=>key.toPublicKey().toXOnlyPublicKey().toString()===publicKey);if(!key)fail('Required signing account is missing.');return sdk.createInputSignature(tx,index,key);}
 });
 const v4UI=createPublicV4UI(v4Panel,{
+ getActivityRecords:()=>{const legacy=[...Object.values(session?.scenarios||{}),...(session?.journal?[{contract:session.contract,journal:session.journal}]:[])].filter(r=>r.journal).map(r=>({...r.journal,journal:r.journal,kind:r.contract?.kind,origin:'legacy'}));return [...legacy,...(session?.assets?.activity||[]).map(r=>({...r,origin:'asset'})),...(session?.argent?.activity||[]).map(r=>({...r,origin:'argent',kind:'argent'}))];},
+ checkActivity:async()=>{if(!keys.length)return;await observeSavedScenarios();if(session?.assets?.activity?.length)await assetsUI.check();if(session?.argent?.activity?.length)await argentUI.check();},
  context:()=>({sdk,templates:templates?.templates,rpc,busy,owners:keys.map(key=>key.toPublicKey().toXOnlyPublicKey().toString()),addresses:keys.map(key=>key.toAddress(PUBLIC_NETWORK).toString()),account:activeAccount,balances:accountBalances,call:timeout}),
  argent:()=>argentUI,root,townSupplied:()=>session?.guided?.v4Town===true,saveTown:async()=>{if(!session)fail('Restore your wallet first.');session.guided??={};session.guided.v4Town=true;await persist();},openService:name=>navigateMode(name),action,message,fail,nodeInfo,refresh,ensureWallet,connectNetwork:initialize,getState:()=>session?.v4,
  saveState:async value=>{if(!session)fail('Create or restore a wallet first.');session.v4=value;await persist();},

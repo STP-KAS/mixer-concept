@@ -46,7 +46,7 @@ export function mountV4Dag(container){
   let drawing=`<path class="dag-flow" d="${flowA}"/><path class="dag-flow" d="${flowB}"/>${particle(flowA,0)}${particle(flowB,1)}${ledger(left,flowY,82,inputs.length?`${inputs.length} inputs`:'UTXOs',null)}${ledger(center,flowY,98,'Transaction',tx,true)}${ledger(right,flowY,82,outputs.length?`${outputs.length} outputs`:'Next state',null)}<text class="dag-heading" x="${center}" y="19" text-anchor="middle">${tx?'SELECTED TRANSACTION':'ILLUSTRATIVE TRANSACTION FLOW'}</text>`;
   if(hasNode){
    if(hasTip){
-    drawing+=ledger(blockX,blockY,120,tip.unavailable?'Observed tip':'Live node tip',block,true);
+    drawing+=ledger(blockX,blockY,120,tip.unavailable?'Last observed block':tip.source==='stream'?'Observed block':'Sampled node tip',block,true);
     if(accepting){const ay=compact?175:220,ax=compact?180:center,acceptedPath=`M${center} ${flowY+42} V${ay-23}`;drawing+=`<path class="dag-flow" d="${acceptedPath}"/>${particle(acceptedPath,2)}${ledger(ax,ay,120,'Accepting block',accepting,true)}`;}
    }else drawing+=`<path class="dag-flow" d="${history}"/>${particle(history,2)}${ledger(blockX,blockY,120,'Accepting block',block,true)}`;
    shown.forEach((parent,index)=>{
@@ -56,7 +56,7 @@ export function mountV4Dag(container){
    });
    if(parents.length>shown.length)drawing+=`<text class="dag-heading" x="${compact?180:685}" y="${compact?(hasTip&&accepting?469:399):267}" text-anchor="middle">+${parents.length-shown.length} more direct parents</text>`;
   }else drawing+=`<text class="dag-heading" x="${width/2}" y="${compact?210:200}" text-anchor="middle">${tx?'Waiting for accepted-chain observation':'Parent references appear after a node check'}</text>`;
-  const status=hasTip?(tip.unavailable?'Last observed node tip':'Live node tip'):hasNode?'Accepted-chain observation':tx?'Prepared or pending transaction':'Illustrative flow';
+  const status=hasTip?(tip.unavailable?'Last observed node block':tip.source==='stream'?'Live block stream':'Sampled node tip'):hasNode?'Accepted-chain observation':tx?'Prepared or pending transaction':'Illustrative flow';
   content.innerHTML=`<div class="dag-status"><strong>${escape(status)}</strong><span>${hasNode?`${parents.length} real parent reference${parents.length===1?'':'s'}`:'No block references inferred'}</span></div><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${escape(status)}. Dashed lines show transaction flow. Solid arrows point to actual earlier parent blocks."><defs><marker id="${id}-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="currentColor" stroke-width="1.4"/></marker></defs>${drawing}</svg>${current.containingBlock?`<p class="dag-status">Containing block: <span title="${escape(current.containingBlock)}">${escape(short(current.containingBlock))}</span></p>`:''}`;
   const svg=content.querySelector('svg');if(!playing||motion.matches)svg.pauseAnimations?.();
  }
@@ -65,27 +65,32 @@ export function mountV4Dag(container){
  return {update(record={}){current={...record};render();},updateTip(record){if(record?.unavailable){if(tip)tip={...tip,unavailable:true};}else{if(!isHash(record?.hash)||!Array.isArray(record.parents)||record.parents.some(parent=>!isHash(parent)))throw new Error('Live DAG requires a real tip hash and direct parent hashes.');tip={...record,parents:[...new Set(record.parents)]};}render();},setPlaying(value){playing=Boolean(value);const svg=content.querySelector('svg');if(playing&&!motion.matches)svg?.unpauseAnimations?.();else svg?.pauseAnimations?.();},dispose(){disposed=true;observer.disconnect();motion.removeEventListener('change',reduced);content.remove();style.remove();container.classList.remove('v4-dag-view');}};
 }
 
-// Recursive scheduling keeps at most one RPC poll in flight. Hidden pages stop
-// polling; this does not disconnect a shared wallet/node connection.
+// Real block-added events drive the view when available. One sampled poll at a
+// time provides initial state and a fallback if notifications stop.
 export function watchV4Dag(rpc,view,{call=p=>p,onError=()=>{},intervalMs=2500}={}){
  const delay=Math.max(1000,Math.min(30000,Number(intervalMs)||2500));
- let stopped=false,inFlight=false,timer=null;
+ let stopped=false,inFlight=false,timer=null,lastStreamAt=0,streamVersion=0;
  const visible=()=>typeof document==='undefined'||!document.hidden;
  const schedule=()=>{if(!stopped&&visible())timer=setTimeout(poll,delay);};
  async function poll(){
   clearTimeout(timer);timer=null;if(stopped||inFlight||!visible())return;
-  inFlight=true;
+  if(lastStreamAt&&Date.now()-lastStreamAt<5000){schedule();return;}inFlight=true;const version=streamVersion;
   try{
    const {sink}=await call(rpc.getSink());if(stopped||!visible())return;if(!isHash(sink))throw new Error('The node returned no valid DAG tip.');
    const {block}=await call(rpc.getBlock({hash:sink,includeTransactions:false}));
    if((block.header?.hash??block.verboseData?.hash)!==sink)throw new Error('The node returned a different DAG tip.');
    const parents=block.header?.parentsByLevel?.[0];if(!Array.isArray(parents)||parents.some(p=>!isHash(p)))throw new Error('The node returned incomplete tip parents.');
-   if(!stopped&&visible())view.updateTip({hash:sink,parents:[...new Set(parents)],checked:new Date().toISOString(),daaScore:String(block.header.daaScore??'')});
+   if(!stopped&&visible()&&version===streamVersion)view.updateTip({hash:sink,parents:[...new Set(parents)],checked:new Date().toISOString(),daaScore:String(block.header.daaScore??''),source:'sampled'});
   }catch(error){if(!stopped){view.updateTip?.({unavailable:true});try{onError(error);}catch{}}}
   finally{inFlight=false;schedule();}
  }
+ const canStream=typeof rpc.subscribeBlockAdded==='function'&&typeof rpc.addEventListener==='function'&&typeof rpc.removeEventListener==='function';
+ const added=event=>{if(stopped||!visible())return;try{const block=event?.data?.block??event?.block,hash=block?.header?.hash??block?.verboseData?.hash,parents=block?.header?.parentsByLevel?.[0];if(!isHash(hash)||!Array.isArray(parents)||parents.some(parent=>!isHash(parent)))throw new Error('The block notification has incomplete header references.');lastStreamAt=Date.now();streamVersion++;view.updateTip({hash,parents:[...new Set(parents)],daaScore:String(block.header.daaScore??''),checked:new Date().toISOString(),source:'stream'});}catch(error){lastStreamAt=0;try{onError(error);}catch{}}};
+ const subscribe=()=>{if(stopped||!canStream)return;Promise.resolve().then(()=>stopped?null:call(rpc.subscribeBlockAdded())).catch(error=>{if(!stopped){lastStreamAt=0;try{onError(error);}catch{}}});};
+ const disconnected=()=>{lastStreamAt=0;if(!stopped)view.updateTip?.({unavailable:true});};
+ if(canStream){rpc.addEventListener('block-added',added);rpc.addEventListener('connect',subscribe);rpc.addEventListener('disconnect',disconnected);subscribe();}
  const visibility=()=>{clearTimeout(timer);timer=null;if(visible())void poll();};
  if(typeof document!=='undefined')document.addEventListener('visibilitychange',visibility);
  void poll();
- return ()=>{stopped=true;clearTimeout(timer);if(typeof document!=='undefined')document.removeEventListener('visibilitychange',visibility);};
+ return ()=>{stopped=true;clearTimeout(timer);if(canStream){rpc.removeEventListener('block-added',added);rpc.removeEventListener('connect',subscribe);rpc.removeEventListener('disconnect',disconnected);}/* Do not unsubscribe the shared RPC: another view may own the same subscription. */if(typeof document!=='undefined')document.removeEventListener('visibilitychange',visibility);};
 }

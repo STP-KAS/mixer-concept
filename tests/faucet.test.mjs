@@ -79,19 +79,20 @@ test('worker journals before submission, reuses a claim, observes change and enf
  }finally{delete globalThis.__faucetSecuritySDK;}
 });
 
-test('faucet CORS admits exact 8904 loopback origins and keeps unrelated origins denied',async()=>{
+test('faucet CORS admits exact local and temporary origins and rejects unrelated tunnel hosts',async()=>{
  const {readFile}=await import('node:fs/promises');
  let source=await readFile(new URL('../faucet/worker.mjs',import.meta.url),'utf8');
  source=source.replace(/^import \* as sdk[^\n]*\n/m,'const sdk={};\n').replace(/^import wasm[^\n]*\n/m,'const wasm=null;\n').replace("from './policy.mjs'",`from '${new URL('../faucet/policy.mjs',import.meta.url).href}'`);
  const {default:worker}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
  const env={FAUCET:{idFromName(){throw Error('Preflight must not enter the wallet');}}};
- for(const origin of ['http://127.0.0.1:8904','http://localhost:8904','http://127.0.0.1:8912','http://localhost:8901','https://kaspaexplained.com','https://www.kaspaexplained.com']){
+ for(const origin of ['https://rico-watts-estimation-downloaded.trycloudflare.com','http://127.0.0.1:8904','http://localhost:8904','http://127.0.0.1:8912','http://localhost:8901','https://kaspaexplained.com','https://www.kaspaexplained.com']){
   const response=await worker.fetch(new Request('https://example.invalid/api/faucet',{method:'OPTIONS',headers:{Origin:origin}}),env);
   assert.equal(response.status,204,origin);assert.equal(response.headers.get('Access-Control-Allow-Origin'),origin);assert.equal(response.headers.get('Vary'),'Origin');
  }
- for(const origin of ['http://127.0.0.1:8905','http://localhost:89040','http://127.0.0.2:8904','http://localhost.evil.invalid:8904','https://localhost:8904','https://evil.invalid','null']){
+ for(const origin of ['https://another-tunnel.trycloudflare.com','http://rico-watts-estimation-downloaded.trycloudflare.com','https://rico-watts-estimation-downloaded.trycloudflare.com.evil.invalid','https://rico-watts-estimation-downloaded.trycloudflare.com:8443','http://127.0.0.1:8905','http://localhost:89040','http://127.0.0.2:8904','http://localhost.evil.invalid:8904','https://localhost:8904','https://evil.invalid','null']){
   const response=await worker.fetch(new Request('https://example.invalid/api/faucet',{method:'OPTIONS',headers:{Origin:origin}}),env);
-  assert.equal(response.status,403,origin);assert.equal(response.headers.get('Access-Control-Allow-Origin'),null);
+  assert.equal(response.status,403,origin);assert.equal(response.headers.get('Access-Control-Allow-Origin'),null);const deniedPost=await worker.fetch(new Request('https://example.invalid/api/faucet',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json'},body:'{}'}),env);assert.equal(deniedPost.status,403,origin+' POST must not enter wallet');
  }
+ let reachedWallet=false;const exactPost=await worker.fetch(new Request('https://example.invalid/api/faucet',{method:'POST',headers:{Origin:'https://rico-watts-estimation-downloaded.trycloudflare.com','Content-Type':'application/json'},body:'{}'}),{FAUCET:{idFromName:()=> 'synthetic',get:()=>({fetch:async()=>{reachedWallet=true;return new Response('synthetic routing only',{status:418});}})}});assert(reachedWallet,'Exact temporary host POST passes origin gate to mocked handler');assert.equal(exactPost.status,418);assert.equal(exactPost.headers.get('Access-Control-Allow-Origin'),'https://rico-watts-estimation-downloaded.trycloudflare.com');
  const absent=await worker.fetch(new Request('https://example.invalid/api/faucet',{method:'OPTIONS'}),env);assert.equal(absent.status,403);assert.equal(absent.headers.get('Access-Control-Allow-Origin'),null);
 });

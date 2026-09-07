@@ -29,3 +29,18 @@ test('stopping a pending tip poll prevents its next request',async()=>{
  const stop=watchV4Dag({getSink:()=>sink,getBlock:async()=>{requests++;}},{updateTip(){throw Error('stopped view must not update');}});
  stop();release({sink:block});await new Promise(resolve=>setImmediate(resolve));assert.equal(requests,0);
 });
+
+test('block notifications use real hashes and parents, without extra block requests, and remove only owned listeners',async()=>{
+ const {watchV4Dag}=await import('../src/v4-dag-view.mjs');const listeners=new Map(),updates=[],errors=[];let subscriptions=0,blockRequests=0,unsubscribe=0;
+ const rpc={getSink:async()=>({sink:block}),getBlock:async()=>{blockRequests++;return {block:{header:{hash:block,parentsByLevel:[[parent]]}}};},subscribeBlockAdded:async()=>{subscriptions++;},unsubscribeBlockAdded:async()=>{unsubscribe++;},addEventListener:(name,fn)=>listeners.set(name,fn),removeEventListener:(name,fn)=>{assert.equal(listeners.get(name),fn);listeners.delete(name);}};
+ const stop=watchV4Dag(rpc,{updateTip:value=>updates.push(value)},{onError:error=>errors.push(error)});await new Promise(resolve=>setImmediate(resolve));assert.equal(subscriptions,1);assert.equal(blockRequests,1);
+ const callback=listeners.get('block-added');callback({data:{block:{header:{hash:checkpoint,parentsByLevel:[[block,parent]],daaScore:10n}}}});assert.equal(updates.at(-1).source,'stream');assert.equal(updates.at(-1).hash,checkpoint);assert.deepEqual(updates.at(-1).parents,[block,parent]);assert.equal(blockRequests,1);
+ callback({data:{block:{header:{hash:'invalid',parentsByLevel:[[parent]]}}}});assert.equal(errors.length,1);assert.equal(updates.at(-1).hash,checkpoint);
+ listeners.get('connect')();await new Promise(resolve=>setImmediate(resolve));assert.equal(subscriptions,2);stop();assert.equal(listeners.size,0);assert.equal(unsubscribe,0);const count=updates.length;callback({data:{block:{header:{hash:block,parentsByLevel:[[parent]]}}}});assert.equal(updates.length,count);
+});
+
+test('an in-flight sampled tip cannot replace a newer block notification',async()=>{
+ const {watchV4Dag}=await import('../src/v4-dag-view.mjs');let resolveBlock;const listeners=new Map(),updates=[];
+ const stop=watchV4Dag({getSink:async()=>({sink:block}),getBlock:()=>new Promise(resolve=>{resolveBlock=resolve;}),subscribeBlockAdded:async()=>{},addEventListener:(key,fn)=>listeners.set(key,fn),removeEventListener:()=>{}},{updateTip:value=>updates.push(value)});
+ await new Promise(resolve=>setImmediate(resolve));listeners.get('block-added')({data:{block:{header:{hash:checkpoint,parentsByLevel:[[block]]}}}});resolveBlock({block:{header:{hash:block,parentsByLevel:[[parent]]}}});await new Promise(resolve=>setImmediate(resolve));assert.equal(updates.length,1);assert.equal(updates[0].hash,checkpoint);stop();
+});

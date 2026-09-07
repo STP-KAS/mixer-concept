@@ -80,6 +80,7 @@ jobs:
                   await page.goto(`http://127.0.0.1:${server.address().port}/covenants/`);
                   await page.locator('[data-game-continue]').waitFor();
                   assert.match(await page.locator('[data-game-continue]').textContent(),/Create my test wallet/);
+                  await page.locator('[data-game-menu] > summary').click();
                   await page.locator('[data-game-about]').click();
                   assert.equal(await page.locator('.v4-about-dialog').evaluate(el=>el.open),true);
                   await page.locator('[data-game-close-about]').click();
