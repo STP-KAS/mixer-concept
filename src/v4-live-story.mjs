@@ -562,7 +562,7 @@ export const V4_LIVE_STORY=Object.freeze([
     "title": "Check Pip’s answer before paying.",
     "line": "Assign a different worker to each of the three jobs, keeping the total cost at six or less. Submit the schedule. If it passes, Pip receives 0.05 tKAS and the game greenhouse can produce food.",
     "button": "Check the schedule and pay Pip",
-    "networkKey": "verification",
+    "networkKey": null,
     "chapterName": "Work",
     "objective": "Make the greenhouse ready to supply the habitat.",
     "connection": "The checked schedule improves production in the game; the worker reward is a real test-coin payment.",
