@@ -76,5 +76,6 @@
   "demos/shared-state": "/playground",
   "demos/supply-split": "/playground",
   "demos/utxo-vs-accounts": "/playground",
-  "demos/zk-boundary": "/playground"
+  "demos/zk-boundary": "/playground",
+  "wallets": "/wallet"
 }
