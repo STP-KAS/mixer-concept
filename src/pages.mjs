@@ -9,7 +9,8 @@ const intro = (eyebrow, title, lead) => `<div class="page-intro intro-${eyebrow.
 export const pages = [
   {
     file:'index.html', title:'Kaspa Explained', description:'Explore how Kaspa payments, parallel blocks, and spending rules work through interactive explanations.',
-    body: `<div class="home-introduction"><p class="eyebrow">Kaspa Explained</p><h1>Send money.<br>Let the network verify it.</h1><p>Kaspa lets people send coins without a central payment operator.<br>See why its miners can add blocks in parallel, then follow a payment through the network.</p><a href="#first-look">See how it works <span aria-hidden="true">↓</span></a></div>
+    body: `<p class="home-ethos">Crypto started with proof of work, for decentralized money and ownership.<br>Proof of stake left that idea.<br>Kaspa goes back to the roots: fast, programmable proof of work.</p>
+      <div class="home-introduction"><p class="eyebrow">Kaspa Explained</p><h1>Send money.<br>Let the network verify it.</h1><p>Kaspa lets people send coins without a central payment operator.<br>See why its miners can add blocks in parallel, then follow a payment through the network.</p><a href="#first-look">See how it works <span aria-hidden="true">↓</span></a></div>
       <div id="first-look" class="home-demonstration">${network({introductory:true})}</div>
       <div class="under-experiment">${link('Follow the blocks and the information between them', '/what-is-kaspa')}</div>
       ${section('explore','Explore Kaspa',routes([
@@ -56,7 +57,7 @@ export const pages = [
       ${section('wallets','Who controls the keys?',rows([
         ['Your own wallet','<p>You control the keys and their backup. Losing them can mean losing access. Never share a recovery phrase with a person, website, or explorer.</p>'],
         ['An exchange account','<p>The provider controls the keys. Your account balance is a claim on that provider, with its own withdrawal rules and risks.</p>'],
-      ]) + `<p>${source('wallet')} · ${link('Wallet integration documentation','https://docs.kaspa.org/integrate/wallet')}</p>`)}
+      ]) + `<p>${source('wallet')} · ${link('Wallet integration documentation','https://docs.kaspa.org/integrate/wallet')} · ${link('See holdings from Kasware or Kastle','/wallet')}</p>`)}
       ${section('using-kas','Receive. Send. Verify.',walletLesson(), 'Try the three actions that make up a payment.')}
       ${section('inspect','Read a transaction',inspector(), 'A public explorer reports its provider’s view. Check amounts and acceptance, and notice which information is missing.')}
       ${detail('What these fields establish', '<p>Inputs refer to earlier outputs. Outputs specify amounts and spending destinations. An accepting-block identifier is different from the list of blocks containing the transaction.</p><p>An address does not establish a person’s identity. Output fields alone do not identify which output is a payment and which is change. A block timestamp does not establish when the sender pressed Send.</p><p>Fees are calculated only when all referenced input values and output values are available. Missing data is shown as unavailable, never zero.</p>')}
@@ -166,6 +167,12 @@ export const pages = [
     file:'playground.html', title:'Kaspa Playground', description:'Explore block propagation, double spending, transaction arithmetic, mining variance, and covenant rules.',
     body:`${intro('Playground','Interactive network models','Start an example and press Continue to see what changes and why. Delay a message, try spending the same coins twice or test a withdrawal rule. These local models move no real money.')}
       <div class="playground" data-playground><nav class="playground-nav" aria-label="Playground models">${[['network','Network delay'],['spend','Competing spends'],['transaction','Transaction amounts'],['mining','Mining share'],['vault','Spending rules']].map(([id,title],i)=>`<button data-workspace="${id}" aria-pressed="${i===0}" aria-controls="workspace-${id}">${title}</button>`).join('')}</nav><div class="playground-main">${[['network',network],['spend',spend],['transaction',transaction],['mining',mining],['vault',vault]].map(([id,render])=>`<section id="workspace-${id}" data-workspace-panel="${id}"${id!=='network'?' hidden':''}>${render()}</section>`).join('')}</div></div>`,
+  },
+  {
+    file:'wallet.html', title:'Your Kaspa wallet', description:'Connect Kasware or Kastle to see KAS, tokens, and KNS domains for the address in this tab.',
+    body:`${intro('Wallet','See what this address holds.','Connect Kasware or Kastle. This page reads public indexers. It never asks for a recovery phrase.')}
+      <div data-wallet-page-root class="wallet-page"></div>
+      <p class="small">Injected connect is Kasware and Kastle only. Ledger uses KasVault. Mobile and hardware wallets stay in their own apps. The Testnet-10 playground on this site uses a separate disposable wallet.</p>`,
   },
   {
     file:'404.html', title:'Page not found', description:'Find another Kaspa explanation.',

@@ -1,3 +1,26 @@
+# Kaspa Explained · delusional STP
+
+This repository is **STP-KAS** (Remco) working on Kaspa Explained locally: UX, a short PoW ethos line, and Kasware/Kastle holdings. It is the **project delusional** approach: honest labels, no fake inject, no Gramlane product.
+
+Upstream education and Testnet apps remain [parker2017code/kaspa-explained](https://github.com/parker2017code/kaspa-explained). Public site: [kaspaexplained.com](https://kaspaexplained.com). Parker codes. STP does user experience.
+
+This overlay adds:
+
+- A short homepage ethos: proof of work for money you own, proof of stake left that idea, Kaspa goes back with fast programmable PoW. Not an attack on Bitcoin.
+- In-page wallet connect for **Kasware** and **Kastle** only. Other wallets are listed, not injected.
+- Structured holdings: KAS, KRC-20 tokens, KNS domains.
+- Windows local preview via `start-ui.ps1` (Parker's `setup:testnet` is still macOS/Linux).
+
+```powershell
+cd kaspaexplained-delusional-stp
+npm ci
+.\start-ui.ps1
+```
+
+Then open [http://127.0.0.1:8899/](http://127.0.0.1:8899/) and [http://127.0.0.1:8899/wallet](http://127.0.0.1:8899/wallet).
+
+---
+
 # Kaspa Explained
 
 [Kaspa Explained](https://kaspaexplained.com) is an independent guide to Kaspa with interactive explanations and experimental Testnet-10 applications. The public build includes 18 canonical pages and 87 compatibility routes.
