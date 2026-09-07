@@ -56,5 +56,5 @@ export function createV4Dag3D({THREE,scene,places=defaults,maxBlocks=18}={}){
   }
  }
  function dispose(){if(disposed)return;disposed=true;for(const id of [...parcels.keys()])removeParcel(id);for(const id of [...nodes.keys()])removeNode(id);scene.remove(layer);for(const resource of [box,header,packet,arrowShape,coinShape,stripe,edgeMaterial,arrowMaterial,coinMaterial])resource.dispose();}
- return {setVisible(value){layer.visible=Boolean(value);},updateDag,updateTip:updateDag,transaction,frame,tick:frame,isAnimating(){return [...parcels.values()].some(item=>item.phase!=='pending'||clock-item.birth<2750);},dispose};
+ return {getBlockPosition(hash){return nodes.get(hash)?.group.position.toArray()||null;},setVisible(value){layer.visible=Boolean(value);},updateDag,updateTip:updateDag,transaction,frame,tick:frame,isAnimating(){return [...parcels.values()].some(item=>item.phase!=='pending'||clock-item.birth<2750);},dispose};
 }

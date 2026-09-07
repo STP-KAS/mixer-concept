@@ -17,10 +17,14 @@
     "check:public:browser": "npm run build && node scripts/check-public-browser.mjs chromium && node scripts/check-public-browser.mjs firefox && node scripts/check-public-browser.mjs webkit",
     "check:faucet": "node --test tests/faucet.test.mjs",
     "check:guided": "npm run build:v1 && node scripts/check-guided-education.mjs",
-    "check:v4": "npm run build && node --test tests/public-v4-protocol.test.mjs tests/public-v4-state.test.mjs tests/v4-dag-view.test.mjs tests/v4-dag-animation.test.mjs tests/v4-world-navigation.test.mjs tests/public-argent-protocol.test.mjs tests/v4-mining-model.test.mjs tests/faucet.test.mjs",
+    "check:v4": "npm run build && node --test tests/public-v4-protocol.test.mjs tests/public-v4-state.test.mjs tests/v4-dag-view.test.mjs tests/v4-dag-animation.test.mjs tests/v4-world-navigation.test.mjs tests/public-argent-protocol.test.mjs tests/v4-mining-model.test.mjs tests/faucet.test.mjs tests/v4-economy-model.test.mjs tests/v4-economy-protocol.test.mjs tests/v4-economy-story.test.mjs",
     "check:v4:vm": "node scripts/v4-fixtures.mjs --check-vm && node scripts/v4-composed-fixtures.mjs --check-vm && node scripts/argent-fixtures.mjs --check-vm",
     "check:v4:browser": "node scripts/check-v4-final-browser.mjs",
-    "check:v4:flows": "npm run build && node scripts/check-v4-browser-flows.mjs"
+    "check:v4:flows": "npm run build && node scripts/check-v4-economy-native-browser.mjs",
+    "setup:wrap": "node scripts/setup-wrap-poc.mjs",
+    "serve:wrap": "npm run build && node server/wrap-poc.mjs",
+    "check:wrap": "node --test tests/wrap-evm.test.mjs tests/wrap-evm-adapter.test.mjs tests/wrap-poc.test.mjs && node scripts/check-wrap-kaspa-adapter.mjs && node scripts/check-wrap-assets-api.mjs",
+    "check:economy": "node --test tests/v4-economy-model.test.mjs tests/v4-economy-protocol.test.mjs && node scripts/check-v4-economy-vm.mjs"
   },
   "devDependencies": {
     "playwright": "1.62.1",

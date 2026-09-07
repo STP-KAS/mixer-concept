@@ -13,6 +13,7 @@ export const pages = [
       <div id="first-look" class="home-demonstration">${network({introductory:true})}</div>
       <div class="under-experiment">${link('Follow the blocks and the information between them', '/what-is-kaspa')}</div>
       ${section('explore','Explore Kaspa',routes([
+        ...(process.env.KASPA_RELEASE==='v1'?[]:[['Play a KAS economy','Build a greenhouse, hire Pip, sell the harvest and follow the money. Uses free test coins.','/covenants']]),
         ['How the network agrees','Change what miners know. See why parallel blocks happen.','/what-is-kaspa'],
         ['Using KAS','Wallets, sending, receiving, and reading a transaction.','/why-kaspa-matters'],
         ['The tradeoffs','Security assumptions, mining concentration, and what speed does not solve.','/skeptical-case'],
@@ -172,6 +173,8 @@ export const pages = [
   },
 ];
 
+if(process.env.KASPA_RELEASE!=='v1'){const adventure=`<section class="playground-invitation"><div><p class="eyebrow">Sprout Harbor · Testnet-10</p><h2>What could a KAS economy look like?</h2></div><div><p>Build a greenhouse, pay Pip for work, sell the harvest and deliver it. Follow the actual test-coin payments and explore a recorded bridge to another chain.</p><a class="primary-button" href="/covenants">Play the town economy <span aria-hidden="true">↗</span></a><p>Free test coins. Production and physical delivery are game rules.</p></div></section>`;for(const file of ['build-on-kaspa.html','playground.html'])pages.find(p=>p.file===file).body+=adventure;}
+
 // A next step makes the reading order explicit without hiding direct routes.
 const readingNext={
  'index.html':['Begin with what the miners see','/what-is-kaspa'],
@@ -185,7 +188,7 @@ const readingNext={
  'kips.html':['See what builders can use','/build-on-kaspa'],
  'moose.html':['Check the guide’s sources and method','/sources'],
  'sources.html':['Compare the dated network and tooling evidence','/status'],
- 'playground.html':['Try the Testnet-10 applications','/applications']
+ 'playground.html':process.env.KASPA_RELEASE==='v1'?['Explore what you can build','/build-on-kaspa']:['Play a KAS economy on Testnet-10','/covenants']
 };
 for(const page of pages){const next=readingNext[page.file];if(next){const [label,url]=next;const target=process.env.KASPA_RELEASE==='v1'&&url==='/applications'?'/build-on-kaspa':url;page.body+=`<nav class="reading-next" aria-label="Continue learning"><p>Continue learning</p><a href="${target}">${target!==url?'Explore what you can build':label} <span aria-hidden="true">→</span></a></nav>`;}}
 
