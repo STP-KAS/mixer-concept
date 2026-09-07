@@ -1,6 +1,6 @@
 # Sprout Harbor: local review
 
-Updated September 7, 2026. The latest V4 changes are available for local and temporary shared review; they have **not been deployed to the production site**. Preview: http://127.0.0.1:8904/covenants/. The user’s cohesion and usability review remains the release gate.
+Historical local-review record from 7 September 2026, retained with its subsequent publication update below. The initial preview observations predate production publication; they do not describe the current deployment. For the current economic route, use [the economy release notes](economy-release.md).
 
 The guided town route connects buying supplies, restricting Pip’s budget, moving Sprout, coordinating the greenhouse and paying for a checked schedule. The first goal ends with a running greenhouse and a local habitat-supply action. That final care choice persists in encrypted recovery. Free play exposes the town’s contract actions and six legacy services. The optional Argent care workshop contains two separately compiled actor apps.
 

@@ -1,7 +1,12 @@
 # Release checklist
 
-V2 is published at https://kaspaexplained.com from revision `4695529`.
-The standalone V1 build remains available; release evidence is recorded below.
+The current application is Sprout Harbor’s economic order plus the recorded external-asset bridge. Follow [the economy release gates](docs/economy-release.md), [maintenance commands](MAINTENANCE.md), and the exact checked-in publication workflow. Verify the deployed revision and public artifact after each publication; a past successful run is not the current deployment status.
+
+Current evidence: [21 accepted economy transactions and reload](docs/economy-live-verification.json), [economy browser regression](docs/economy-browser-verification.json), and [recorded source/Kaspa bridge round trip](docs/wrap-poc-roundtrip-verification.json). The browser regression uses synthetic RPC and is distinct from the live transaction record.
+
+## Historical release checklist
+
+The V1/V2 sections below preserve dated release evidence. Their revision IDs, route counts and completed checks describe those releases, not the latest site. The former V2 deployment was revision `4695529`.
 
 ## V1: standalone education
 

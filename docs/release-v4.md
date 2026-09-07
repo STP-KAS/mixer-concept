@@ -1,4 +1,6 @@
-# Sprout Harbor release
+# Sprout Harbor initial release — historical record
+
+This records the initial 19-transaction town release. The later economic guide has 21 transactions and a purchased-food delivery; see [current economic release notes](economy-release.md). Counts and deployed revision claims below are historical observations.
 
 Published September 7, 2026 at https://kaspaexplained.com/covenants. Release commit `88ee48d188577bcad22ad52c4b3a16db3317d6e9` passed workflow `34101849128`; all 173 public artifact files match the locally generated release byte for byte. Production wallet restoration re-observed all 19 transactions as accepted, with zero pending, and retained the completed guide and supplied habitat.
 

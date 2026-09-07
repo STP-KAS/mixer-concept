@@ -77,3 +77,9 @@ The release status must distinguish implementation, local checks, real Testnet a
 The new economy completed its full 21-transaction route on Testnet-10 on 7 September 2026. All 21 transactions have accepting-block observations. The crop purchase consumes output 1 of Pip’s accepted 0.1 tKAS wage transaction, pays 0.03 tKAS to the greenhouse account, and returns change after the network fee. The purchase-bound delivery reached its destination, recording three delivered game food crates. The same encrypted wallet restored with 21 records and no extra submissions. Exact evidence is in [economy-live-verification.json](economy-live-verification.json).
 
 The changed-app deployment reuses the SHA-256-pinned, previously published contract templates and refuses any change to their source/compiler setup. It builds and checks the shipped app/link graph instead of recompiling and retesting unchanged contracts.
+
+## Production browser verification, 7 September 2026
+
+Checks ran against `https://kaspaexplained.com`, loading its published HTML, scripts and styles. All 180 page/viewport/theme render states passed automated layout checks; selected desktop and mobile screenshots were also inspected. Chromium, Firefox and WebKit passed 56 application states each using real Testnet-10 RPC, with no funding or submissions.
+
+The existing real economy wallet restored on the public site with all 21 accepted receipts, the same address and three delivered game food crates. Signing and submission were blocked during this read-only verification. Separate live-served browser runs replaced only RPC with synthetic responses to exercise the complete 21-step order and 11-step repeat at 1440 and 390 pixels, including pending-state withholding, exact wage spending, the four recorded bridge cards, activity inspection and reload without replay. Native wrapping also passed both sizes with synthetic RPC. These lifecycle runs do not claim new live-chain transactions.

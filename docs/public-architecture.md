@@ -1,25 +1,13 @@
 # Public Testnet-10 applications
 
-V3 revision `d1d69ec` is deployed, including on-chain token names and the updated
-diagrams. All 143 public files matched the verified build. See
-[the V3 release record](release-v3.md) for current validation.
+The public site combines Sprout Harbor’s economic guide, the native receipt lab and other Testnet applications. The current economic route is documented in [the economy release notes](economy-release.md); accepted transaction evidence is in [the live record](economy-live-verification.json). The external bridge page publishes [recorded test evidence](wrap-poc-roundtrip-verification.json) and has no public signing service.
 
-The earlier public V2 app was deployed at https://kaspaexplained.com from revision
-`4695529` (September 6, 2026). The live artifact matched all 138 expected files;
-96 live Chromium/WebKit recovery and layout states passed. Detailed release
-and verification evidence is in [the V2 notes](release-v2.md). The guided
-automatic-session changes described below are deployed as revision `85414b4`
-(successful deployment run `34048299229`); all 138 expected live files matched.
-The first online faucet claim delivered exactly 10 tKAS, and the reserve has
-received 9,000 tKAS in total; see [the faucet notes](faucet.md). Verification of
-all six guided scenarios on the live website is complete: 13 transactions
-accepted automatically and independently checked against public history. See
-[the guided verification report](../design/GUIDED-APPS-REVIEW.md).
+Historical V2/V3 rollout counts and revisions remain in [V2 notes](release-v2.md), [V3 notes](release-v3.md) and [the earlier guided review](../design/GUIDED-APPS-REVIEW.md). Those reports are dated snapshots.
 
 The deployed app needs static artifacts and the pinned browser SDK. It does not
 need the workshop signer, its files, or a public native compiler endpoint.
 
-`node scripts/build-public-templates.mjs --check-vm` compiles
+The shared application layer below predates the town. Its contracts remain used by the town service desks. `node scripts/build-public-templates.mjs --check-vm` compiles
 `contracts/public/*.sil` at build time and writes
 `.cache/public-templates/templates.json`. The object is
 `{version:1, network:'testnet-10', templates:{escrow,treasury,prediction,proof,token,receipt}}`.

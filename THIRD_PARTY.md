@@ -73,6 +73,21 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
+## Argent compiler and generated workshop artifacts
+
+The optional Argent workshop includes project `.ag` sources in `contracts/public/argent-habitat/`, generated SilverScript and the compiled `src/public-argent-templates.json` package. `scripts/build-public-argent.mjs` pins compiler revision `d08e52dd1e18c9f7e9a2dc482048c2db31d25611` from [argent-lang/argent](https://github.com/argent-lang/argent/tree/d08e52dd1e18c9f7e9a2dc482048c2db31d25611). The compiler is a local build dependency, not a browser compiler service. Its installed upstream license reads:
+
+ISC License
+
+Copyright 2026 Argent-lang developers
+
+Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+
+Local compiler and VM verification does not establish a completed live Argent lifecycle. Public-origin creation and feeding remain gated; source inspection and recovery are separate capabilities. See [the integration notes](docs/newdesign/ARGENT-INTEGRATION.md).
+
 ## Dependency boundary
 
-Argent and KCC material currently inform research; they are not bundled as working applications in this release. Add exact revisions and notices when incorporating implementation code. A source link or design inspiration is not a claim of affiliation.
+KCC material informs research; these custom experimental tokens do not claim KCC conformance. A source link or design inspiration is not a claim of affiliation. Upstream software and its notices retain their original terms; the project’s noncommercial license does not relicense those dependencies.

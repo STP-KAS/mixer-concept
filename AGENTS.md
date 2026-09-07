@@ -9,4 +9,4 @@ Build understanding through correct, inspectable interactions. Use concise langu
 - Keep private wallet state and credentials out of Git. Testnet applications are unaudited and never intended for mainnet. Do not expose the local signer publicly.
 - Preserve both Moose PDFs, author attribution, and useful historical URLs. Legacy HTML implementations may be replaced by generated pages and redirects.
 - Keep all available agents active on bounded research, implementation, and independent review. User prefers gpt-6-astra with low reasoning effort. Assign disjoint file ownership; the coordinating agent integrates and verifies the completed work.
-- V1 is standalone education; V2 adds verified testnet applications. See RELEASE-CHECKLIST.md for unfinished release requirements. Do not publish an unfinished stage or claim unverified capabilities.
+- V1 is standalone education; the current public build includes Sprout Harbor and Testnet applications. See RELEASE-CHECKLIST.md for unfinished release requirements. Do not publish an unfinished stage or claim unverified capabilities.

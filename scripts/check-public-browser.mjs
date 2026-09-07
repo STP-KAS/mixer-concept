@@ -8,16 +8,19 @@ import {staticPreview} from './static-preview.mjs';
 
 const engine=process.argv[2]||'chromium',browserType={chromium,firefox,webkit}[engine];
 assert(browserType,'Choose chromium, firefox, or webkit');
+const liveOrigin=process.env.PUBLIC_QA_ORIGIN?.replace(/\/$/,'');
+if(liveOrigin)assert(/^https:\/\/[^/]+$/.test(liveOrigin),'PUBLIC_QA_ORIGIN must be an HTTPS origin');
+const artifact=async path=>{if(!liveOrigin)return readFile('dist/'+path,'utf8');const response=await fetch(liveOrigin+'/'+path.replace(/\.html$/,''),{signal:AbortSignal.timeout(20000)});assert(response.ok,`Live artifact ${path}: HTTP ${response.status}`);return response.text();};
 const canonical=['index','what-is-kaspa','why-kaspa-matters','skeptical-case','kaspa-mining','build-on-kaspa','status','kaspa-origin-story','kips','moose','sources','playground','404','money','applications','covenants','wrap','search'];
-for(const name of canonical)await access(`dist/${name}.html`);
-const sitemap=await readFile('dist/sitemap.xml','utf8');
+for(const name of canonical){if(liveOrigin){const route=name==='index'?'':name==='404'?'__public-qa-missing-route__':name;const response=await fetch(liveOrigin+'/'+route,{signal:AbortSignal.timeout(20000)});assert.equal(response.status,name==='404'?404:200,'Live route '+route);}else await access(`dist/${name}.html`);}
+const sitemap=await artifact('sitemap.xml');
 assert.deepEqual([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]).sort(),canonical.filter(name=>name!=='404').map(name=>'https://kaspaexplained.com/'+(name==='index'?'':name)).sort(),'Sitemap lists every canonical public route and excludes the error page');
-const templates=JSON.parse(await readFile('dist/assets/public-templates.json','utf8'));
+const templates=JSON.parse(await artifact('assets/public-templates.json'));
 assert.deepEqual(Object.keys(templates.templates).sort(),['agent','bundle','compute','escrow','launch','prediction','proof','receipt','terrarium','token','treasury','vault']);
-const output=`.cache/visual-review/public-browser/${engine}`;await mkdir(output,{recursive:true});
-const results=[],server=staticPreview('dist');let browser,failure;
-await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
-const base=`http://127.0.0.1:${server.address().port}`;
+const output=`.cache/visual-review/${liveOrigin?'live-public-browser':'public-browser'}/${engine}`;await mkdir(output,{recursive:true});
+const results=[],server=liveOrigin?null:staticPreview('dist');let browser,failure;
+if(server)await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+const base=liveOrigin||`http://127.0.0.1:${server.address().port}`;
 try{
  browser=await browserType.launch();
  for(const theme of ['light','dark']){
@@ -110,8 +113,8 @@ try{
  }
 }catch(error){failure=error;}
 finally{
- if(browser)await browser.close();server.closeAllConnections();await new Promise(resolve=>server.close(resolve));
- await writeFile(`${output}/report.json`,JSON.stringify({engine,passed:!failure,states:results.length,results,error:failure?.message},null,2));
+ if(browser)await browser.close();if(server){server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}
+ await writeFile(`${output}/report.json`,JSON.stringify({engine,origin:base,scope:liveOrigin?'Deployed public site, real Testnet RPC, no funding or submissions':'Local static build, real Testnet RPC, no funding or submissions',passed:!failure,states:results.length,results,error:failure?.message},null,2));
 }
 if(failure)throw failure;
-console.log(`Public browser ${engine}: ${results.length} states passed; real Testnet-10 RPC, no funding or submission. Evidence: ${output}/report.json`);
+console.log(`Public browser ${engine}: ${results.length} states passed against ${base}; real Testnet-10 RPC, no funding or submission. Evidence: ${output}/report.json`);

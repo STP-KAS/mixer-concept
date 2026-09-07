@@ -2,11 +2,11 @@
 
 Source lives in `src/`, `server/`, and `contracts/`. Generated output is disposable:
 `npm run build:v1` creates standalone education in `dist-v1/`; `npm run build`
-creates the V2 preview in `dist/`. Never edit generated HTML.
+creates the current public site in `dist/`. Never edit generated HTML.
 
 ## Verify a change
 
-- `npm run check`: V2 build and offline model, transaction, local API, and wallet tests.
+- `npm run check`: current public build and offline model, transaction, local API, and wallet tests.
   First run `npm run setup:testnet` and `node scripts/build-public-templates.mjs`;
   the standalone V1 build does not install these dependencies.
 - `npm run check:v1`: isolated static release and routes; no local wallet interfaces.
@@ -15,12 +15,18 @@ creates the V2 preview in `dist/`. Never edit generated HTML.
   `.cache/visual-review/dist-v1/`. Review images and actual interactions as well.
 - `npm run check:contracts` and `npm run check:contracts:vm`: pinned compiler and
   exact contract execution. Neither spends test coins or proves node acceptance.
-- `bash scripts/check-site.sh`: combined V2 offline checks, V1 artifact checks,
-  and V1 rendering. It requires the V2 setup above and installed Chromium.
-- The publication workflow additionally runs `npm run check:copy`, educational
-  model tests, and `npm run check:journeys`. Journey checks require Chromium,
-  Firefox, and WebKit (`npx playwright install --with-deps chromium firefox webkit`).
-  The local hooks run only `npm run check`, not this complete release workflow.
+- `bash scripts/check-site.sh`: combined public offline checks, V1 artifact checks,
+  and V1 rendering. It requires the public application setup above and installed Chromium.
+- For the current town, run `npm run check:v4`, `npm run check:v4:vm`,
+  `npm run check:economy` and `npm run check:v4:flows`. The economy browser
+  regression uses the real SDK with synthetic RPC; it does not prove live acceptance.
+- Run `node scripts/check-wrap-recorded-browser.mjs` for the static bridge
+  evidence page, and `npm run check:copy` / `npm run check:posts` for copy.
+- Consult the checked-in `.github/workflows/` files for the exact CI gates.
+  A workflow that reuses verified contract artifacts is bounded by its source
+  comparison and checksum checks; it is not permission to skip validation of
+  changed contracts. Browser journeys require the relevant Playwright engines.
+
 
 Browser journeys must cover keyboard, touch-sized controls, theme changes,
 model resets, deep links, navigation, rejection, and recovery. A screenshot
@@ -29,12 +35,12 @@ matrix does not establish these behaviors. Record evidence in
 
 ## Preview
 
-`npm run serve` runs the loopback-only V2 server on port 8898. Check the existing
+`npm run serve` runs the loopback-only workshop server on port 8898. Check the existing
 listener before starting another process. Stop its owning process normally;
 never delete its wallet lock to bypass ownership. Restart after server edits.
 
 `node scripts/static-preview.mjs` serves `dist-v1/` on port 8899 without wallet
-or API access. Pass `dist` to inspect a generated V2 artifact without its signer.
+or API access. Pass `dist` to inspect a generated public artifact without its signer.
 
 ## Source map
 

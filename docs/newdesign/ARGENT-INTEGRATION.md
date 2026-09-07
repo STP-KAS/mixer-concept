@@ -1,6 +1,6 @@
 # Actual Argent integration
 
-Local implementation; not deployed. No live transaction has been submitted by this implementation agent.
+The optional workshop ships source and compiled artifacts. Public-origin creation and feeding are gated; loopback supports separately authorized testing. A complete live five-transaction Argent lifecycle remains unverified. The local results below are compiler/VM evidence, not live acceptance.
 
 Two separately compiled Argent applications use native closed inter-contract communication (ICC):
 

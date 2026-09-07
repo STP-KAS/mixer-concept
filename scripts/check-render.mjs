@@ -5,10 +5,11 @@ import {staticPreview} from './static-preview.mjs';
 
 process.env.KASPA_RELEASE||='v1';
 const {documents,standalone}=await import('../src/page-registry.mjs');
-const directory=standalone?'dist-v1':'dist',output=resolve('.cache/visual-review',directory);
+const liveOrigin=process.env.PUBLIC_QA_ORIGIN?.replace(/\/$/,'');
+const directory=standalone?'dist-v1':'dist',output=resolve('.cache/visual-review',liveOrigin?'live-'+directory:directory);
 await mkdir(output,{recursive:true});
-const server=staticPreview(directory);await new Promise(r=>server.listen(0,'127.0.0.1',r));
-const base=`http://127.0.0.1:${server.address().port}`;
+const server=liveOrigin?null:staticPreview(directory);if(server)await new Promise(r=>server.listen(0,'127.0.0.1',r));
+const base=liveOrigin||`http://127.0.0.1:${server.address().port}`;
 const browser=await chromium.launch();const failures=[],report=[];
 try{
   for(const width of [320,390,768,1024,1440])for(const theme of ['light','dark']){
@@ -35,7 +36,7 @@ try{
     }
     await context.close();
   }
-}finally{await browser.close();await new Promise(r=>server.close(r));}
-await writeFile(`${output}/report.json`,JSON.stringify({checked:new Date().toISOString(),release:directory,states:report.length,failures,report},null,2));
+}finally{await browser.close();if(server)await new Promise(r=>server.close(r));}
+await writeFile(`${output}/report.json`,JSON.stringify({checked:new Date().toISOString(),release:directory,origin:base,scope:liveOrigin?'Published HTML, JavaScript and CSS from the live site':'Local generated build',states:report.length,failures,report},null,2));
 if(failures.length){console.error(JSON.stringify(failures,null,2));process.exitCode=1;}
 console.log(`Rendered ${report.length} page/viewport/theme states. ${failures.length} automated findings. Images require human review: ${output}`);
