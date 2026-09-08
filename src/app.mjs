@@ -6,6 +6,8 @@ import {mountDoors} from './doors.mjs';
 document.querySelectorAll('[data-coordination]').forEach(mountCoordination);
 mountInstalledWallet();
 mountDoors();
+if (document.querySelector('[data-use-case-exhibit]')) void import('./use-case-demo.mjs');
+void import('./learning-ui.mjs');
 {
   const welcome = document.querySelector('[data-welcome]');
   if (welcome) {

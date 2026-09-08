@@ -1,48 +1,26 @@
-# MIX
+# MIX · mixer concept
 
-**Parker’s Kaspa Explained + STP doors and wallets + PegLab.**
+Version **mixer concept**: the best of Parker’s Kaspa Explained and STP’s doors, plus PegLab, live DAG, wallet, Node, and honest labels.
 
-Public site: [https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club](https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club)  
-Local preview: [http://127.0.0.1:8910/](http://127.0.0.1:8910/)
+Public: [https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club](https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club)  
+Local: [http://127.0.0.1:8910/](http://127.0.0.1:8910/)  
+What this version is: [/mixer](https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club/mixer)
 
-Parker codes the explanations. STP does the doors, Kasware/Kastle, and Windows preview. PegLab is the dapp unit that depegs on purpose.
+## Best of both
 
-This is not a token, not a bank, and not Parker’s kaspaexplained.com. It is the mix.
-
-## Three lanes
-
-| Lane | What you get |
+| Parker | STP |
 | --- | --- |
-| **Learn** | Parker’s payment, parallel-block, and spending-rule models. Sources you can check. |
-| **Doors** | STP audience doors, welcome film, PoW ethos, Node tab, playground with tKAS. |
-| **PegLab** | In-browser depeg engine at `/peglab`. Live KasWare lab at `/lab/`. |
+| Inspectable models, spending-rule stories, learning route | Four doors, people chips, PoW ethos |
+| Town, wrap, sources | Node (TN10 tKAS vs mainnet follower) |
+| Payment / inclusion / acceptance | Kasware / Kastle, Windows preview |
 
-Town economy (Sprout Harbor) stays at `/covenants`. Wrap lab at `/wrap`.
+## Other parameters
 
-Upstream education: [parker2017code/kaspa-explained](https://github.com/parker2017code/kaspa-explained) · [kaspaexplained.com](https://kaspaexplained.com)  
-STP overlay: [STP-KAS/kaspaexplained-delusional-stp](https://github.com/STP-KAS/kaspaexplained-delusional-stp) · [stpstpstpstpstpstpstp.club](https://stpstpstpstpstpstpstp.club)  
-PegLab: [STP-KAS/peglab-stp](https://github.com/STP-KAS/peglab-stp) · [peglabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.club](https://peglabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.club)
+PegLab, kaspa.stream + Graph Inspector, wallet holdings, Discord help, dated status, search, moonboy refusal, Kaspa Silver.
 
-## Run locally
+Door principles stay. Kaspa intel on the doors is Parker’s models plus dated labels.
 
 ```powershell
 cd C:\Users\Remco\mix-club
-npm ci
 .\start-ui.ps1
 ```
-
-Then open:
-
-- [http://127.0.0.1:8910/](http://127.0.0.1:8910/)
-- [http://127.0.0.1:8910/peglab](http://127.0.0.1:8910/peglab)
-- [http://127.0.0.1:8910/lab/](http://127.0.0.1:8910/lab/)
-
-The host tKAS faucet for PegLab stays on the standalone PegLab server at [http://127.0.0.1:8765/](http://127.0.0.1:8765/) when that process is running. MIX’s public `/lab/` never ships a seed.
-
-DNS for the public domain: [DNS.md](DNS.md).
-
-## Honest limits
-
-- TESTNET-10 toys are not USD, not a business, and not a mainnet app.
-- Education pages are independent of Kaspa core.
-- Anybody can compile a similarly named PegLab series. Verify genesis outpoint, template hash, series bytes, and backing.

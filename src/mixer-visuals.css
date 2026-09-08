@@ -1,0 +1,66 @@
+.mixer-home{--copper:#a65f31}
+.mixer-home .site-hero{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:64px;padding:28px 0 64px;border-bottom:1px solid var(--rule)}
+
+.mixer-home .site-hero h1{max-width:13ch;margin-bottom:24px}
+
+.mixer-home .site-hero .lead{font-size:1.1875rem;line-height:1.65;max-width:43ch;color:var(--muted);margin:0 0 26px}
+
+.mixer-home .site-hero-note{color:var(--muted);font-size:.875rem;margin-top:20px}
+
+.mixer-home .site-hero-visual{min-width:0;padding:18px 20px;background:var(--page);border-radius:18px;border:1px solid var(--rule)}
+
+.mixer-home .site-diagram{margin:0;min-width:0}
+
+.mixer-home .site-diagram svg{display:block;width:100%;height:auto;overflow:visible;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+
+.mixer-home .site-diagram figcaption{font-size:.8125rem;line-height:1.5;margin:8px 0 0;color:var(--muted);text-align:center}
+
+.mixer-home .site-diagram text{fill:var(--text)}
+
+.mixer-home .site-diagram-heading{font-size:21px;font-weight:600;letter-spacing:-.3px}
+
+.mixer-home .site-diagram-label{font-size:21px;font-weight:550}
+
+.mixer-home .site-diagram-letter{font-size:28px;font-weight:650}
+
+.mixer-home .site-diagram-connections{stroke:var(--green);stroke-width:2.5}
+
+.mixer-home .site-diagram-fine-line{stroke:var(--rule);stroke-width:2}
+
+.mixer-home .site-diagram-block{fill:var(--paper);stroke:var(--muted);stroke-width:1.5}
+
+.mixer-home .site-diagram-block-accent{fill:var(--green-soft);stroke:var(--green);stroke-width:1.5}
+
+.mixer-home .site-diagram-depth{fill:var(--rule);stroke:var(--muted);stroke-width:1.2}
+
+.mixer-home .site-diagram-top{fill:var(--paper);stroke:var(--muted);stroke-width:1}
+
+.mixer-home .site-diagram-receipt{fill:var(--paper);stroke:var(--rule);stroke-width:1.3}
+
+.mixer-home .site-diagram-check-disc{fill:var(--green)}
+
+.mixer-home .site-diagram-check{stroke:var(--paper);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+.mixer-home .site-diagram-ground{fill:var(--rule);opacity:.5}
+
+.mixer-home .site-diagram-coins{fill:var(--green-soft);stroke:var(--green);stroke-width:2}
+
+.mixer-home .site-diagram-coin-mark{stroke:var(--green);stroke-width:3;stroke-linecap:round}
+
+.mixer-home .site-diagram-tool-handle{fill:var(--copper);stroke:var(--text);stroke-width:1.4}
+
+.mixer-home .site-diagram-tool-head{fill:var(--muted);stroke:var(--text);stroke-width:1.5}
+
+.mixer-home .site-diagram-tool-glint{stroke:var(--paper);stroke-width:2}
+
+.mixer-home .site-diagram-transfer{stroke:var(--green);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+
+
+
+
+
+/* Footer groups share one reading order in the integrated shell. */
+svg.site-diagram{display:block;width:100%;height:auto;overflow:visible;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+
+:is(.site-hero-visual,.site-workshop-visual)>figcaption{font-size:.8125rem;line-height:1.6;margin-top:12px;color:var(--muted);text-align:center}

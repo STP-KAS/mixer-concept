@@ -1,5 +1,6 @@
 export const site = {
   title: 'MIX',
+  version: 'mixer concept',
   domain: 'https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club',
   localHost: 'mix.localhost',
   checked: '2026-09-08',
@@ -7,7 +8,7 @@ export const site = {
     ['Learn', '/what-is-kaspa'],
     ['Doors', '/door-1'],
     ['Play', '/playground'],
-    ['Town', '/covenants'],
+    ['Explore', '/explore'],
     ['PegLab', '/peglab'],
     ['Node', '/node'],
     ['Status', '/status'],
