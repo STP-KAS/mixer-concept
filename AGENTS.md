@@ -10,3 +10,4 @@ Build understanding through correct, inspectable interactions. Use concise langu
 - Preserve both Moose PDFs, author attribution, and useful historical URLs. Legacy HTML implementations may be replaced by generated pages and redirects.
 - Keep all available agents active on bounded research, implementation, and independent review. User prefers gpt-6-astra with low reasoning effort. Assign disjoint file ownership; the coordinating agent integrates and verifies the completed work.
 - V1 is standalone education; the current public build includes Sprout Harbor and Testnet applications. See RELEASE-CHECKLIST.md for unfinished release requirements. Do not publish an unfinished stage or claim unverified capabilities.
+- September 8, 2026 Parker cancellation: V5 and V6 are withdrawn. MIX keeps `/covenants` (Town) and does not ship V5/V6, Cloudflare containers, or their APIs. Do not restore those routes without a new explicit user request.

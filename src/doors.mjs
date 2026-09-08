@@ -79,6 +79,7 @@ export const doors = {
         <li><strong>Proposed.</strong> DAGKnight. The rusty <code>dagknight</code> branch is not merged. No mainnet activation is documented in the checked KIP or node releases.</li>
         <li><strong>Local model.</strong> Dated 8 September 2026. Inherited budget, atomic offer completion, competing execution, a correction bounty, and a permission arena. You can break them. They do not sign or submit.</li>
         <li><strong>Testnet lab.</strong> Existing covenant primitives on Testnet-10. This site’s Town is that lab. One browser holds every key. That is not three independent people.</li>
+        <li><strong>Withdrawn.</strong> Parker’s hosted V5 and V6, 8 September 2026. Town at /covenants stays. MIX does not ship those versions.</li>
       </ul>
       <p>A merged Active KIP is law. A tweet, a Discord rumor, and a forum thread are not. Toccata is consensus. silverc is a compiler. People still mix those two in chat.</p>
       <h2>What speed does not buy</h2>
@@ -124,6 +125,7 @@ export const doors = {
       <ul>
         <li><strong>Local models.</strong> A child budget cannot expand its parent. Atomic completion cannot take custody. Two providers cannot charge the same output twice. A bounty pays a valid correction. A permission arena is for attacks you expect to fail. Break them here. They do not touch the chain.</li>
         <li><strong>Testnet contract lab.</strong> Allowance, bundle, group pledge, schedule, delayed vault. Real Testnet-10 spends of existing primitives. Town is that lab on this site. All three keys live in this browser.</li>
+        <li><strong>Withdrawn.</strong> Parker’s hosted V5 and V6, 8 September 2026. Town stays. MIX does not ship those versions.</li>
       </ul>
       <p>The digital-cash story is still the honest one: PoW, UTXO, fair launch. The DAG is how Kaspa tries to keep that story at a payment-like interval. That is a different shape from “EVM L2 on a PoS L1.” It is also earlier. Wallets, indexers, and compilers are catching up. Discord still spends most of its volume on wallet UX, fees, and “is SilverScript the hardfork?” No. Toccata is consensus. silverc is a compiler.</p>
       <h2>Builder path that does not lie</h2>
@@ -160,6 +162,7 @@ export const doors = {
         <li><strong>Wrong.</strong> Contradicted by the node, the KIP status, or the dated snapshot. Say so.</li>
         <li><strong>Local model.</strong> You can break it here. It does not prove a mainnet product.</li>
         <li><strong>Testnet lab.</strong> Real tKAS, unaudited, one browser holding every key. Not mainnet, not independent counterparties.</li>
+        <li><strong>Withdrawn.</strong> Parker’s hosted V5 and V6, 8 September 2026. Town stays. MIX does not ship those versions.</li>
       </ul>
       <p>A consensus rule can be live while every product on top is a prototype. A GitHub org is not production. Testnet-10 is not mainnet. “Core” is not a legal title. Yonatan’s rough core list on X is a starting map, not a badge.</p>
       <h2>How to check a sentence before you post it</h2>
