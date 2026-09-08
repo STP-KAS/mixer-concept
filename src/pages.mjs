@@ -3,6 +3,7 @@ import { sources, snapshot } from './site.mjs';
 import {coordinationMarkup} from './coordination-view.mjs';
 import {people} from './doors.mjs';
 import {kgiCard, localFilm} from './community.mjs';
+import {learningRoute, lessonContext} from './learning-path.mjs';
 
 const source = key => link(...sources[key]);
 const routes = items => `<nav class="topic-list" aria-label="Related explanations">${items.map(([title, text, url])=>`<a href="${url}"><div><strong>${title}</strong><p>${text}</p></div><span aria-hidden="true">↗</span></a>`).join('')}</nav>`;
@@ -15,11 +16,11 @@ export const pages = [
         <div class="welcome-card">
           <p class="eyebrow">MIX · Parker + STP + PegLab</p>
           ${localFilm('/media/kaspa-roots.mp4')}
-          <p class="welcome-copy">- Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br>- Proof of stake replaced work with capital. That is a different system.<br>- Kaspa stayed with proof of work and made it fast and programmable. No more, no less.</p>
+          <p class="welcome-copy">- Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br><br>- Proof of stake replaced work with capital. That is a different system.<br><br>- Kaspa kept Bitcoin's proof of work and upgraded it: 10 blocks per second on average, now programmable.</p>
           <button class="primary-button" type="button" data-welcome-close>Continue</button>
         </div>
       </div>
-      <p class="home-ethos">- Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br>- Proof of stake replaced work with capital. That is a different system.<br>- Kaspa stayed with proof of work and made it fast and programmable. No more, no less.</p>
+      <p class="home-ethos">- Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br><br>- Proof of stake replaced work with capital. That is a different system.<br><br>- Kaspa kept Bitcoin's proof of work and upgraded it: 10 blocks per second on average, now programmable.</p>
       <p class="mix-credit">Parker codes the explanations. STP does the doors, wallets, and Windows preview. PegLab is the dapp unit that fails in public.</p>
       <div class="home-introduction"><p class="eyebrow">MIX</p><h1>Send money.<br>Let the network verify it.</h1><p>Kaspa lets people send coins without a central payment operator.<br>See why its miners can add blocks in parallel, then follow a payment through the network.</p><a href="#first-look">See how it works <span aria-hidden="true">↓</span></a></div>
       <nav class="mix-lanes" aria-label="Three lanes of MIX">
@@ -32,14 +33,14 @@ export const pages = [
       <section class="home-payment"><div class="home-feature-heading"><p class="eyebrow">Sending KAS</p><h2>From wallet<br>to recipient</h2><p>Track submission, inclusion, and acceptance. Each describes a different stage of a payment.</p></div>${payment()}<a class="home-feature-link" href="/why-kaspa-matters">Wallets, fees, and checking a payment <span aria-hidden="true">↗</span></a></section>
       <section class="home-payment"><div class="home-feature-heading"><p class="eyebrow">Spending rule</p><h2>A withdrawal with conditions</h2><p>Wait, amount, destination. A signature cannot authorize a forbidden spend.</p></div>${vault()}<a class="home-feature-link" href="/build-on-kaspa">What spending rules can enforce <span aria-hidden="true">↗</span></a></section>
       <section class="doors" id="doors" aria-label="Choose an intel door">
-        <p class="eyebrow">Four doors · STP</p>
+        <p class="eyebrow">Four doors</p>
         <h1>Who is reading.</h1>
-        <p>Each door is text: what Kaspa is, and how it sits next to the rest of crypto. The live DAG is below. The mechanics live in the playground.</p>
+        <p>Each door keeps the same principles: who you are, honest labels, no price talk, a model you can break. The Kaspa intel on the door is Parker’s explanations plus dated status. STP’s text-only doors lagged that. MIX does not.</p>
         <div class="door-row" aria-label="Knowledge doors">
-          <a href="/door-1">Door 1<br><span>New to crypto</span></a>
-          <a href="/door-2">Door 2<br><span>Crypto, not Kaspa</span></a>
-          <a href="/door-3">Door 3<br><span>Knows Kaspa</span></a>
-          <a href="/door-4">Door 4<br><span>Thinks they know</span></a>
+          <a href="/door-1">Door 1<br><span>New to crypto</span><em>Digital cash. Proof of work. Parallel blocks stay. Inclusion is not acceptance.</em></a>
+          <a href="/door-2">Door 2<br><span>Crypto, not Kaspa</span><em>Still PoW. A DAG is not a double-spend pass. Live versus later.</em></a>
+          <a href="/door-3">Door 3<br><span>Knows Kaspa</span><em>Skip the pitch. Toccata live. Tooling young. A live rule is not an app.</em></a>
+          <a href="/door-4">Door 4<br><span>Thinks they know</span><em>Price is not a protocol. Speed is not a new security story.</em></a>
         </div>
         <p class="small">I am… each chip opens the matching door.</p>
         <div class="door-people" aria-label="People">
@@ -47,6 +48,7 @@ export const pages = [
         </div>
         ${kgiCard('home')}
       </section>
+      ${learningRoute()}
       <section class="playground-invitation"><div><p class="eyebrow">Playground</p><h2>Bring your tKAS.<br>See the rules.</h2></div><div><p>Log in with Kasware on Testnet 10, make a local test wallet, or paste a kaspatest: address you already mine to. The models do not spend your coins unless you send.</p><a class="primary-button" href="/playground">Open the playground <span aria-hidden="true">↗</span></a></div></section>
       ${process.env.KASPA_RELEASE==='v1'?'':`<section class="playground-invitation"><div><p class="eyebrow">Sprout Harbor · Testnet-10</p><h2>Play a small KAS economy.</h2></div><div><p>Build a greenhouse, pay Pip, sell the harvest, deliver the food. Parker’s town, on free test coins. Production and physical delivery are game rules.</p><a class="primary-button" href="/covenants">Enter the town <span aria-hidden="true">↗</span></a></div></section>`}
       ${section('explore','Also here',routes([
@@ -58,7 +60,7 @@ export const pages = [
   },
   {
     file:'what-is-kaspa.html', title:'How Kaspa works', description:'See why honest miners find parallel blocks and how ordering resolves conflicting payments.',
-    body: `${intro('Understand','Nobody sees everything<br>at the same time.','Kaspa keeps blocks that honest miners find at the same time. Start with two miners, delay the news between them, then see why both blocks can stay while a double spend cannot.')}
+    body: `${lessonContext('what-is-kaspa.html')}${intro('Understand','Nobody sees everything<br>at the same time.','Kaspa keeps blocks that honest miners find at the same time. Start with two miners, delay the news between them, then see why both blocks can stay while a double spend cannot.')}
       ${network()}
       ${section('parallel-blocks','A delay can change the shape of the history.',rows([
         ['News arrives in time','<p>Miner 1 finds B. If miner 2 hears about B before finding C, C can reference B.</p>'],
@@ -81,7 +83,7 @@ export const pages = [
   },
   {
     file:'why-kaspa-matters.html', title:'Using KAS', description:'Understand wallets, payment outputs, fees, change, and what a transaction explorer can establish.',
-    body:`${intro('Use KAS','Follow your payment.','Sending coins creates a payment, change and a fee. Follow those amounts first, then learn what your wallet controls and what an explorer can actually confirm.')}
+    body:`${lessonContext('why-kaspa-matters.html')}${intro('Use KAS','Follow your payment.','Sending coins creates a payment, change and a fee. Follow those amounts first, then learn what your wallet controls and what an explorer can actually confirm.')}
       ${section('amounts','Where your payment, change, and fee go.',transaction(), 'A transaction consumes earlier outputs and creates new ones. Payment, change, and fees account for the input value.')}
       ${section('wallets','Who controls the keys?',rows([
         ['Your own wallet','<p>You control the keys and their backup. Losing them can mean losing access. Never share a recovery phrase with a person, website, or explorer.</p>'],
@@ -98,7 +100,7 @@ export const pages = [
   },
   {
     file:'skeptical-case.html', title:'Kaspa’s tradeoffs and risks', description:'Inspect Kaspa’s security assumptions, operating costs, and unresolved questions without price predictions.',
-    body:`${intro('Evaluate','What does the design cost?' ,'Keeping parallel blocks can accommodate frequent discoveries. Nodes still have to receive and check them, and mining can still concentrate. Compare these costs before judging the speed.')}
+    body:`${lessonContext('skeptical-case.html')}${intro('Evaluate','What does the design cost?' ,'Keeping parallel blocks can accommodate frequent discoveries. Nodes still have to receive and check them, and mining can still concentrate. Compare these costs before judging the speed.')}
       ${section('tradeoffs','Security and operating costs',tradeoffComparison())}
       ${section('security','What must keep working',rows([
         ['Consensus assumptions','<p>The security argument depends on honest work and network conditions. A diagram that converges is not proof that all adversarial cases converge safely.</p>'],
@@ -127,7 +129,7 @@ export const pages = [
   },
   {
     file:'build-on-kaspa.html', title:'Build on Kaspa', description:'Explore covenant rules and find current integration, compiler, and application-model documentation.',
-    body:`${intro('Build','Payments and spending rules','A spending rule can require a wait, limit the amount and name the recipient. Try breaking each condition, then see what building a complete application still requires.')}
+    body:`${lessonContext('build-on-kaspa.html')}${intro('Build','Payments and spending rules','A spending rule can require a wait, limit the amount and name the recipient. Try breaking each condition, then see what building a complete application still requires.')}
       <div class="action-row">${process.env.KASPA_RELEASE==='v1'?'':'<a class="primary-button" href="/applications">Try the Testnet-10 applications ↗</a>'}<a href="/money">Explore reserves, borrowing, and prediction payouts ↗</a></div>
       ${section('spending-rules','A withdrawal with three conditions',vault(),'A covenant can constrain how an output is spent. Try a withdrawal against three conditions.')}
       ${section('start','Integration tasks',rows([
