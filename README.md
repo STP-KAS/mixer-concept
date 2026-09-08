@@ -2,7 +2,7 @@
 
 **Parker’s Kaspa Explained + STP doors and wallets + PegLab.**
 
-Public site: [https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club](https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club)  
+Public site: [https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club](https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club)  
 Local preview: [http://127.0.0.1:8910/](http://127.0.0.1:8910/)
 
 Parker codes the explanations. STP does the doors, Kasware/Kastle, and Windows preview. PegLab is the dapp unit that depegs on purpose.

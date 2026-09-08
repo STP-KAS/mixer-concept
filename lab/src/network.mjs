@@ -10,4 +10,4 @@ export const SERIES_ID = '5065674c61622d746e31302d763100000000000000000000000000
 export const GENESIS_POOL_SOMPI = 200_000_000n;
 export const MAX_GENESIS_FEE = 1_000_000n;
 export const MINING_ADDRESS = 'kaspatest:qqup3k4ru5uhj9swa05afa3zqcwkyhtv9vz9dme68cglza73mc5yk4r7an5cj';
-export const PUBLIC_DOMAIN = 'mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club';
+export const PUBLIC_DOMAIN = 'mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club';
