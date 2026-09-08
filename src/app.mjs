@@ -41,7 +41,7 @@ void import('./learning-ui.mjs');
     });
   }
 }
-import {networkState, spendState, miningState, vaultState, transactionState, formatKas} from './models.mjs';
+import {networkState, spendState, miningState, vaultState, permissionState, transactionState, formatKas} from './models.mjs';
 
 const all = (selector, root=document) => [...root.querySelectorAll(selector)];
 const one = (selector, root=document) => root.querySelector(selector);
@@ -143,6 +143,17 @@ for(const lab of all('[data-lab]')) {
     s.checks.forEach((pass,i)=>{q(`[data-check="${i}"]`).dataset.pass=String(pass);text(`[data-check="${i}"] [data-check-mark]`,pass?'✓':'×');});
     text('[data-vault-answer]',s.accepted?'All three conditions pass. The example releases 2,000 KAS and retains 8,000 KAS.':'At least one condition fails. The example releases nothing. Its balance stays at 10,000 KAS.');
   });
+  if(lab.dataset.lab==='permission') q('[data-permission-action]').addEventListener('change',event=>{
+    const s=permissionState(event.target.value);text('[data-permission-remaining]',s.remaining);
+    s.checks.forEach((pass,i)=>{q(`[data-check="${i}"]`).dataset.pass=String(pass);text(`[data-check="${i}"] [data-check-mark]`,pass?'✓':'×');});
+    const answers={
+      overcap:'Rejected. The child cap is 20. A helper cannot raise it.',
+      extraservice:'Rejected. Storage is outside the child’s permission.',
+      expand:'Rejected. A child cannot exceed its parent’s per-payment cap.',
+      valid:'Accepted. Paid 15 for compute. Remaining child budget is 15.',
+    };
+    text('[data-permission-answer]',answers[event.target.value]||answers.overcap);
+  });
   if(lab.dataset.lab==='transaction') q('[data-payment-amount]').addEventListener('input',event=>{
     const s=transactionState(event.target.value);text('[data-tx-amount]',formatKas(s.paid));text('[data-tx-payment]',formatKas(s.paid));text('[data-tx-change]',s.valid?formatKas(s.change):'Insufficient input');
     text('[data-tx-answer]',s.valid?'Payment, change, and fee use the entire input. Change creates another spendable output for the sender.':'The requested payment leaves nothing for the fee. This transaction cannot be constructed from this input.');
@@ -200,6 +211,7 @@ const lessonSteps={
  transaction:[['Send part of your coins','A 7 KAS payment leaves change after the fee. All three amounts use the same input.',r=>setInput(r,'[data-payment-amount]',7)],['Try to send the whole input','The fee still needs to come from somewhere. A payment cannot use more value than the input provides.',r=>setInput(r,'[data-payment-amount]',12.5)],['Leave room for the fee','A smaller payment fits again. Change is another output belonging to the sender.',r=>setInput(r,'[data-payment-amount]',12)]],
  mining:[['Start with a small miner','At 1% of network work, the expected share is small even when the network finds many blocks.',r=>{r.querySelector('[data-mining-reset]').click();setInput(r,'[data-share]',1);}],['Try another minute','The share has not changed. The sample can still change because discoveries are uncertain.',r=>r.querySelector('[data-mining-sample]').click()],['Increase the share','More network work raises expected discoveries. This model does not calculate costs or profit.',r=>setInput(r,'[data-share]',5)]],
  vault:[['Try to withdraw too soon','The waiting condition fails. A signature alone cannot authorize this withdrawal.',r=>setInput(r,'[data-vault-action]','early')],['Wait, but ask for too much','The amount limit also matters. Satisfying one condition does not bypass another.',r=>setInput(r,'[data-vault-action]','large')],['Use the wrong destination','The coins must also go to the address allowed by the rule.',r=>setInput(r,'[data-vault-action]','wrong')],['Satisfy all three conditions','The permitted withdrawal succeeds and the remainder keeps the spending rule.',r=>setInput(r,'[data-vault-action]','valid')]],
+ permission:[['Over the child cap','A helper cannot raise its own payment cap. 25 is above 20, so nothing moves.',r=>setInput(r,'[data-permission-action]','overcap')],['Ask for a service you were not given','Storage is on the parent, not the child. The job does not expand.',r=>setInput(r,'[data-permission-action]','extraservice')],['Try to beat the parent cap','A child cannot exceed the parent’s per-payment cap of 30.',r=>setInput(r,'[data-permission-action]','expand')],['Stay inside the job','15 for compute is inside the child cap, the parent cap, and the reserved budget.',r=>setInput(r,'[data-permission-action]','valid')]],
  payment:[['Send the payment','Submission means the transaction was sent. It does not mean the network accepted it.',r=>r.querySelector('button[data-stage="0"]').click()],['Include it in a block','A miner includes the transaction. The network still needs to decide whether its spend is valid.',r=>r.querySelector('button[data-stage="1"]').click()],['Check acceptance','The transaction is accepted in the current history. The recipient now chooses how long to wait.',r=>r.querySelector('button[data-stage="2"]').click()],['Let more work accumulate','Additional work supports confidence under the security assumptions. There is no universal waiting time here.',r=>r.querySelector('button[data-stage="3"]').click()]]
 };
 function setInput(root,selector,value){const input=root.querySelector(selector);input.value=String(value);input.dispatchEvent(new Event(input.tagName==='SELECT'?'change':'input',{bubbles:true}));}

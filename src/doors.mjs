@@ -40,7 +40,7 @@ export const doors = {
       <ul>
         <li>Do not paste a recovery phrase into a website, a chat, or this site. Nobody here can recover a seed.</li>
         <li>Learn on Testnet-10 first. tKAS is faucet money. It is not mainnet KAS.</li>
-        <li>Watch the Graph Inspector on this page for the live picture. A candle chart is not that picture.</li>
+        <li>Watch the Graph Inspector on this page for the live picture. If it stops, treat it as paused, not as a dead network. A candle chart is not that picture.</li>
         <li>Price talk is not a source. If someone leads with a target, close the tab and come back here.</li>
         <li>When you have a question, say what you did, which network, and the error text. Ask in Help, not in a random reply.</li>
       </ul>
@@ -77,6 +77,8 @@ export const doors = {
         <li><strong>Prototype.</strong> Argent. Examples exist. The README says it is not release-ready.</li>
         <li><strong>Research.</strong> vProgs. Repository existence is not production.</li>
         <li><strong>Proposed.</strong> DAGKnight. The rusty <code>dagknight</code> branch is not merged. No mainnet activation is documented in the checked KIP or node releases.</li>
+        <li><strong>Local model.</strong> Dated 8 September 2026. Inherited budget, atomic offer completion, competing execution, a correction bounty, and a permission arena. You can break them. They do not sign or submit.</li>
+        <li><strong>Testnet lab.</strong> Existing covenant primitives on Testnet-10. This site’s Town is that lab. One browser holds every key. That is not three independent people.</li>
       </ul>
       <p>A merged Active KIP is law. A tweet, a Discord rumor, and a forum thread are not. Toccata is consensus. silverc is a compiler. People still mix those two in chat.</p>
       <h2>What speed does not buy</h2>
@@ -117,6 +119,12 @@ export const doors = {
         <li><strong>Argent.</strong> Prototype language. Not release-ready per its own README.</li>
         <li><strong>vProgs.</strong> Research: based programs and validity proofs. Do not demo them as a mainnet product.</li>
       </ol>
+      <h2>Labs, dated 8 September 2026</h2>
+      <p>Two new labs exist on the education side. They are not mainnet products.</p>
+      <ul>
+        <li><strong>Local models.</strong> A child budget cannot expand its parent. Atomic completion cannot take custody. Two providers cannot charge the same output twice. A bounty pays a valid correction. A permission arena is for attacks you expect to fail. Break them here. They do not touch the chain.</li>
+        <li><strong>Testnet contract lab.</strong> Allowance, bundle, group pledge, schedule, delayed vault. Real Testnet-10 spends of existing primitives. Town is that lab on this site. All three keys live in this browser.</li>
+      </ul>
       <p>The digital-cash story is still the honest one: PoW, UTXO, fair launch. The DAG is how Kaspa tries to keep that story at a payment-like interval. That is a different shape from “EVM L2 on a PoS L1.” It is also earlier. Wallets, indexers, and compilers are catching up. Discord still spends most of its volume on wallet UX, fees, and “is SilverScript the hardfork?” No. Toccata is consensus. silverc is a compiler.</p>
       <h2>Builder path that does not lie</h2>
       <p>Testnet-10 is the builder network. Do not use testnet-12. Addresses start with <code>kaspatest:</code>. Official start: kaspa.org/build. This site’s Node tab is the Windows/Linux/mac path that actually ran: dedicated folder, rusty-kaspa v2.0.1, CPU miner on 16210, explorer tn10.kaspa.stream. GPU on public TN10 is physics, not etiquette.</p>
@@ -144,12 +152,14 @@ export const doors = {
       <p>It is PoW cash with a DAG history, not a staking chain, not an EVM, not a rollup brand. 10 BPS is live. Toccata is live. Tooling is young. vProgs are later. DAGKnight is proposed. Those sentences are enough. Extra adjectives are usually a pitch.</p>
       <p>Bitcoiners will ask about settlement and node cost. Answer: recipients pick a policy; nodes still hear every block; faster interval is not Bitcoin’s culture copied. Ethereum people will look for a VM and a token standard. Answer: covenants on UTXOs, not the EVM; KCC-0020 is Draft. Solana people will look for throughput and then skip the security model. Answer: many PoW blocks, not a leader schedule; capacity is not demand.</p>
       <h2>Labels, then a source</h2>
-      <p>Use four words and mean them.</p>
+      <p>Use these words and mean them.</p>
       <ul>
         <li><strong>Live.</strong> In a release, activated, observable on the public network. Example: Toccata at a published DAA score.</li>
         <li><strong>Roadmap.</strong> Written intent with a document. Not a date you invented.</li>
         <li><strong>Research.</strong> A paper, a branch, a prototype. Not a product.</li>
         <li><strong>Wrong.</strong> Contradicted by the node, the KIP status, or the dated snapshot. Say so.</li>
+        <li><strong>Local model.</strong> You can break it here. It does not prove a mainnet product.</li>
+        <li><strong>Testnet lab.</strong> Real tKAS, unaudited, one browser holding every key. Not mainnet, not independent counterparties.</li>
       </ul>
       <p>A consensus rule can be live while every product on top is a prototype. A GitHub org is not production. Testnet-10 is not mainnet. “Core” is not a legal title. Yonatan’s rough core list on X is a starting map, not a badge.</p>
       <h2>How to check a sentence before you post it</h2>
@@ -159,6 +169,7 @@ export const doors = {
         <li>Did you date the claim? Supply, DAA, and subsidy move.</li>
         <li>Are you mixing protocol (Toccata) with a compiler (SilverScript) or a research repo (vProgs)?</li>
         <li>Would the sentence still be true if the KAS price were zero?</li>
+        <li>Are you calling a local model a live app, or a Testnet-10 lab a mainnet product?</li>
       </ol>
       <p>If step 5 fails, you were talking about a market, not the machine. Take it to Moonboy and leave it there.</p>
       <h2>What an expert still owes</h2>
