@@ -9,19 +9,20 @@ mountDoors();
 if (document.querySelector('[data-use-case-exhibit]')) void import('./use-case-demo.mjs');
 void import('./learning-ui.mjs');
 {
-  const welcome = document.querySelector('[data-welcome]');
-  if (welcome) {
+  const welcome = document.querySelector('.welcome[data-welcome]');
+  if (welcome && welcome !== document.documentElement && welcome !== document.body) {
     const key = 'kaspa-welcome-seen';
     const video = welcome.querySelector('video');
     const closed = () => welcome.hidden;
     const remember = () => {
       try { sessionStorage.setItem(key, '1'); } catch {}
-      document.documentElement.dataset.welcome = 'seen';
+      document.documentElement.dataset.welcomeSeen = '1';
     };
     const hide = () => {
       video?.pause();
       welcome.hidden = true;
       remember();
+      document.documentElement.dataset.welcomeSeen = '1';
     };
     try {
       if (sessionStorage.getItem(key)) hide();
