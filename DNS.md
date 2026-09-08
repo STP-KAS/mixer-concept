@@ -1,6 +1,6 @@
 # Point the GoDaddy domain at MIX
 
-Public site: **https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club**
+Public site: **https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club**
 
 Localhost stays: **http://127.0.0.1:8910/**
 
@@ -10,7 +10,7 @@ Venture: [GoDaddy venture](https://dashboard.godaddy.com/venture?ventureId=8a0f8
 
 ## GoDaddy DNS (this domain)
 
-In [the domain settings](https://dcc.godaddy.com/control/portfolio/mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club/settings) open **DNS** → **Manage DNS**.
+In [the domain settings](https://dcc.godaddy.com/control/portfolio/mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club/settings) open **DNS** → **Manage DNS**.
 
 Delete conflicting A / CNAME records for `@` and `www` if GoDaddy parked the domain.
 
@@ -33,7 +33,7 @@ Save. Wait 5–30 minutes (sometimes a few hours).
 Then in the GitHub repo **Settings → Pages**, confirm:
 
 - Source: `gh-pages` / `/`
-- Custom domain: `mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club`
+- Custom domain: `mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club`
 - Check **Enforce HTTPS** once the certificate appears.
 
 Do not put `.local/` seeds on this domain.

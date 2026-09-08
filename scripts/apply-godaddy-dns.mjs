@@ -5,7 +5,7 @@ import {homedir} from 'node:os';
 const require = createRequire('C:/Users/Remco/kaspa-explained/package.json');
 const {chromium} = require('playwright');
 
-const DOMAIN = 'mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club';
+const DOMAIN = 'mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club';
 const DST = join(homedir(), 'AppData/Local/Temp/stp-godaddy-chrome');
 const GH_A = ['185.199.108.153', '185.199.109.153', '185.199.110.153', '185.199.111.153'];
 const GH_AAAA = ['2606:50c0:8000::153', '2606:50c0:8001::153', '2606:50c0:8002::153', '2606:50c0:8003::153'];

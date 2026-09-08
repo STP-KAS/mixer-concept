@@ -1,6 +1,6 @@
 // Applies GitHub Pages DNS at GoDaddy for @ and www only.
 // Does not wipe MX/TXT. Keys from env. Never commit secrets.
-const DOMAIN = 'mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club';
+const DOMAIN = 'mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club';
 const key = process.env.GODADDY_API_KEY;
 const secret = process.env.GODADDY_API_SECRET;
 if (!key || !secret) {

@@ -1,6 +1,6 @@
 export const site = {
   title: 'MIX',
-  domain: 'https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club',
+  domain: 'https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club',
   localHost: 'mix.localhost',
   checked: '2026-09-08',
   navigation: [
