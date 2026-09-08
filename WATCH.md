@@ -20,5 +20,5 @@ An hourly Grok automation and a session monitor keep SHAs. When either `main` mo
 
 Last seen 2026-09-08:
 
-- Parker `upstream/main` `975da5422a556fbd323b0a152c70c2c136da4899`
+- Parker `upstream/main` `8ad2b604102694464a1206b4fdc66ddab09f37bf`
 - STP `stp/main` `bd2edeb5abfde572d971a0369ef6487bc1803754`
