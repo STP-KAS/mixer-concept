@@ -29,7 +29,7 @@ export function kgiCard(kind = 'door') {
     <p>${lead}</p>
     <a class="kgi-link" href="${KGI}" target="_blank" rel="noopener noreferrer">Open kgi.kaspad.net <span aria-hidden="true">↗</span></a>
     <iframe class="kgi-frame" title="Kaspa Graph Inspector" src="${KGI}" loading="lazy" referrerpolicy="no-referrer"></iframe>
-    <figcaption class="small">If the frame is blank, the inspector blocked embedding. The link still works.</figcaption>
+    <figcaption class="small">If the frame is blank, the inspector blocked embedding. If the picture stops, treat it as paused, not as a failed network. The link still works.</figcaption>
   </figure>`;
 }
 

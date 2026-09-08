@@ -1,6 +1,6 @@
 import {doors, demos, doorKgi, peopleChips} from './doors.mjs';
 import {localFilm} from './community.mjs';
-import {network, payment, spend, vault, tradeoffComparison} from './components.mjs';
+import {network, payment, spend, vault, permission, tradeoffComparison} from './components.mjs';
 import {snapshot} from './site.mjs';
 
 const routes = items => `<nav class="topic-list" aria-label="Next reading">${items.map(([title, text, url]) =>
@@ -45,10 +45,11 @@ const models = {
       ${network({introductory: true})}
     </div>`,
   3: () => `<div class="door-model">
-      <p class="eyebrow">Kaspa intel · dated</p>
+      <p class="eyebrow">Kaspa intel · dated 8 Sep 2026</p>
       <h2>A live rule is not an app.</h2>
-      <p>Toccata is live. SilverScript is a release candidate. vProgs are research. DAGKnight is Proposed. A spending rule you can fail is more useful than a brochure.</p>
+      <p>Toccata is live. SilverScript is a release candidate. vProgs are research. DAGKnight is Proposed. A helper cannot expand the permission you gave it. Town is the Testnet-10 lab, not these local models.</p>
       ${vault()}
+      ${permission()}
     </div>`,
   4: () => `<div class="door-model">
       <p class="eyebrow">Kaspa intel · tradeoffs</p>
@@ -61,7 +62,7 @@ const models = {
 const explore = [
   ['Playground', 'Delay, double spend, mining share, spending rules. Bring tKAS if you have it.', '/playground'],
   ['Explore the DAG', 'kaspa.stream and the Graph Inspector. No ticker required.', '/explore'],
-  ['Town', 'A small Testnet-10 economy. Game rules on top of real spends.', '/covenants'],
+  ['Town', 'Testnet-10 contract lab. Game rules on real spends. One browser holds every key.', '/covenants'],
   ['Node', 'TN10 node plus CPU miner, or a mainnet follower. Do not mix the flags.', '/node'],
 ];
 

@@ -1,7 +1,7 @@
 import {transactionFlow,ledgerGlyph} from './flow-diagrams.mjs';
 import {transactionState} from './models.mjs';
 import {networkDiagram} from './network-diagram.mjs';
-import { networkState, spendState, miningState, vaultState } from './models.mjs';
+import { networkState, spendState, miningState, vaultState, permissionState } from './models.mjs';
 
 export const escape = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
 export const link = (label, href) => `<a href="${escape(href)}">${label}<span aria-hidden="true"> ↗</span></a>`;
@@ -72,6 +72,26 @@ export function vault() {
     <label class="select-control"><span>Attempt a withdrawal</span><select data-vault-action><option value="early">Too early: step 30</option><option value="large">Too much: 3,000 KAS</option><option value="wrong">Wrong destination</option><option value="valid">All conditions satisfied</option></select></label>
     <figcaption class="experiment-answer" data-vault-answer aria-live="polite">Rejected. The signature alone cannot bypass the waiting rule.</figcaption>
     ${note('No wallet or real funds. Each attempt starts from the same 10,000 KAS. “Steps” are illustrative; this is not a deployable contract or a specified locktime encoding.')}</figure>`;
+}
+
+export function permission() {
+  const s = permissionState();
+  const rules = [
+    'Child may spend only for compute',
+    'Child payments at most 20',
+    'Child cannot exceed the parent cap of 30',
+    'Child remaining budget is 30',
+  ];
+  return `<figure class="experiment vault" data-lab="permission"><div class="experiment-label"><span>A helper with a narrower job</span><span>Local model · 8 Sep 2026</span></div>
+    <div class="vault-scene"><div class="vault-balance"><span class="object-label">Child remaining</span><strong data-permission-remaining>${s.remaining}</strong><p>Parent budget 100. Parent cap 30. Reserved 30.</p></div><div class="vault-rules">${rules.map((r,i)=>`<div data-check="${i}" data-pass="${s.checks[i]}"><span data-check-mark>${s.checks[i]?'✓':'×'}</span>${r}</div>`).join('')}</div></div>
+    <label class="select-control"><span>Attempt a child payment</span><select data-permission-action>
+      <option value="overcap">Pay 25 for compute (over the child cap)</option>
+      <option value="extraservice">Pay 10 for storage (outside the job)</option>
+      <option value="expand">Pay 40 for compute (over the parent cap)</option>
+      <option value="valid">Pay 15 for compute</option>
+    </select></label>
+    <figcaption class="experiment-answer" data-permission-answer aria-live="polite">Rejected. The child cap is 20. A helper cannot raise it.</figcaption>
+    ${note('Design model only. It does not sign, submit, or run the Kaspa VM. Town is the Testnet-10 lab for real covenant spends. One browser holds every key there.')}</figure>`;
 }
 
 export function transaction() {

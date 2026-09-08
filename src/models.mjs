@@ -67,6 +67,30 @@ export function vaultState(action = 'early') {
   return { ...attempt, checks, accepted, balance: 10000 - (accepted ? attempt.requested : 0) };
 }
 
+// Local design model. A child budget cannot expand its parent. No chain, no VM.
+export function permissionState(action = 'overcap') {
+  const parent = Object.freeze({ budget: 100, cap: 30, services: Object.freeze(['compute', 'storage']) });
+  const child = Object.freeze({ reserved: 30, cap: 20, services: Object.freeze(['compute']) });
+  const cases = {
+    overcap: { amount: 25, service: 'compute' },
+    extraservice: { amount: 10, service: 'storage' },
+    expand: { amount: 40, service: 'compute' },
+    valid: { amount: 15, service: 'compute' },
+  };
+  const attempt = cases[action] || cases.overcap;
+  const checks = [
+    child.services.includes(attempt.service),
+    attempt.amount <= child.cap,
+    attempt.amount <= parent.cap,
+    attempt.amount <= child.reserved,
+  ];
+  const accepted = checks.every(Boolean);
+  return Object.freeze({
+    ...attempt, parent, child, checks, accepted,
+    remaining: child.reserved - (accepted ? attempt.amount : 0),
+  });
+}
+
 // Reproducible draws illustrate mining variance, not future network observations.
 export function miningState(share = 1, seed = 42) {
   share = clamp(share, .1, 10, 1);
