@@ -25,6 +25,14 @@
 @media(max-width:760px){.network-presets{padding:16px 20px 0;gap:8px}.network-presets button{padding:10px 12px;font-size:.875rem}}
 
 .home-ethos{margin:0 0 28px;max-width:46ch;font-size:1rem;line-height:1.55;color:var(--muted)}
+.mix-credit{margin:0 0 28px;font-size:.875rem;color:var(--muted);max-width:56ch}
+.mix-lanes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 40px}
+.mix-lanes a{display:block;padding:20px 18px;border:1px solid var(--rule);border-radius:16px;background:var(--paper);text-decoration:none;min-height:44px}
+.mix-lanes a:hover{border-color:var(--green);color:var(--text)}
+.mix-lanes span{display:block;font-size:.75rem;font-weight:600;color:var(--green);letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.mix-lanes strong{display:block;font-size:1.25rem;letter-spacing:-.03em;margin-bottom:8px}
+.mix-lanes p{font-size:.9375rem;color:var(--muted);margin:0}
+@media(max-width:760px){.mix-lanes{grid-template-columns:1fr}}
 .welcome{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:16px;background:#111c}
 .welcome-card{width:min(720px,calc(100vw - 32px));padding:22px 22px 24px;border:1px solid var(--rule);border-radius:20px;background:var(--paper);box-shadow:var(--shadow)}
 .welcome-card .eyebrow{margin-bottom:12px}
