@@ -1,26 +1,50 @@
 # MIX · mixer concept
 
-Version **mixer concept**: the best of Parker’s Kaspa Explained and STP’s doors, plus PegLab, live DAG, wallet, Node, and honest labels.
+Public site: **https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club**
 
-Public: [https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club](https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club)  
-Local: [http://127.0.0.1:8910/](http://127.0.0.1:8910/)  
-What this version is: [/mixer](https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club/mixer)
+Version **mixer concept** is the MIX of Parker’s [Kaspa Explained](https://github.com/parker2017code/kaspa-explained) and STP’s [doors overlay](https://github.com/STP-KAS/kaspaexplained-delusional-stp), plus PegLab, a live DAG, wallet, Node, and honest labels.
 
-## Best of both
+This is independent education. Not a token. Not a bank. Not kaspaexplained.com.
 
-| Parker | STP |
-| --- | --- |
-| Inspectable models, spending-rule stories, learning route | Four doors, people chips, PoW ethos |
-| Town, wrap, sources | Node (TN10 tKAS vs mainnet follower) |
-| Payment / inclusion / acceptance | Kasware / Kastle, Windows preview |
+## What you get
 
-## Other parameters
+| Parker | STP | Also here |
+| --- | --- | --- |
+| Inspectable payment, DAG, and spending-rule models | Four doors: who is reading | PegLab (depegs on purpose) |
+| Learning route | PoW ethos, no price talk | kaspa.stream + Graph Inspector |
+| Town economy, wrap, sources | Node: TN10 tKAS vs mainnet follower | Kasware / Kastle holdings |
+| Fair exchange / helper / verified work | Windows local preview | Help, search, dated status |
 
-PegLab, kaspa.stream + Graph Inspector, wallet holdings, Discord help, dated status, search, moonboy refusal, Kaspa Silver.
+Door **principles** stay. Kaspa **intel** on the doors is Parker’s models plus dated live / roadmap / research / wrong labels.
 
-Door principles stay. Kaspa intel on the doors is Parker’s models plus dated labels.
+[What mixer concept is](https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club/mixer) · [Door 1](https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club/door-1) · [Playground](https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club/playground)
+
+## Run locally
+
+Node 22+. Windows:
 
 ```powershell
-cd C:\Users\Remco\mix-club
+git clone https://github.com/STP-KAS/mixer-concept.git
+cd mixer-concept
+npm ci
 .\start-ui.ps1
 ```
+
+Then open http://127.0.0.1:8910/
+
+PegLab host faucet (optional, local only): http://127.0.0.1:8765/ from the separate [peglab-stp](https://github.com/STP-KAS/peglab-stp) server. Public `/lab/` never ships a seed.
+
+## Remotes
+
+- `origin` — this repo (mixer concept)
+- `upstream` — [parker2017code/kaspa-explained](https://github.com/parker2017code/kaspa-explained)
+- `stp` — [STP-KAS/kaspaexplained-delusional-stp](https://github.com/STP-KAS/kaspaexplained-delusional-stp)
+
+```powershell
+git fetch upstream
+git fetch stp
+```
+
+## License
+
+Project-controlled code is under PolyForm Noncommercial 1.0.0. Educational content is CC BY-NC 4.0. See [LICENSE.md](LICENSE.md) and [THIRD_PARTY.md](THIRD_PARTY.md).
