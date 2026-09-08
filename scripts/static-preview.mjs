@@ -4,7 +4,7 @@ import {resolve,extname,sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 export function staticPreview(directory='dist-v1'){
-  const root=resolve(directory),mime={'.html':'text/html; charset=utf-8','.css':'text/css','.mjs':'text/javascript','.js':'text/javascript','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon','.pdf':'application/pdf','.xml':'application/xml','.json':'application/json','.mp4':'video/mp4','.webm':'video/webm'};
+  const root=resolve(directory),mime={'.html':'text/html; charset=utf-8','.css':'text/css','.mjs':'text/javascript','.js':'text/javascript','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon','.pdf':'application/pdf','.xml':'application/xml','.json':'application/json','.mp4':'video/mp4','.webm':'video/webm','.md':'text/markdown; charset=utf-8','.wasm':'application/wasm'};
   return createServer(async(req,res)=>{
     let path;try{path=decodeURIComponent(new URL(req.url,'http://localhost').pathname);}catch{res.writeHead(400);res.end();return;}
     let file=resolve(root,'.'+path),code=200;
@@ -15,12 +15,13 @@ export function staticPreview(directory='dist-v1'){
   });
 }
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
-  const port=Number(process.env.PORT||8899);
+  const port=Number(process.env.PORT||8910);
   const host=process.env.HOST||'127.0.0.1';
-  const name=process.env.LOCAL_HOST||'kaspaexplained-stp.localhost';
-  staticPreview(process.argv[2]||'dist-v1').listen(port,host,()=>{
-    console.log(`Kaspa Explained STP`);
+  const name=process.env.LOCAL_HOST||'mix.localhost';
+  staticPreview(process.argv[2]||'dist').listen(port,host,()=>{
+    console.log(`MIX`);
     console.log(`http://${host}:${port}/`);
     console.log(`http://${name}:${port}/`);
+    console.log(`http://${host}:${port}/lab/`);
   });
 }

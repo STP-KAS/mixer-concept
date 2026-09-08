@@ -10,18 +10,29 @@ const intro = (eyebrow, title, lead) => `<div class="page-intro intro-${eyebrow.
 
 export const pages = [
   {
-    file:'index.html', title:'Kaspa Explained STP', description:'Explore how Kaspa payments, parallel blocks, and spending rules work through interactive explanations.',
-    body: `<div class="welcome" data-welcome role="dialog" aria-modal="true" aria-label="Kaspa Explained STP">
+    file:'index.html', title:'MIX', description:'Parker’s Kaspa Explained, STP doors and wallets, and PegLab in one place. Education you can inspect. A lab that depegs on purpose.',
+    body: `<div class="welcome" data-welcome role="dialog" aria-modal="true" aria-label="MIX">
         <div class="welcome-card">
-          <p class="eyebrow">Kaspa Explained STP</p>
+          <p class="eyebrow">MIX · Parker + STP + PegLab</p>
           ${localFilm('/media/kaspa-roots.mp4')}
           <p class="welcome-copy">- Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br>- Proof of stake replaced work with capital. That is a different system.<br>- Kaspa stayed with proof of work and made it fast and programmable. No more, no less.</p>
           <button class="primary-button" type="button" data-welcome-close>Continue</button>
         </div>
       </div>
       <p class="home-ethos">- Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br>- Proof of stake replaced work with capital. That is a different system.<br>- Kaspa stayed with proof of work and made it fast and programmable. No more, no less.</p>
-      <section class="doors" aria-label="Choose an intel door">
-        <p class="eyebrow">Four doors</p>
+      <p class="mix-credit">Parker codes the explanations. STP does the doors, wallets, and Windows preview. PegLab is the dapp unit that fails in public.</p>
+      <div class="home-introduction"><p class="eyebrow">MIX</p><h1>Send money.<br>Let the network verify it.</h1><p>Kaspa lets people send coins without a central payment operator.<br>See why its miners can add blocks in parallel, then follow a payment through the network.</p><a href="#first-look">See how it works <span aria-hidden="true">↓</span></a></div>
+      <nav class="mix-lanes" aria-label="Three lanes of MIX">
+        <a href="/what-is-kaspa"><span>Learn</span><strong>Parker’s guide</strong><p>Payments, parallel blocks, spending rules, and sources you can check.</p></a>
+        <a href="#doors"><span>Doors</span><strong>STP UX</strong><p>Who is reading. Kasware and Kastle. Node. Honest labels.</p></a>
+        <a href="/peglab"><span>PegLab</span><strong>Dapp unit</strong><p>Skip a bank dollar. Watch a 2 tKAS pool depeg on purpose.</p></a>
+      </nav>
+      <div id="first-look" class="home-demonstration">${network({introductory:true})}</div>
+      <div class="under-experiment">${link('Follow the blocks and the information between them', '/what-is-kaspa')}</div>
+      <section class="home-payment"><div class="home-feature-heading"><p class="eyebrow">Sending KAS</p><h2>From wallet<br>to recipient</h2><p>Track submission, inclusion, and acceptance. Each describes a different stage of a payment.</p></div>${payment()}<a class="home-feature-link" href="/why-kaspa-matters">Wallets, fees, and checking a payment <span aria-hidden="true">↗</span></a></section>
+      <section class="home-payment"><div class="home-feature-heading"><p class="eyebrow">Spending rule</p><h2>A withdrawal with conditions</h2><p>Wait, amount, destination. A signature cannot authorize a forbidden spend.</p></div>${vault()}<a class="home-feature-link" href="/build-on-kaspa">What spending rules can enforce <span aria-hidden="true">↗</span></a></section>
+      <section class="doors" id="doors" aria-label="Choose an intel door">
+        <p class="eyebrow">Four doors · STP</p>
         <h1>Who is reading.</h1>
         <p>Each door is text: what Kaspa is, and how it sits next to the rest of crypto. The live DAG is below. The mechanics live in the playground.</p>
         <div class="door-row" aria-label="Knowledge doors">
@@ -37,8 +48,9 @@ export const pages = [
         ${kgiCard('home')}
       </section>
       <section class="playground-invitation"><div><p class="eyebrow">Playground</p><h2>Bring your tKAS.<br>See the rules.</h2></div><div><p>Log in with Kasware on Testnet 10, make a local test wallet, or paste a kaspatest: address you already mine to. The models do not spend your coins unless you send.</p><a class="primary-button" href="/playground">Open the playground <span aria-hidden="true">↗</span></a></div></section>
+      ${process.env.KASPA_RELEASE==='v1'?'':`<section class="playground-invitation"><div><p class="eyebrow">Sprout Harbor · Testnet-10</p><h2>Play a small KAS economy.</h2></div><div><p>Build a greenhouse, pay Pip, sell the harvest, deliver the food. Parker’s town, on free test coins. Production and physical delivery are game rules.</p><a class="primary-button" href="/covenants">Enter the town <span aria-hidden="true">↗</span></a></div></section>`}
       ${section('explore','Also here',routes([
-        ...(process.env.KASPA_RELEASE==='v1'?[]:[['PegLab','Benchmark for dapps that need stables. Proof of concept. Not a business.','/peglab'],['Explore','kaspa.stream for ordinary people, plus the live DAG.','/explore']]),
+        ...(process.env.KASPA_RELEASE==='v1'?[]:[['PegLab engine','Browser depeg lab. Tiny pool. Will depeg.','/peglab'],['PegLab live','KasWare log-in, vision, mainnet notes.','/lab/'],['Explore','kaspa.stream for ordinary people, plus the live DAG.','/explore']]),
         ['Using KAS','Wallets, sending, receiving, and reading a transaction.','/why-kaspa-matters'],
         ['Building on Kaspa','Node, miner, and current builder docs.','/build-on-kaspa'],
         ['What is live','Dated status. Live, roadmap, research, wrong.','/status'],
@@ -275,7 +287,7 @@ if(process.env.KASPA_RELEASE!=='v1'){const adventure=`<section class="playground
 
 // A next step makes the reading order explicit without hiding direct routes.
 const readingNext={
- 'index.html':['Open the playground','/playground'],
+ 'index.html':['Begin with the network','/what-is-kaspa'],
  'what-is-kaspa.html':['Follow a payment and its fee','/why-kaspa-matters'],
  'why-kaspa-matters.html':['Try the payment and network examples','/playground'],
  'skeptical-case.html':['Check the current evidence','/status'],
