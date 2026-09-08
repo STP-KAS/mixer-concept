@@ -67,7 +67,7 @@ const explore = [
 
 function pageBody(door) {
   const film = door.id === 1 || door.id === 2
-    ? localFilm('/media/kaspa-silver.mp4', 'Kaspa Silver: what Kaspa is.')
+    ? `<details class="door-film-fold"><summary>Optional film · Kaspa Silver</summary>${localFilm('/media/kaspa-silver.mp4', 'Kaspa Silver: what Kaspa is.')}</details>`
     : '';
   return `<div class="page-intro intro-door">
       <p class="eyebrow">${door.label}</p>
@@ -79,9 +79,9 @@ function pageBody(door) {
       ${principles()}
       ${statusStrip()}
     </div>
-    ${film}
-    ${models[door.id]()}
     <div class="door-intel-body">${door.body}</div>
+    ${models[door.id]()}
+    ${film}
     <section class="chapter" id="explore-this-door">
       <div class="section-title"><h2>Explore from here</h2><p>Learn on the models. See the live DAG. Try a spend only if you brought test coins.</p></div>
       ${routes(explore)}
@@ -89,7 +89,7 @@ function pageBody(door) {
     ${doorKgi()}
     ${peopleChips(door.id)}
     <section class="chapter">
-      <div class="section-title"><h2>Continue</h2><p>The playground is the mechanics. These pages are extra reading for this door.</p></div>
+      <div class="section-title"><h2>Continue</h2><p>The playground is the mechanics. These pages are the next lesson and the extra reading.</p></div>
       ${routes(door.reads)}
     </section>
     <section class="chapter">

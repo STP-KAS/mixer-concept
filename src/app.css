@@ -70,6 +70,9 @@ html[data-welcome=seen] .welcome{display:none!important}
 .door-row a:hover,.door-people a:hover{border-color:var(--green);color:var(--text)}
 .door-people{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
 .door-people a{padding:8px 12px;font-size:.8125rem;border-radius:999px;flex-direction:row;align-items:center}
+.door-film-fold{margin:0 0 28px;border:1px solid var(--rule);border-radius:16px;padding:8px 16px;background:var(--paper);max-width:52rem}
+.door-film-fold summary{cursor:pointer;font-weight:550;font-size:.9375rem;padding:8px 0}
+.door-film-fold .door-film{margin:8px 0 12px}
 .door-film{margin:0 0 28px}
 .door-film video{display:block;width:100%;max-height:min(70vh,640px);background:#111;border-radius:18px;border:1px solid var(--rule)}
 .door-film figcaption{margin-top:8px}
