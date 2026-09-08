@@ -15,3 +15,5 @@ _preview-site/
 .claude/worktrees/
 .freebuff/
 media/*.mp4
+
+.github/workflows/
