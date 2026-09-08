@@ -58,7 +58,7 @@
 .welcome{position:fixed;inset:0;top:84px;z-index:80;display:grid;place-items:center;padding:16px;background:#111c}
 html[data-welcome-seen] .welcome{display:none!important}
 @media(max-width:760px){.welcome{top:72px}}
-.welcome-card{width:min(720px,calc(100vw - 32px));padding:22px 22px 24px;border:1px solid var(--rule);border-radius:20px;background:var(--paper);box-shadow:var(--shadow)}
+.welcome-card{width:min(720px,calc(100vw - 32px));max-height:calc(100dvh - 116px);overflow:auto;padding:22px 22px 24px;border:1px solid var(--rule);border-radius:20px;background:var(--paper);box-shadow:var(--shadow)}
 .welcome-card .eyebrow{margin-bottom:12px}
 .welcome-card .door-film{margin:0 0 16px}
 .welcome-copy{margin:16px 0 20px;max-width:46ch;line-height:1.55}
@@ -75,8 +75,8 @@ html[data-welcome-seen] .welcome{display:none!important}
 .door-film-fold{margin:0 0 28px;border:1px solid var(--rule);border-radius:16px;padding:8px 16px;background:var(--paper);max-width:52rem}
 .door-film-fold summary{cursor:pointer;font-weight:550;font-size:.9375rem;padding:8px 0}
 .door-film-fold .door-film{margin:8px 0 12px}
-.door-film{margin:0 0 28px}
-.door-film video{display:block;width:100%;max-height:min(70vh,640px);background:#111;border-radius:18px;border:1px solid var(--rule)}
+.door-film{margin:0 0 28px;max-width:42rem}
+.door-film video{display:block;width:100%;max-height:min(36vh,320px);object-fit:contain;background:#111;border-radius:18px;border:1px solid var(--rule)}
 .door-film figcaption{margin-top:8px}
 .intro-door{display:block;margin-bottom:24px}
 .intro-door h1{max-width:22ch}

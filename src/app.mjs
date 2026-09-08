@@ -16,10 +16,7 @@ void import('./learning-ui.mjs');
     const key = 'kaspa-welcome-seen';
     const video = welcome.querySelector('video');
     const closed = () => welcome.hidden;
-    const remember = () => {
-      try { sessionStorage.setItem(key, '1'); } catch {}
-      document.documentElement.dataset.welcomeSeen = '1';
-    };
+    const remember = () => { try { sessionStorage.setItem(key, '1'); } catch {} };
     const hide = () => {
       video?.pause();
       welcome.hidden = true;
