@@ -17,12 +17,17 @@ export const pages = [
     body: `<div class="welcome" data-welcome role="dialog" aria-modal="true" aria-label="MIX mixer concept">
         <div class="welcome-card">
           <p class="eyebrow">MIX · mixer concept</p>
-          ${localFilm('/media/kaspa-roots.mp4')}
+          <div class="welcome-stage">
+            <video class="welcome-film" controls muted autoplay playsinline preload="auto" poster="/media/kaspa-roots.jpg" src="/media/kaspa-roots.mp4">
+              Your browser cannot play this film. <a href="/media/kaspa-roots.mp4">Open the file</a>.
+            </video>
+          </div>
           <p class="welcome-copy">-Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br><br>-Proof of stake replaced work with capital. That is a different system.<br><br>-Kaspa kept Bitcoin’s proof of work and upgraded it: 10 blocks per second on average, now programmable.</p>
           <button class="primary-button" type="button" data-welcome-close>Continue</button>
         </div>
       </div>
       <p class="home-ethos">-Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br><br>-Proof of stake replaced work with capital. That is a different system.<br><br>-Kaspa kept Bitcoin’s proof of work and upgraded it: 10 blocks per second on average, now programmable.</p>
+      ${localFilm('/media/kaspa-silver.mp4', 'Kaspa Silver: what Kaspa is.', {preload: 'metadata'})}
       <p class="version-line"><a href="/mixer">mixer concept</a> · Parker inspects. STP doors. PegLab depegs. Live DAG. No price talk.</p>
       <p data-learning-resume hidden></p>
       <section class="doors" id="doors" aria-label="Choose an intel door">

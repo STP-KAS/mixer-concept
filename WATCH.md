@@ -18,7 +18,7 @@ git log HEAD..stp/main --oneline
 
 An hourly Grok automation and a session monitor keep SHAs. When either `main` moves, extract intel into MIX doors and rebuild.
 
-Last seen 2026-09-08:
+Last seen 2026-09-09:
 
 - Parker `upstream/main` `8ad2b604102694464a1206b4fdc66ddab09f37bf`
-- STP `stp/main` `bd2edeb5abfde572d971a0369ef6487bc1803754`
+- STP `stp/main` `f8fe3ef9c81e1dfc015f75c4d81dcf893e9f10af`
