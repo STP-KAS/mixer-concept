@@ -47,7 +47,7 @@ const models = {
   3: () => `<div class="door-model">
       <p class="eyebrow">Kaspa intel · dated 8 Sep 2026</p>
       <h2>A live rule is not an app.</h2>
-      <p>Toccata is live. SilverScript is a release candidate. vProgs are research. DAGKnight is Proposed. Parker’s hosted V5 and V6 are withdrawn as of 8 September 2026. Town is the Testnet-10 lab, not those versions and not these local models.</p>
+      <p>Toccata is live. SilverScript v1.0.0 is tagged; application readiness is separate. vProgs are research. DAGKnight is Proposed. Parker’s hosted V5 and V6 are withdrawn as of 8 September 2026. Town is the Testnet-10 lab, not those versions and not these local models.</p>
       ${vault()}
       ${permission()}
     </div>`,

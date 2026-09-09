@@ -1,5 +1,5 @@
-last_checked: 2026-09-06
-recheck_after: 2026-09-07
+last_checked: 2026-09-09
+recheck_after: 2026-09-16
 claims:
   proof_of_work:
     status: live
@@ -77,13 +77,14 @@ claims:
 
   silverscript:
     status: builder_guardrail
-    recheck_after: 2026-09-11
-    summary: Silverscript v1-rc1 is a prerelease; its repository describes the project as experimental and recommends testnet-10 until stable v1.
-    source: https://github.com/kaspanet/silverscript/releases/tag/v1-rc1
+    recheck_after: 2026-09-18
+    summary: Silverscript v1.0.0 is the tagged official v1 language and compiler release (9 Sep 2026). A compiler tag does not establish production applications.
+    source: https://github.com/kaspanet/silverscript/releases/tag/v1.0.0
     supporting_source: https://github.com/kaspanet/silverscript
     forbidden_copy:
-      - Silverscript is production-ready
-      - Silverscript v1 is stable
+      - Silverscript v1-rc1 is the current release
+      - A Silverscript compiler tag proves production applications exist
+      - Silverscript is production-ready applications
 
   argent:
     status: builder_guardrail
