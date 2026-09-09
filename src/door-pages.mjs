@@ -60,8 +60,9 @@ const models = {
 };
 
 const explore = [
+  ['Help', 'Pick the Discord room. Facts, not a seed or a price.', '/help'],
+  ['Explore', 'kaspa.stream, tn10.kaspa.stream, Graph Inspector.', '/explore'],
   ['Playground', 'Delay, double spend, mining share, spending rules. Bring tKAS if you have it.', '/playground'],
-  ['Explore the DAG', 'kaspa.stream and the Graph Inspector. No ticker required.', '/explore'],
   ['Town', 'Testnet-10 contract lab. Game rules on real spends. One browser holds every key.', '/covenants'],
   ['Node', 'TN10 node plus CPU miner, or a mainnet follower. Do not mix the flags.', '/node'],
 ];
@@ -88,7 +89,7 @@ function pageBody(door) {
     ${doorKgi()}
     ${peopleChips(door.id)}
     <section class="chapter">
-      <div class="section-title"><h2>Continue</h2><p>The playground is the mechanics. These pages are the next lesson and the extra reading.</p></div>
+      <div class="section-title"><h2>Continue</h2><p>Help is questions. Explore is the live ledger. The playground is the mechanics.</p></div>
       ${routes(door.reads)}
     </section>
     <section class="chapter">
