@@ -45,9 +45,9 @@ const models = {
       ${network({introductory: true})}
     </div>`,
   3: () => `<div class="door-model">
-      <p class="eyebrow">Kaspa intel · dated 8 Sep 2026</p>
+      <p class="eyebrow">Kaspa intel · dated 9 Sep 2026</p>
       <h2>A live rule is not an app.</h2>
-      <p>Toccata is live. SilverScript v1.0.0 is tagged; application readiness is separate. vProgs are research. DAGKnight is Proposed. Parker’s hosted V5 and V6 are withdrawn as of 8 September 2026. Town is the Testnet-10 lab, not those versions and not these local models.</p>
+      <p>Toccata is live. SilverScript v1.0.0 is tagged; MIX Town still pins v1-rc1. vProgs are research. DAGKnight is Proposed. Parker’s Kaspa Studio is an isolated local beta, not this site. Hosted V5 and V6 stay withdrawn. Town is the Testnet-10 lab.</p>
       ${vault()}
       ${permission()}
     </div>`,
