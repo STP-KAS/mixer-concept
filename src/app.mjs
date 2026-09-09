@@ -15,6 +15,10 @@ void import('./learning-ui.mjs');
   if (welcome && welcome !== document.documentElement && welcome !== document.body) {
     const key = 'kaspa-welcome-seen';
     const video = welcome.querySelector('video');
+    if (video && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      video.removeAttribute('autoplay');
+      video.pause();
+    }
     const closed = () => welcome.hidden;
     const remember = () => { try { sessionStorage.setItem(key, '1'); } catch {} };
     const hide = () => {
@@ -23,9 +27,17 @@ void import('./learning-ui.mjs');
       remember();
       document.documentElement.dataset.welcomeSeen = '1';
     };
+    const loadFilm = () => {
+      if (!video || closed()) return;
+      video.preload = 'auto';
+      try { video.load(); } catch {}
+    };
     try {
       if (sessionStorage.getItem(key)) hide();
-      else remember();
+      else {
+        remember();
+        loadFilm();
+      }
     } catch {}
     welcome.querySelector('[data-welcome-close]')?.addEventListener('click', hide);
     welcome.addEventListener('pointerdown', event => {

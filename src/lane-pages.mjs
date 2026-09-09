@@ -54,11 +54,13 @@ export const lanePages = [
     body: `${intro('Explore', 'See the network without a ticker.', 'kaspa.stream is an explorer for the many: blocks, transactions, and a live picture of the DAG. You do not need a thesis to open it. You need a transaction ID, an address, or curiosity.')}
       ${rows([
         ['What kaspa.stream is', '<p>A block explorer with real-time network insight. Paste an address or a transaction. Watch new blocks land. It is a window onto the ledger, not a trading desk.</p><p><a href="https://kaspa.stream/" target="_blank" rel="noopener noreferrer">Open kaspa.stream ↗</a></p>'],
+        ['Testnet-10 explorer', `<p>Same kind of window, for Testnet-10. Paste a <code>kaspatest:</code> address or a test tx. Mainnet kaspa.stream will not show those coins.</p><p>${link('Open tn10.kaspa.stream','https://tn10.kaspa.stream/')}</p>`],
         ['What the Graph Inspector is', `<p>kgi.kaspad.net draws the blockDAG as it grows. Parallel blocks are the point. A candle chart is not. If the picture stops, treat it as paused, not as a failed network.</p><p><a href="${KGI}" target="_blank" rel="noopener noreferrer">Open the Graph Inspector ↗</a></p>`],
         ['Official explorer', '<p>explorer.kaspa.org is the other public ledger view. Use either. Cross-check if a number matters.</p>'],
       ])}
       ${pinList([
         ['kaspa.stream', 'Explorer for ordinary reading of blocks and txs.', 'https://kaspa.stream/'],
+        ['tn10.kaspa.stream', 'Testnet-10 explorer. kaspatest: addresses live here.', 'https://tn10.kaspa.stream/'],
         ['Graph Inspector', 'Live blockDAG.', KGI],
         ['Kaspa Explorer', 'L1 transactions.', 'https://explorer.kaspa.org'],
         ['Kaspa Q&A', 'Community questions.', 'https://qa.kas.pa/'],
@@ -72,7 +74,7 @@ export const lanePages = [
       <p><a class="primary-button" href="https://discord.com/channels/599153230659846165/960905681832140850" target="_blank" rel="noopener noreferrer">Open Kaspa Discord ↗</a></p>
       <p class="small">If that channel link does not open, join first: <a href="https://discord.gg/kaspa" target="_blank" rel="noopener noreferrer">discord.gg/kaspa</a>.</p>
       ${rows([
-        ['How to ask well', '<p>Say what you did, which network (mainnet or Testnet-10), which wallet, and the error text. Do not paste a recovery phrase. Do not ask for a price.</p>'],
+        ['How to ask well', '<p>Browse to the correct Discord tab. Say what you did, the problem you encountered, which network (mainnet or Testnet-10), which wallet, the error text, the question you have, and anything else that matters. Do not paste a recovery phrase. Do not ask for a price.</p>'],
         ['Other rooms', '<p>Kaspa Q&A for written questions. Core R&D Telegram is observer-first; recaps are on kaspa.news. Official docs stay at docs.kaspa.org.</p>'],
       ])}
       ${pinList([
