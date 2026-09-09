@@ -16,7 +16,7 @@ git log HEAD..upstream/main --oneline
 git log HEAD..stp/main --oneline
 ```
 
-An hourly Grok automation and a session monitor keep SHAs. When either `main` moves, extract intel into MIX doors and rebuild.
+Parker watch is a 24-hour Grok schedule only. No persistent SHA poller. STP is not on this schedule. When Parker `main` or another kaspa-explained branch moves, extract intel into MIX doors and rebuild.
 
 Last seen 2026-09-09:
 
