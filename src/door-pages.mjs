@@ -67,9 +67,8 @@ const explore = [
 ];
 
 function pageBody(door) {
-  const film = localFilm('/media/kaspa-silver.mp4', 'Kaspa Silver: what Kaspa is.', {preload: 'metadata'});
-  return `${film}
-    <div class="page-intro intro-door">
+  const film = `<details class="door-film-fold"><summary>Optional film · Kaspa Silver</summary>${localFilm('/media/kaspa-silver.mp4', 'Kaspa Silver: what Kaspa is.', {preload: 'metadata'})}</details>`;
+  return `<div class="page-intro intro-door">
       <p class="eyebrow">${door.label}</p>
       <h1>${door.title}</h1>
       <p class="lead">${door.intel}</p>
@@ -81,6 +80,7 @@ function pageBody(door) {
     </div>
     <div class="door-intel-body">${door.body}</div>
     ${models[door.id]()}
+    ${film}
     <section class="chapter" id="explore-this-door">
       <div class="section-title"><h2>Explore from here</h2><p>Learn on the models. See the live DAG. Try a spend only if you brought test coins.</p></div>
       ${routes(explore)}

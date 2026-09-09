@@ -2,7 +2,7 @@ import { payment, network, spend, mining, vault, transaction, inspector, section
 import { sources, snapshot } from './site.mjs';
 import {coordinationMarkup} from './coordination-view.mjs';
 import {people} from './doors.mjs';
-import {kgiCard, localFilm} from './community.mjs';
+import {kgiCard} from './community.mjs';
 import {learningRoute, lessonContext} from './learning-path.mjs';
 import {heroDiagram} from './site-visuals.mjs';
 import {renderUseCaseStories} from './use-case-stories.mjs';
@@ -27,7 +27,6 @@ export const pages = [
         </div>
       </div>
       <p class="home-ethos">-Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br><br>-Proof of stake replaced work with capital. That is a different system.<br><br>-Kaspa kept Bitcoin’s proof of work and upgraded it: 10 blocks per second on average, now programmable.</p>
-      ${localFilm('/media/kaspa-silver.mp4', 'Kaspa Silver: what Kaspa is.', {preload: 'metadata'})}
       <p class="version-line"><a href="/mixer">mixer concept</a> · Parker inspects. STP doors. PegLab depegs. Live DAG. No price talk.</p>
       <p data-learning-resume hidden></p>
       <section class="doors" id="doors" aria-label="Choose an intel door">
