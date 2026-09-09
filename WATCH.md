@@ -21,4 +21,5 @@ An hourly Grok automation and a session monitor keep SHAs. When either `main` mo
 Last seen 2026-09-09:
 
 - Parker `upstream/main` `8ad2b604102694464a1206b4fdc66ddab09f37bf`
+- Parker `upstream/studio-beta` `ba38e3be8027dbd3b985300d4a8db9bddd1c40c5` (isolated Kaspa Studio; not MIX runtime)
 - STP `stp/main` `e3c128e40e673ea3bbe1d36dd642385365656365`

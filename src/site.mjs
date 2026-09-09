@@ -33,7 +33,8 @@ export const snapshot = {
   items: [
     ['GHOSTDAG', 'Live', 'Orders the blockDAG. Crescendo set a target of ten blocks per second.', 'https://github.com/kaspanet/kips/blob/master/kip-0014.md'],
     ['Toccata', 'Live protocol', 'Covenant spending rules, identifiers, sequencing commitments, and supported proof verification are active. Application readiness is separate.', 'https://github.com/kaspanet/rusty-kaspa/releases/tag/v2.0.0'],
-    ['Silverscript', 'v1.0.0', 'Official language and compiler release, tagged 9 Sep 2026. Application readiness is separate.', 'https://github.com/kaspanet/silverscript/releases/tag/v1.0.0'],
+    ['Silverscript', 'v1.0.0', 'Official language and compiler release, tagged 9 Sep 2026. Application readiness is separate. MIX Town still pins v1-rc1.', 'https://github.com/kaspanet/silverscript/releases/tag/v1.0.0'],
+    ['Kaspa Studio', 'Isolated beta', 'Parker branch studio-beta, 9 Sep 2026. Local workbench, not this public site. Does not broadcast. V5 and V6 remain withdrawn.', 'https://github.com/parker2017code/kaspa-explained/tree/studio-beta'],
     ['Argent', 'Prototype', 'Compiler and examples exist. Its README says it is not release-ready.', 'https://github.com/argent-lang/argent'],
     ['vProgs', 'Research', 'Early implementation. Repository existence does not establish production availability.', 'https://github.com/kaspanet/vprogs'],
     ['DAGKnight', 'Proposed', 'Research code is active. No mainnet activation is documented in the checked KIP or node releases.', 'https://github.com/kaspanet/kips/blob/master/kip-0002.md'],

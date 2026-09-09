@@ -73,8 +73,9 @@ export const doors = {
       <p>Use these labels. Mix them and you are pitching.</p>
       <ul>
         <li><strong>Live.</strong> GHOSTDAG. 10 BPS (Crescendo). Toccata protocol rules on mainnet. rusty-kaspa v2.0.1 is the maintenance tag checked here.</li>
-        <li><strong>v1.0.0.</strong> SilverScript compiler tagged 9 Sep 2026. Application readiness is separate.</li>
+        <li><strong>v1.0.0.</strong> SilverScript compiler tagged 9 Sep 2026. Application readiness is separate. MIX Town still pins v1-rc1 until retargeted.</li>
         <li><strong>Prototype.</strong> Argent. Examples exist. The README says it is not release-ready.</li>
+        <li><strong>Isolated beta.</strong> Parker’s Kaspa Studio, branch <code>studio-beta</code>, 9 Sep 2026. Local workbench. Not this public MIX site. Does not broadcast. V5 and V6 stay withdrawn.</li>
         <li><strong>Research.</strong> vProgs. Repository existence is not production.</li>
         <li><strong>Proposed.</strong> DAGKnight. The rusty <code>dagknight</code> branch is not merged. No mainnet activation is documented in the checked KIP or node releases.</li>
         <li><strong>Local model.</strong> Dated 8 September 2026. Inherited budget, atomic offer completion, competing execution, a correction bounty, and a permission arena. You can break them. They do not sign or submit.</li>
@@ -109,6 +110,7 @@ export const doors = {
         <li>Mature native smart contracts as an Ethereum replacement</li>
         <li>KCC-20 adopted as the token standard</li>
         <li>A compiler tag means production dapps exist</li>
+        <li>Kaspa Studio is this public MIX site, or a mainnet product</li>
         <li>vProgs live</li>
         <li>Kurrent mainnet</li>
         <li>Toccata “coming soon” (it is live)</li>
@@ -116,15 +118,16 @@ export const doors = {
       <h2>Programmability, in the order it actually exists</h2>
       <ol>
         <li><strong>Covenants on L1.</strong> Toccata. Spending rules travel with the output. Live protocol. Wallet and indexer support is separate.</li>
-        <li><strong>SilverScript.</strong> Compiler. v1.0.0 tagged 9 Sep 2026. Toccata is not this compiler. Application readiness is separate.</li>
+        <li><strong>SilverScript.</strong> Official tag v1.0.0 on 9 Sep 2026. Toccata is not this compiler. MIX Town and Parker’s Studio beta still pin v1-rc1 until retargeted. Application readiness is separate.</li>
         <li><strong>Argent.</strong> Prototype language. Not release-ready per its own README.</li>
         <li><strong>vProgs.</strong> Research: based programs and validity proofs. Do not demo them as a mainnet product.</li>
       </ol>
-      <h2>Labs, dated 8 September 2026</h2>
-      <p>Two new labs exist on the education side. They are not mainnet products.</p>
+      <h2>Labs, dated 8–9 September 2026</h2>
+      <p>These labs are not mainnet products.</p>
       <ul>
         <li><strong>Local models.</strong> A child budget cannot expand its parent. Atomic completion cannot take custody. Two providers cannot charge the same output twice. A bounty pays a valid correction. A permission arena is for attacks you expect to fail. Break them here. They do not touch the chain.</li>
         <li><strong>Testnet contract lab.</strong> Allowance, bundle, group pledge, schedule, delayed vault. Real Testnet-10 spends of existing primitives. Town is that lab on this site. All three keys live in this browser.</li>
+        <li><strong>Kaspa Studio.</strong> Isolated local beta on Parker’s <code>studio-beta</code> branch, 9 Sep 2026. Synthetic unfunded UTXOs. Compiler success, VM check, and network acceptance are separate. Not shipped on MIX. Does not broadcast.</li>
         <li><strong>Withdrawn.</strong> Parker’s hosted V5 and V6, 8 September 2026. Town stays. MIX does not ship those versions.</li>
       </ul>
       <p>The digital-cash story is still the honest one: PoW, UTXO, fair launch. The DAG is how Kaspa tries to keep that story at a payment-like interval. That is a different shape from “EVM L2 on a PoS L1.” It is also earlier. Wallets, indexers, and compilers are catching up. Discord still spends most of its volume on wallet UX, fees, and “is SilverScript the hardfork?” No. Toccata is consensus. silverc is a compiler.</p>
