@@ -5,8 +5,8 @@ export const doors = {
     id: 1,
     path: '/door-1',
     label: 'Door 1',
-    title: 'Beginner · New to crypto',
-    intel: 'Beginner. Kaspa is digital cash that does not need a bank. Miners spend energy so nobody can rewrite a payment for free. That is proof of work. This door names the parts, then tells you what they do not mean.',
+    title: 'Beginner · Never used crypto',
+    intel: 'Start from zero. Kaspa is public digital cash. You hold keys. Miners spend energy so rewriting history is expensive. That is proof of work. Help is for questions. Explore is to look at real blocks.',
     body: `<h2>Start here</h2>
       <p>You do not need a course. You need a few words, one picture of a payment, and a place to try the rules without risking real money. That is this door, then the playground.</p>
       <h2>What this is</h2>
@@ -44,12 +44,14 @@ export const doors = {
         <li>Price talk is not a source. If someone leads with a target, close the tab and come back here.</li>
         <li>When you have a question, say what you did, which network, and the error text. Ask in Help, not in a random reply.</li>
       </ul>
-      <p>Door 2 is next if you already know Bitcoin or Ethereum and only need Kaspa placed. If you are still new, open Using KAS, then the playground.</p>`,
+      <p>Door 2 is next if you already know Bitcoin or Ethereum and only need Kaspa placed. If you are still new, stay here, then Help and Explore.</p>
+      <p>Questions: <a href="/help">Help</a> (Kaspa Discord). Look at blocks and addresses: <a href="/explore">Explore</a>.</p>`,
     reads: [
+      ['Help', 'Pick the Discord room. Ask with facts, not a seed or a price.', '/help'],
+      ['Explore', 'kaspa.stream, Testnet-10 explorer, live DAG.', '/explore'],
       ['Playground', 'Delay, double spend, mining share, spending rules. Your tKAS if you bring it.', '/playground'],
       ['Using KAS', 'A payment, change, and a fee.', '/why-kaspa-matters'],
       ['Door 2', 'You know crypto. Place Kaspa next to it.', '/door-2'],
-      ['Help', 'Ask in the rooms that already exist.', '/help'],
       ['What is live', 'Dated labels, not a pitch.', '/status'],
     ],
   },
@@ -85,8 +87,11 @@ export const doors = {
       <p>A merged Active KIP is law. A tweet, a Discord rumor, and a forum thread are not. Toccata is consensus. silverc is a compiler. People still mix those two in chat.</p>
       <h2>What speed does not buy</h2>
       <p>It does not remove miner concentration. It does not make every wallet support covenants. It does not make a repository into a product. It does not make a price chart into evidence. The skeptical list is the same as for any PoW coin, plus the extra node cost of a fast DAG.</p>
-      <p>Door 3 is the dated machine: KIPs, builder network, node. If you only wanted the map, open status and the playground next.</p>`,
+      <p>Door 3 is the dated machine: KIPs, builder network, node. If you only wanted the map, open status and the playground next.</p>
+      <p>Questions: <a href="/help">Help</a>. Blocks, Testnet-10 explorer, live DAG: <a href="/explore">Explore</a>.</p>`,
     reads: [
+      ['Help', 'Discord rooms. Facts, not a seed or a price.', '/help'],
+      ['Explore', 'Mainnet and Testnet-10 explorers, Graph Inspector.', '/explore'],
       ['Playground', 'See parallel blocks and a failed double spend without a lecture.', '/playground'],
       ['What is live', 'Live, roadmap, research, wrong.', '/status'],
       ['Door 3', 'Dated status, builder path, what not to claim.', '/door-3'],
@@ -136,8 +141,11 @@ export const doors = {
       <p>If you are mining tKAS, bring the address to the playground. This site does not drip faucet coins at you. Faucet: faucet-tn10.kaspanet.io. PegLab if someone says they need a stable for a dapp. It is a toy that will depeg. Not a business.</p>
       <h2>Costs you already know and should not skip</h2>
       <p>Node cost scales with block rate. Mining can still pool. A live opcode is not an audited app. A public node is not a miner and is not a wallet. Do not expose open RPC that can sign. Check kaspa.stream/nodes if you meant to be a public peer.</p>
-      <p>Door 4 is for people who will repeat sentences in public. If you are building, stay on Node, Build, and status until a claim has a KIP or a release tag.</p>`,
+      <p>Door 4 is for people who will repeat sentences in public. If you are building, stay on Node, Build, and status until a claim has a KIP or a release tag.</p>
+      <p>Questions: <a href="/help">Help</a>. Mainnet, Testnet-10, live DAG: <a href="/explore">Explore</a>.</p>`,
     reads: [
+      ['Help', 'Discord. Facts, network, error text. No seed. No price.', '/help'],
+      ['Explore', 'kaspa.stream, tn10.kaspa.stream, Graph Inspector.', '/explore'],
       ['Playground', 'The mechanics, plus your Testnet-10 wallet.', '/playground'],
       ['Node', 'TN10 rusty-kaspa, then tKAS. CPU first. Mainnet node if you mean it.', '/node'],
       ['Build on Kaspa', 'Covenants, official build door, TN10.', '/build-on-kaspa'],
@@ -149,8 +157,8 @@ export const doors = {
     id: 4,
     path: '/door-4',
     label: 'Door 4',
-    title: 'Expert · Thinks they know',
-    intel: 'Expert. Price is not a protocol. A live rule is not an app. A repository is not production. Compare Kaspa to the rest of crypto with labels, not vibes. If you will repeat a sentence, this door is the checklist.',
+    title: 'Expert · Checks claims',
+    intel: 'Price is not a protocol. A live rule is not an app. A repository is not production. If you will repeat a sentence, check it. Help is Discord. Explore is the ledger.',
     body: `<h2>Stop doing the useless work</h2>
       <p>Price predictions are not intel. Detailed chart analysis is the same waste. Neither one changes GHOSTDAG, issuance, node cost, or whether a wallet can spend a covenant. If you arrived with a target, this door is the correction. The Moonboy tab exists so this page does not have to shout.</p>
       <h2>How to place Kaspa without lying</h2>
@@ -180,8 +188,11 @@ export const doors = {
       <p>If step 5 fails, you were talking about a market, not the machine. Take it to Moonboy and leave it there.</p>
       <h2>What an expert still owes</h2>
       <p>Node cost at 10 BPS. Mining pools. Wallet gaps on covenants. Indexer honesty. Settlement policy chosen by the recipient, not by a slogan. Independent review before mainnet funds in a new spending rule. None of that is solved by being early, loud, or sure.</p>
-      <p>Community rule on this site: be mature. No price predictions. Build. Share ideas. Keep a positive critical mindset. If you will teach, send people to Door 1 through Door 3 in order, then here, then sources. The playground exists so you can break a double spend instead of arguing about one.</p>`,
+      <p>Community rule on this site: be mature. No price predictions. Build. Share ideas. Keep a positive critical mindset. If you will teach, send people to Door 1 through Door 3 in order, then here, then sources. The playground exists so you can break a double spend instead of arguing about one.</p>
+      <p>Questions: <a href="/help">Help</a>. Check a block or a <code>kaspatest:</code> address: <a href="/explore">Explore</a>.</p>`,
     reads: [
+      ['Help', 'Correct Discord tab. Facts. No seed. No price.', '/help'],
+      ['Explore', 'Mainnet and TN10 explorers, live DAG.', '/explore'],
       ['Moonboy', 'Why price talk and chart analysis are not intel.', '/moonboy'],
       ['Playground', 'Break the stories against a model.', '/playground'],
       ['What is live', 'Labels: live, roadmap, research, wrong.', '/status'],

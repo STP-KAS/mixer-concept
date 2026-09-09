@@ -32,12 +32,12 @@ export const pages = [
       <section class="doors" id="doors" aria-label="Choose an intel door">
         <p class="eyebrow">Four doors · STP</p>
         <h1>Who is reading.</h1>
-        <p>Four lessons, beginner to expert. Each door keeps the same principles, then shows Parker’s Kaspa models so you can break a rule instead of reading a brochure.</p>
+        <p>Four lessons, from never used crypto to checking a claim. Each door keeps the same principles, then shows Parker’s Kaspa models so you can break a rule instead of reading a brochure. Help is questions. Explore is the ledger.</p>
         <div class="door-row" aria-label="Knowledge doors">
-          <a href="/door-1">Door 1<br><span>Beginner</span><em>Digital cash. Proof of work. Parallel blocks stay. Inclusion is not acceptance.</em></a>
-          <a href="/door-2">Door 2<br><span>Intermediate</span><em>Still PoW. A DAG is not a double-spend pass. Live versus later.</em></a>
-          <a href="/door-3">Door 3<br><span>Advanced</span><em>Skip the pitch. Toccata live. Tooling young. A live rule is not an app.</em></a>
-          <a href="/door-4">Door 4<br><span>Expert</span><em>Price is not a protocol. Speed is not a new security story.</em></a>
+          <a href="/door-1">Door 1<br><span>Never used crypto</span><em>Digital cash. Proof of work. Parallel blocks stay. Inclusion is not acceptance.</em></a>
+          <a href="/door-2">Door 2<br><span>Knows crypto</span><em>Still PoW. A DAG is not a double-spend pass. Live versus later.</em></a>
+          <a href="/door-3">Door 3<br><span>Knows Kaspa</span><em>Skip the pitch. Toccata live. Tooling young. A live rule is not an app.</em></a>
+          <a href="/door-4">Door 4<br><span>Checks claims</span><em>Price is not a protocol. Speed is not a new security story.</em></a>
         </div>
         <p class="small">I am… each chip opens the matching door.</p>
         <div class="door-people" aria-label="People">
