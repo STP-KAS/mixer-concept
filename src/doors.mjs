@@ -38,8 +38,9 @@ export const doors = {
       <p>If you lose the keys, the coins are gone. If mining concentrates, a few operators matter more than the diagram suggests. Nodes still have to hear every block. Ten blocks per second is work for the network, not free throughput. Inclusion in a block is not the same as acceptance in the agreed history.</p>
       <h2>How to start without getting hurt</h2>
       <ul>
-        <li>Do not paste a recovery phrase into a website, a chat, or this site. Nobody here can recover a seed.</li>
+        <li>Do not paste a recovery phrase into a website, a chat, or this site. Nobody here can recover a seed. No Discord helper needs one. Bitcoin and Monero already settled that.</li>
         <li>Learn on Testnet-10 first. tKAS is faucet money. It is not mainnet KAS.</li>
+        <li>An explorer is a window. A node checks the rules. kaspa.stream is not rusty-kaspa.</li>
         <li>Watch the Graph Inspector on this page for the live picture. If it stops, treat it as paused, not as a dead network. A candle chart is not that picture.</li>
         <li>Price talk is not a source. If someone leads with a target, close the tab and come back here.</li>
         <li>When you have a question, say what you did, which network, and the error text. Ask in Help, not in a random reply.</li>
@@ -85,6 +86,14 @@ export const doors = {
         <li><strong>Withdrawn.</strong> Parker’s hosted V5 and V6, 8 September 2026. Town at /covenants stays. MIX does not ship those versions.</li>
       </ul>
       <p>A merged Active KIP is law. A tweet, a Discord rumor, and a forum thread are not. Toccata is consensus. silverc is a compiler. People still mix those two in chat.</p>
+      <h2>Practices that do not change with the chain</h2>
+      <p>Bitcoin, Ethereum, and Monero already settled these. Kaspa does not get a waiver.</p>
+      <ul>
+        <li>Keys you hold versus a balance at a company.</li>
+        <li>Never paste a recovery phrase. No vendor, no Discord helper, no website.</li>
+        <li>An explorer is a window. A node is the check.</li>
+        <li>Compiler success, a local VM, and network acceptance are three facts. Parker’s Studio beta says the same. MIX does not ship that workbench.</li>
+      </ul>
       <h2>What speed does not buy</h2>
       <p>It does not remove miner concentration. It does not make every wallet support covenants. It does not make a repository into a product. It does not make a price chart into evidence. The skeptical list is the same as for any PoW coin, plus the extra node cost of a fast DAG.</p>
       <p>Door 3 is the dated machine: KIPs, builder network, node. If you only wanted the map, open status and the playground next.</p>
@@ -96,6 +105,7 @@ export const doors = {
       ['What is live', 'Live, roadmap, research, wrong.', '/status'],
       ['Door 3', 'Dated status, builder path, what not to claim.', '/door-3'],
       ['The tradeoffs', 'Node cost, mining concentration, what speed does not solve.', '/skeptical-case'],
+      ['Best practices', 'Keys, verify, node versus explorer.', '/best-practices'],
       ['Sources', 'How a claim is checked here.', '/sources'],
     ],
   },
@@ -184,6 +194,8 @@ export const doors = {
         <li>Are you mixing protocol (Toccata) with a compiler (SilverScript) or a research repo (vProgs)?</li>
         <li>Would the sentence still be true if the KAS price were zero?</li>
         <li>Are you calling a local model a live app, or a Testnet-10 lab a mainnet product?</li>
+        <li>Did you verify on a node or an explorer yourself, or only on a screenshot?</li>
+        <li>Would the sentence still be true on Bitcoin or Ethereum without renaming the brand?</li>
       </ol>
       <p>If step 5 fails, you were talking about a market, not the machine. Take it to Moonboy and leave it there.</p>
       <h2>What an expert still owes</h2>
@@ -197,7 +209,7 @@ export const doors = {
       ['Playground', 'Break the stories against a model.', '/playground'],
       ['What is live', 'Labels: live, roadmap, research, wrong.', '/status'],
       ['Sources', 'How a claim is checked on this site.', '/sources'],
-      ['Best practices', 'People who stay honest.', '/best-practices'],
+      ['Best practices', 'Keys, verify, node versus explorer. Then honest Kaspa sources.', '/best-practices'],
       ['Door 1', 'If you are about to explain this to someone new, start them here.', '/door-1'],
     ],
   },

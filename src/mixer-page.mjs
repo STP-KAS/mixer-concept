@@ -45,7 +45,7 @@ export const mixerPage = {
         <a href="/status"><strong>Dated status</strong><p>Checked ${snapshot.checked}. Live, roadmap, research, wrong.</p></a>
         <a href="/search"><strong>Search</strong><p>Find a payment, a door, a node step, or a claim.</p></a>
         <a href="/moonboy"><strong>Moonboy refusal</strong><p>Price predictions are not intel.</p></a>
-        <a href="/best-practices"><strong>Honest sources</strong><p>Kaspa Silver, books, Q&amp;A, Core R&amp;D recaps.</p></a>
+        <a href="/best-practices"><strong>Other-chain practices</strong><p>Keys, verify, node versus explorer. Same as Bitcoin, Ethereum, Monero. Then Kaspa Silver.</p></a>
       </div>
     </section>
     <section class="chapter" id="how">
@@ -55,7 +55,7 @@ export const mixerPage = {
         <li><strong>Kaspa now.</strong> Dated chips from the status snapshot.</li>
         <li><strong>Parker’s model.</strong> Parallel blocks, a payment, a failed double spend, or a vault.</li>
         <li><strong>STP intel text.</strong> Where Kaspa sits next to the rest of crypto.</li>
-        <li><strong>Explore.</strong> Playground, DAG, town, node.</li>
+        <li><strong>Explore.</strong> Playground, DAG, town, node. Help if you have a question. Best practices if you need the shared rules.</li>
       </ol>
     </section>
     <nav class="reading-next" aria-label="Start mixer concept"><p>Start</p><a href="/#doors">Pick a door <span aria-hidden="true">→</span></a></nav>`,

@@ -29,16 +29,26 @@ export const lanePages = [
   {
     file: 'best-practices.html',
     title: 'Best practices',
-    description: 'Honest Kaspa sources: Kaspa Silver, books, Kas Smiths, Aviv Zohar, Q&A, and Core R&D recaps.',
-    body: `${intro('Best practices', 'Read people who stay honest.', 'Prefer protocol explainers over price talk. Kaspa Silver is a good example of that attitude: slow, specific, and unwilling to sell you a moon.')}
-      ${localFilm('/media/kaspa-silver.mp4', 'Kaspa Silver: what Kaspa is. More of that voice is on YouTube.')}
-      <p><a href="https://www.youtube.com/channel/UCv8-2oyrfqDigJAKjZ_RCzQ" target="_blank" rel="noopener noreferrer">Kaspa Silver on YouTube ↗</a></p>
+    description: 'Keys, verify, node versus explorer: the same practices Bitcoin, Ethereum, and Monero already settled. Then Kaspa sources that stay honest.',
+    body: `${intro('Best practices', 'Same rules on every honest chain.', 'Bitcoin.org starts with inform yourself. ethereum.org says do not trust, verify. Monero says the seed is the account. Kaspa does not get a waiver. Parker’s models exist so you can break a rule instead of believing a clip.')}
       ${rows([
+        ['Keys you hold', '<p>A wallet that holds keys is not an exchange balance. An exchange balance is a claim on a company. Bitcoin, Ethereum, and Monero all say this. MIX never asks for a recovery phrase. Nobody in Discord “support” needs one. If someone does, they are stealing.</p>'],
+        ['Never type the seed on a networked screen', '<p>Monero: write it, store it, do not photograph it, do not put it in a cloud note. Bitcoin self-custody: no vendor ever needs the words. MIX Help and Playground follow that. Town still holds every test key in this browser on purpose, so it is a lab, not three independent people.</p>'],
+        ['Verify, do not screenshot', '<p>ethereum.org: run a node if you want the rules checked by you. An explorer is a window onto data someone else indexed. kaspa.stream and tn10.kaspa.stream are windows. rusty-kaspa is the check. A screenshot of an explorer is not a primary source.</p>'],
+        ['Compiler, VM, and acceptance are three facts', '<p>ethereum.org verifies bytecode against source before calling a contract checked. Parker’s Studio beta says the same split: compiler success, local VM, and network acceptance. MIX Town is Testnet-10. A SilverScript v1.0.0 tag is not production apps. Isolated Studio is not this public site. Hosted V5 and V6 are withdrawn.</p>'],
+        ['Inclusion is not the recipient’s wait', '<p>Bitcoin recipients pick a confirmation policy. Kaspa is faster blocks, same split: send, include, accept, then the recipient waits as they choose. 10 BPS is not irreversible coffee.</p>'],
         ['Kaspa Silver’s attitude', '<p>He explains the machine. Fair launch, proof of work, the DAG, what shipped. He does not owe you a price. That honesty is the practice: if a clip cannot point at a rule, a release, or a dated observation, skip it.</p>'],
         ['Aviv Zohar', '<p>GHOST co-author. Research first. Site: <a href="https://avivz.net" target="_blank" rel="noopener noreferrer">avivz.net</a>. X: <a href="https://x.com/Avivz78" target="_blank" rel="noopener noreferrer">@Avivz78</a>.</p>'],
       ])}
+      ${localFilm('/media/kaspa-silver.mp4', 'Kaspa Silver: what Kaspa is. More of that voice is on YouTube.')}
+      <p><a href="https://www.youtube.com/channel/UCv8-2oyrfqDigJAKjZ_RCzQ" target="_blank" rel="noopener noreferrer">Kaspa Silver on YouTube ↗</a></p>
       ${localFilm('/media/kaspa-content.mp4', 'More context around Kaspa. Treat it as a film, not a spec.')}
       ${pinList([
+        ['bitcoin.org getting started', 'Inform yourself first. Wallet is keys, not a bank.', 'https://bitcoin.org/en/getting-started'],
+        ['ethereum.org nodes', 'Do not trust, verify. A node checks rules.', 'https://ethereum.org/developers/docs/nodes-and-clients'],
+        ['getmonero.org account', 'The seed is the account. Nobody else holds a copy.', 'https://www.getmonero.org/resources/moneropedia/account.html'],
+        ['Door 4', 'Checklist before you repeat a sentence.', '/door-4'],
+        ['Help', 'Discord. Facts. No seed. No price.', '/help'],
         ['The Book of Kaspa', 'Realizing Nakamoto’s Dream. Guest book, not consensus evidence.', 'https://www.amazon.com/Book-Kaspa-Realizing-Nakamoto-Dream/dp/B0CCCJ3936'],
         ['Kaspa Ghost Knight', 'A story about blockchains’ plight. Guest book, not a KIP.', 'https://www.amazon.com/Kaspa-Ghost-Knight-blockchains-plight-ebook/dp/B0D2VK4PVR'],
         ['Kas Smiths', 'Builder workshop. kasmith.org is the same desk name; this is the working URL.', 'https://kas-smiths.org'],
@@ -53,16 +63,17 @@ export const lanePages = [
     description: 'kaspa.stream for ordinary people: a live explorer of blocks and payments. Plus the graph inspector.',
     body: `${intro('Explore', 'See the network without a ticker.', 'kaspa.stream is an explorer for the many: blocks, transactions, and a live picture of the DAG. You do not need a thesis to open it. You need a transaction ID, an address, or curiosity.')}
       ${rows([
-        ['What kaspa.stream is', '<p>A block explorer with real-time network insight. Paste an address or a transaction. Watch new blocks land. It is a window onto the ledger, not a trading desk.</p><p><a href="https://kaspa.stream/" target="_blank" rel="noopener noreferrer">Open kaspa.stream ↗</a></p>'],
+        ['What kaspa.stream is', '<p>A block explorer with real-time network insight. Paste an address or a transaction. Watch new blocks land. It is a window onto the ledger, not a trading desk, and not a node. ethereum.org says the same of Etherscan: useful, not the check.</p><p><a href="https://kaspa.stream/" target="_blank" rel="noopener noreferrer">Open kaspa.stream ↗</a></p>'],
         ['Testnet-10 explorer', `<p>Same kind of window, for Testnet-10. Paste a <code>kaspatest:</code> address or a test tx. Mainnet kaspa.stream will not show those coins.</p><p>${link('Open tn10.kaspa.stream','https://tn10.kaspa.stream/')}</p>`],
         ['What the Graph Inspector is', `<p>kgi.kaspad.net draws the blockDAG as it grows. Parallel blocks are the point. A candle chart is not. If the picture stops, treat it as paused, not as a failed network.</p><p><a href="${KGI}" target="_blank" rel="noopener noreferrer">Open the Graph Inspector ↗</a></p>`],
         ['Official explorer', '<p>explorer.kaspa.org is the other public ledger view. Use either. Cross-check if a number matters.</p>'],
       ])}
       ${pinList([
-        ['kaspa.stream', 'Explorer for ordinary reading of blocks and txs.', 'https://kaspa.stream/'],
+        ['kaspa.stream', 'Explorer for ordinary reading of blocks and txs. A window, not a node.', 'https://kaspa.stream/'],
         ['tn10.kaspa.stream', 'Testnet-10 explorer. kaspatest: addresses live here.', 'https://tn10.kaspa.stream/'],
         ['Graph Inspector', 'Live blockDAG.', KGI],
         ['Kaspa Explorer', 'L1 transactions.', 'https://explorer.kaspa.org'],
+        ['Best practices', 'Keys, verify, node versus explorer.', '/best-practices'],
         ['Kaspa Q&A', 'Community questions.', 'https://qa.kas.pa/'],
       ])}`,
   },
@@ -74,7 +85,7 @@ export const lanePages = [
       <p><a class="primary-button" href="https://discord.com/channels/599153230659846165/960905681832140850" target="_blank" rel="noopener noreferrer">Open Kaspa Discord ↗</a></p>
       <p class="small">If that channel link does not open, join first: <a href="https://discord.gg/kaspa" target="_blank" rel="noopener noreferrer">discord.gg/kaspa</a>.</p>
       ${rows([
-        ['How to ask well', '<p>Browse to the correct Discord tab. Say what you did, the problem you encountered, which network (mainnet or Testnet-10), which wallet, the error text, the question you have, and anything else that matters. Do not paste a recovery phrase. Do not ask for a price.</p>'],
+        ['How to ask well', '<p>Browse to the correct Discord tab. Say what you did, the problem you encountered, which network (mainnet or Testnet-10), which wallet, the error text, the question you have, and anything else that matters. Do not paste a recovery phrase. No helper needs one. Do not ask for a price.</p>'],
         ['Other rooms', '<p>Kaspa Q&A for written questions. Core R&D Telegram is observer-first; recaps are on kaspa.news. Official docs stay at docs.kaspa.org.</p>'],
       ])}
       ${pinList([
