@@ -20,6 +20,32 @@ export const xHandles = [
   ['Sivan Helfer', '@manyfest_', 'https://x.com/manyfest_', 'SilverScript compiler. Kas Smiths'],
 ];
 
+export function honestLabels() {
+  return `<aside class="honest-labels" aria-label="Honest labels">
+    <p class="eyebrow">Labels, not a pitch</p>
+    <ul>
+      <li><span class="status-tag">v1.0.0</span> SilverScript is a compiler tag, 9 Sep 2026. Not production apps.</li>
+      <li><span class="status-tag">v1-rc1</span> MIX Town still pins this compiler until retargeted.</li>
+      <li><span class="status-tag">Isolated</span> Kaspa Studio is a local beta. Not this public site. Does not broadcast.</li>
+      <li><span class="status-tag">Withdrawn</span> Hosted V5 and V6 stay withdrawn.</li>
+      <li><span class="status-tag">TN10 lab</span> Town at /covenants is Testnet-10. One browser holds every key.</li>
+    </ul>
+    <p class="small"><a href="/status">Dated status</a> · <a href="/mixer#labels">Why these labels</a></p>
+  </aside>`;
+}
+
+export function liveDagInvite() {
+  return `<aside class="live-dag-invite" aria-label="Live DAG">
+    <p class="eyebrow">Live DAG</p>
+    <h2>See the picture, not a ticker.</h2>
+    <p>Honest parallel blocks stay. A candle chart is not that picture. If the inspector pauses, treat it as paused, not as a dead network.</p>
+    <div class="action-row">
+      <a class="primary-button" href="${KGI}" target="_blank" rel="noopener noreferrer">Graph Inspector <span aria-hidden="true">↗</span></a>
+      <a href="/explore">Explore kaspa.stream</a>
+    </div>
+  </aside>`;
+}
+
 export function kgiCard(kind = 'door') {
   const lead = kind === 'home'
     ? 'A modest live view of the blockDAG. Open it in its own tab if the frame is quiet.'

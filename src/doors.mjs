@@ -16,7 +16,7 @@ export const doors = {
       <p>Read these once. Come back if a later sentence uses them.</p>
       <ul>
         <li><strong>Keys.</strong> Secret numbers that prove a payment is yours. If you lose them, the coins are gone. If you share a recovery phrase, you have given the coins away.</li>
-        <li><strong>Wallet.</strong> Software that holds keys and builds payments. It is not a bank account. An exchange account is a claim on a company, not keys you hold.</li>
+        <li><strong>Wallet.</strong> Software that holds keys and builds payments. It is not a bank account. An exchange account is a claim on a company, not keys you hold. A phone or extension wallet still trusts that device and the RPC it asks. Your own node is the check. You can skip the node on day one. Know that you skipped it.</li>
         <li><strong>Ledger.</strong> The public list of coins and who can spend them. Anyone can download it. Nobody asks permission to read it.</li>
         <li><strong>Miner.</strong> A machine that spends electricity to propose the next records. Mining is not a salary from Kaspa. It is a race to find valid work.</li>
         <li><strong>Node.</strong> A computer that stores the ledger and checks the rules. You can run one. You do not have to. Someone still has to.</li>
@@ -31,6 +31,10 @@ export const doors = {
         <li><strong>The recipient waits as they choose.</strong> A coffee and a house sale do not need the same wait. Kaspa does not pick that policy for them.</li>
       </ol>
       <p>The playground slows this down so you can press the stages. Use it after this page, not instead of reading.</p>
+      <h2>There is no undo</h2>
+      <p>Wrong <code>kaspa:</code> string, wrong amount, or <code>kaspatest:</code> sent as if it were mainnet: nobody here, not miners, not Discord, can reverse it. The recipient can send it back. That is a new payment. Practice on Testnet-10 first.</p>
+      <h2>Who can see this</h2>
+      <p>Anyone can look up a <code>kaspa:</code> address on kaspa.stream and see every payment that address ever made. That is how you check a payment. It is also how someone who knows your address watches you. Reusing one address forever makes that easy. Kaspa is not Monero.</p>
       <h2>Where Kaspa sits</h2>
       <p>Bitcoin is the same idea: miners, keys, no premine as a fair-launch story. Bitcoin is a chain. When two honest miners find a block at the same time, one block is thrown away. Kaspa is a blockDAG. Honest parallel blocks stay. GHOSTDAG puts them in order. About ten blocks per second on mainnet today. That is a target rate, not a promise that your coffee is irreversible in a tenth of a second.</p>
       <p>Most later coins sold speed by changing the security story: staking, a small set of validators, or a company sequencer. Kaspa’s bet is the opposite. Keep Bitcoin’s root. Make the ledger fast enough that payments and, later, spending rules can live on it without a second chain.</p>
@@ -39,6 +43,7 @@ export const doors = {
       <h2>How to start without getting hurt</h2>
       <ul>
         <li>Do not paste a recovery phrase into a website, a chat, or this site. Nobody here can recover a seed. No Discord helper needs one. Bitcoin and Monero already settled that.</li>
+        <li>Read the whole address before you send. Not the first and last four characters. Prefer a saved address over copying from recent history. After a QR, read the destination in the wallet, not on the poster.</li>
         <li>Learn on Testnet-10 first. tKAS is faucet money. It is not mainnet KAS.</li>
         <li>An explorer is a window. A node checks the rules. kaspa.stream is not rusty-kaspa.</li>
         <li>Watch the Graph Inspector on this page for the live picture. If it stops, treat it as paused, not as a dead network. A candle chart is not that picture.</li>
@@ -93,7 +98,10 @@ export const doors = {
         <li>Never paste a recovery phrase. No vendor, no Discord helper, no website.</li>
         <li>An explorer is a window. A node is the check.</li>
         <li>Compiler success, a local VM, and network acceptance are three facts. Parker’s Studio beta says the same. MIX does not ship that workbench.</li>
+        <li>A Kasware or Kastle app still trusts whoever answers RPC unless it talks to your kaspad.</li>
       </ul>
+      <h2>Do not mix layers</h2>
+      <p>Keys on L1 are coins the network will spend. An exchange balance is a company claim. Wrap lab is a Testnet-10 receipt, not L1 cash. PegLab is a toy peg that is meant to break. Town tKAS is faucet money in one browser. Lightning channels and Cashu mints are the same kind of split: a layer or an operator is not the base coin. Solana Devnet is not mainnet. Testnet-10 is not cheaper mainnet KAS.</p>
       <h2>What speed does not buy</h2>
       <p>It does not remove miner concentration. It does not make every wallet support covenants. It does not make a repository into a product. It does not make a price chart into evidence. The skeptical list is the same as for any PoW coin, plus the extra node cost of a fast DAG.</p>
       <p>Door 3 is the dated machine: KIPs, builder network, node. If you only wanted the map, open status and the playground next.</p>
