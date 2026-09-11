@@ -1,5 +1,3 @@
-import {kgiCard} from './community.mjs';
-
 export const doors = {
   1: {
     id: 1,
@@ -46,7 +44,7 @@ export const doors = {
         <li>Read the whole address before you send. Not the first and last four characters. Prefer a saved address over copying from recent history. After a QR, read the destination in the wallet, not on the poster.</li>
         <li>Learn on Testnet-10 first. tKAS is faucet money. It is not mainnet KAS.</li>
         <li>An explorer is a window. A node checks the rules. kaspa.stream is not rusty-kaspa.</li>
-        <li>Watch the Graph Inspector on this page for the live picture. If it stops, treat it as paused, not as a dead network. A candle chart is not that picture.</li>
+        <li>Watch the Graph Inspector on <a href="/explore">Explore</a> for the live picture. If it stops, treat it as paused, not as a dead network. A candle chart is not that picture.</li>
         <li>Price talk is not a source. If someone leads with a target, close the tab and come back here.</li>
         <li>When you have a question, say what you did, which network, and the error text. Ask in Help, not in a random reply.</li>
       </ul>
@@ -237,24 +235,6 @@ export const people = [
   {id: 'other-chain', door: 2, label: 'High-tech from another chain', intel: 'Same ledger questions, different shape. Kaspa is a PoW blockDAG, not a rollup pitch.'},
   {id: 'other', door: 1, label: 'Other', intel: 'If none of the doors fit, start as if you are new.'},
 ];
-
-export const demos = [
-  ['Playground', 'The mechanics, and your Testnet-10 tKAS if you bring it.', '/playground'],
-  ['Using KAS', 'Follow a payment. Same walkthrough for every door.', '/why-kaspa-matters'],
-];
-
-export function kaspaFilm() {
-  return `<figure class="door-film">
-    <video controls playsinline preload="metadata" src="/media/kaspa-roots.mp4">
-      Your browser cannot play this film. <a href="/media/kaspa-roots.mp4">Open the file</a>.
-    </video>
-    <figcaption class="small">Optional film. The Graph Inspector is the live picture.</figcaption>
-  </figure>`;
-}
-
-export function doorKgi() {
-  return kgiCard('door');
-}
 
 export function peopleChips(doorId) {
   const list = people.filter(person => person.door === doorId);

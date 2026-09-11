@@ -308,7 +308,7 @@ if(process.env.KASPA_RELEASE!=='v1'){const adventure=`<section class="playground
 
 // A next step makes the reading order explicit without hiding direct routes.
 const readingNext={
- 'index.html':['Pick a door','/#doors'],
+ 'index.html':['Try an interactive model','/playground'],
  'what-is-kaspa.html':['Follow a payment and its fee','/why-kaspa-matters'],
  'why-kaspa-matters.html':['Try the payment and network examples','/playground'],
  'skeptical-case.html':['Check the current evidence','/status'],

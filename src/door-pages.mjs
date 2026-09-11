@@ -86,6 +86,7 @@ function pageBody(door) {
     <section class="chapter">
       <div class="section-title"><h2>Continue</h2><p>Help is questions. Explore is the live ledger. The playground is the mechanics.</p></div>
       ${routes(explore)}
+      ${routes(door.reads.filter(item => !explore.some(row => row[2] === item[2])))}
     </section>
     <p class="small"><a href="/#doors">Back to the four doors</a></p>`;
 }
