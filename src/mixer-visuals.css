@@ -1,4 +1,10 @@
 .mixer-home{--copper:#a65f31}
+.mixer-home .main{padding-top:28px}
+.mixer-home .home-stage{min-height:0}
+.mixer-home .doors h1{font-size:clamp(2.2rem,4vw,3.2rem)}
+.mixer-home .honest-labels,.mixer-home .live-dag-invite{box-shadow:none}
+.mixer-home .mix-lanes{margin:0 0 8px}
+.mixer-home .site-hero{margin-top:12px}
 .mixer-home .site-hero{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:64px;padding:28px 0 64px;border-bottom:1px solid var(--rule)}
 
 .mixer-home .site-hero h1{max-width:13ch;margin-bottom:24px}

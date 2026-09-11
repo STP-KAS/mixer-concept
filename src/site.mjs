@@ -5,12 +5,12 @@ export const site = {
   localHost: 'mix.localhost',
   checked: '2026-09-08',
   navigation: [
-    ['Learn', '/what-is-kaspa'],
-    ['Doors', '/door-1'],
+    ['Doors', '/#doors'],
     ['Play', '/playground'],
     ['Explore', '/explore'],
+    ['Help', '/help'],
     ['PegLab', '/peglab'],
-    ['Node', '/node'],
+    ['Town', '/covenants'],
     ['Status', '/status'],
   ],
 };

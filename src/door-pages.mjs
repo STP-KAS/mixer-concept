@@ -1,4 +1,4 @@
-import {doors, demos, doorKgi, peopleChips} from './doors.mjs';
+import {doors, peopleChips} from './doors.mjs';
 import {localFilm} from './community.mjs';
 import {network, payment, spend, vault, permission, tradeoffComparison} from './components.mjs';
 import {snapshot} from './site.mjs';
@@ -32,7 +32,7 @@ const models = {
   1: () => `<div class="door-model">
       <p class="eyebrow">Kaspa intel · Parker’s model</p>
       <h2>Two miners. Parallel blocks stay.</h2>
-      <p>Bitcoin throws one honest block away. Kaspa keeps both and orders them. Inclusion is not acceptance. The recipient still chooses when a payment is settled.</p>
+      <p>Bitcoin throws one honest block away. Kaspa keeps both and orders them. Inclusion is not acceptance. The recipient still chooses when a payment is settled. There is no undo. A wrong address is a new payment, not a chargeback.</p>
       ${network({introductory: true})}
       <h2>A payment through the network</h2>
       ${payment()}
@@ -79,22 +79,13 @@ function pageBody(door) {
       ${principles()}
       ${statusStrip()}
     </div>
-    <div class="door-intel-body">${door.body}</div>
     ${models[door.id]()}
+    <div class="door-intel-body">${door.body}</div>
     ${film}
-    <section class="chapter" id="explore-this-door">
-      <div class="section-title"><h2>Explore from here</h2><p>Learn on the models. See the live DAG. Try a spend only if you brought test coins.</p></div>
-      ${routes(explore)}
-    </section>
-    ${doorKgi()}
     ${peopleChips(door.id)}
     <section class="chapter">
       <div class="section-title"><h2>Continue</h2><p>Help is questions. Explore is the live ledger. The playground is the mechanics.</p></div>
-      ${routes(door.reads)}
-    </section>
-    <section class="chapter">
-      <div class="section-title"><h2>Try it</h2><p>Same for every door.</p></div>
-      ${routes(demos)}
+      ${routes(explore)}
     </section>
     <p class="small"><a href="/#doors">Back to the four doors</a></p>`;
 }

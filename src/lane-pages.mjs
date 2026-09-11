@@ -1,4 +1,4 @@
-import {xHandles, localFilm, pinList, KGI} from './community.mjs';
+import {xHandles, localFilm, pinList, KGI, kgiCard} from './community.mjs';
 import {link, section} from './components.mjs';
 
 const intro = (eyebrow, title, lead) =>
@@ -62,6 +62,7 @@ export const lanePages = [
     title: 'Explore',
     description: 'kaspa.stream for ordinary people: a live explorer of blocks and payments. Plus the graph inspector.',
     body: `${intro('Explore', 'See the network without a ticker.', 'kaspa.stream is an explorer for the many: blocks, transactions, and a live picture of the DAG. You do not need a thesis to open it. You need a transaction ID, an address, or curiosity.')}
+      ${kgiCard('home')}
       ${rows([
         ['What kaspa.stream is', '<p>A block explorer with real-time network insight. Paste an address or a transaction. Watch new blocks land. It is a window onto the ledger, not a trading desk, and not a node. ethereum.org says the same of Etherscan: useful, not the check.</p><p><a href="https://kaspa.stream/" target="_blank" rel="noopener noreferrer">Open kaspa.stream ↗</a></p>'],
         ['Testnet-10 explorer', `<p>Same kind of window, for Testnet-10. Paste a <code>kaspatest:</code> address or a test tx. Mainnet kaspa.stream will not show those coins.</p><p>${link('Open tn10.kaspa.stream','https://tn10.kaspa.stream/')}</p>`],

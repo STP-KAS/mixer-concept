@@ -2,7 +2,7 @@ import { payment, network, spend, mining, vault, transaction, inspector, section
 import { sources, snapshot } from './site.mjs';
 import {coordinationMarkup} from './coordination-view.mjs';
 import {people} from './doors.mjs';
-import {kgiCard} from './community.mjs';
+import {kgiCard, honestLabels, liveDagInvite} from './community.mjs';
 import {learningRoute, lessonContext} from './learning-path.mjs';
 import {heroDiagram} from './site-visuals.mjs';
 import {renderUseCaseStories} from './use-case-stories.mjs';
@@ -23,18 +23,16 @@ export const pages = [
             </video>
           </div>
           <p class="welcome-copy">-Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br><br>-Proof of stake replaced work with capital. That is a different system.<br><br>-Kaspa kept Bitcoin’s proof of work and upgraded it: 10 blocks per second on average, now programmable.</p>
-          <button class="primary-button" type="button" data-welcome-close>Continue</button>
+          <button class="primary-button" type="button" data-welcome-close>Who is reading</button>
         </div>
       </div>
-      <p class="home-ethos">-Bitcoin started as proof of work: scarce money and ownership that does not depend on who already holds the coins.<br><br>-Proof of stake replaced work with capital. That is a different system.<br><br>-Kaspa kept Bitcoin’s proof of work and upgraded it: 10 blocks per second on average, now programmable.</p>
-      <p class="version-line"><a href="/mixer">mixer concept</a> · Parker inspects. STP doors. PegLab depegs. Live DAG. No price talk.</p>
-      <p data-learning-resume hidden></p>
+      <div class="home-stage">
       <section class="doors" id="doors" aria-label="Choose an intel door">
         <p class="eyebrow">Four doors · STP</p>
         <h1>Who is reading.</h1>
         <p>Four lessons, from never used crypto to checking a claim. Each door keeps the same principles, then shows Parker’s Kaspa models so you can break a rule instead of reading a brochure. Help is questions. Explore is the ledger.</p>
         <div class="door-row" aria-label="Knowledge doors">
-          <a href="/door-1">Door 1<br><span>Never used crypto</span><em>Digital cash. Proof of work. Parallel blocks stay. Inclusion is not acceptance.</em></a>
+          <a href="/door-1">Door 1<br><span>Never used crypto</span><em>Digital cash. Proof of work. Parallel blocks stay. Inclusion is not acceptance. There is no undo.</em></a>
           <a href="/door-2">Door 2<br><span>Knows crypto</span><em>Still PoW. A DAG is not a double-spend pass. Live versus later.</em></a>
           <a href="/door-3">Door 3<br><span>Knows Kaspa</span><em>Skip the pitch. Toccata live. Tooling young. A live rule is not an app.</em></a>
           <a href="/door-4">Door 4<br><span>Checks claims</span><em>Price is not a protocol. Speed is not a new security story.</em></a>
@@ -44,15 +42,26 @@ export const pages = [
           ${people.map(person => `<a href="/door-${person.door}?as=${person.id}">${person.label}</a>`).join('')}
         </div>
       </section>
+      <div class="home-companion">
+        ${liveDagInvite()}
+        ${honestLabels()}
+      </div>
+      </div>
+      <p data-learning-resume hidden></p>
+      <nav class="mix-lanes" aria-label="Help, explore, practices">
+        <a href="/help"><span>Questions</span><strong>Help</strong><p>Kaspa Discord rooms. Nobody here recovers a phrase.</p></a>
+        <a href="/explore"><span>Ledger</span><strong>Explore</strong><p>kaspa.stream, tn10.kaspa.stream, Graph Inspector. No ticker required.</p></a>
+        <a href="/best-practices"><span>Every chain</span><strong>Other-chain practices</strong><p>Keys, verify, node versus explorer. Same as Bitcoin, Ethereum, Monero.</p></a>
+      </nav>
       <section class="site-hero" aria-labelledby="site-title">
         <div class="site-hero-copy"><p class="eyebrow">Parker · learn</p><h1 id="site-title">Understand what happens to your payment.</h1><p class="lead">Kaspa is a proof-of-work network for sending KAS. Miners can create blocks in parallel. Follow how those blocks become an ordered history, and what makes a payment valid.</p><div class="action-row"><a class="primary-button" href="/what-is-kaspa">Start with the basics <span aria-hidden="true">→</span></a><a href="/playground">Try an interactive model <span aria-hidden="true">↗</span></a></div><p class="site-hero-note">Explanations you can inspect. Sources you can check.</p></div>
         <figure class="site-hero-visual">${heroDiagram()}<figcaption>Illustration of parallel blocks and a payment. This is not live network data.</figcaption></figure>
       </section>
       <div id="first-look" class="home-demonstration">${network({introductory:true})}</div>
       <div class="under-experiment">${link('Follow the blocks and the information between them', '/what-is-kaspa')}</div>
+      ${kgiCard('home')}
       ${renderUseCaseStories({standalone:true})}
       ${learningRoute()}
-      ${kgiCard('home')}
       <nav class="mixer-try" aria-label="Try and explore">
         <a href="/playground"><span>Try</span><strong>Playground</strong><p>Break a double spend. Bring tKAS if you have it.</p></a>
         <a href="/covenants"><span>Try</span><strong>Town</strong><p>A small Testnet-10 economy. Game rules on real spends.</p></a>
@@ -64,8 +73,7 @@ export const pages = [
       ${section('explore','Also here',routes([
         ...(process.env.KASPA_RELEASE==='v1'?[]:[['PegLab engine','Browser depeg lab. Tiny pool. Will depeg.','/peglab'],['PegLab live','KasWare log-in, vision, mainnet notes.','/lab/'],['Explore','kaspa.stream for ordinary people, plus the live DAG.','/explore']]),
         ['Using KAS','Wallets, sending, receiving, and reading a transaction.','/why-kaspa-matters'],
-        ['Wallet','Kasware or Kastle holdings. Never a seed.','/wallet'],
-        ['Help','Kaspa Discord rooms.','/help'],
+        ['Wallet','Kasware or Kastle holdings. Never a seed. The page reads an indexer, not your node.','/wallet'],
         ['mixer concept','What this version mixes, and why.','/mixer'],
         ['What is live','Dated status. Live, roadmap, research, wrong.','/status'],
       ]))}`,
@@ -300,7 +308,7 @@ if(process.env.KASPA_RELEASE!=='v1'){const adventure=`<section class="playground
 
 // A next step makes the reading order explicit without hiding direct routes.
 const readingNext={
- 'index.html':['Begin with the network','/what-is-kaspa'],
+ 'index.html':['Pick a door','/#doors'],
  'what-is-kaspa.html':['Follow a payment and its fee','/why-kaspa-matters'],
  'why-kaspa-matters.html':['Try the payment and network examples','/playground'],
  'skeptical-case.html':['Check the current evidence','/status'],
