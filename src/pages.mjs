@@ -53,6 +53,7 @@ export const pages = [
         <a href="/explore"><span>Ledger</span><strong>Explore</strong><p>kaspa.stream, tn10.kaspa.stream, Graph Inspector. No ticker required.</p></a>
         <a href="/best-practices"><span>Every chain</span><strong>Other-chain practices</strong><p>Keys, verify, node versus explorer. Same as Bitcoin, Ethereum, Monero.</p></a>
       </nav>
+      <p class="mix-credit">Kaspa is not a bank, a court, or a ticker. If you need a chargeback, a trustee, or a notary, that job still lives outside this ledger. <a href="/mixer#world">The rest of the scheme</a>.</p>
       <section class="site-hero" aria-labelledby="site-title">
         <div class="site-hero-copy"><p class="eyebrow">Parker · learn</p><h1 id="site-title">Understand what happens to your payment.</h1><p class="lead">Kaspa is a proof-of-work network for sending KAS. Miners can create blocks in parallel. Follow how those blocks become an ordered history, and what makes a payment valid.</p><div class="action-row"><a class="primary-button" href="/what-is-kaspa">Start with the basics <span aria-hidden="true">→</span></a><a href="/playground">Try an interactive model <span aria-hidden="true">↗</span></a></div><p class="site-hero-note">Explanations you can inspect. Sources you can check.</p></div>
         <figure class="site-hero-visual">${heroDiagram()}<figcaption>Illustration of parallel blocks and a payment. This is not live network data.</figcaption></figure>

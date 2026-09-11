@@ -47,7 +47,7 @@ const models = {
   3: () => `<div class="door-model">
       <p class="eyebrow">Kaspa intel · dated 9 Sep 2026</p>
       <h2>A live rule is not an app.</h2>
-      <p>Toccata is live. SilverScript v1.0.0 is tagged; MIX Town still pins v1-rc1. vProgs are research. DAGKnight is Proposed. Parker’s Kaspa Studio is an isolated local beta, not this site. Hosted V5 and V6 stay withdrawn. Town is the Testnet-10 lab.</p>
+      <p>Toccata is live. SilverScript v1.0.0 is tagged; MIX Town still pins v1-rc1. vProgs are research. DAGKnight is Proposed. Parker’s Kaspa Studio is an isolated local beta, not this site. Hosted V5 and V6 stay withdrawn. Town is the Testnet-10 lab. A delayed vault here is a model of a trustee or a time deposit, not an inheritance product.</p>
       ${vault()}
       ${permission()}
     </div>`,

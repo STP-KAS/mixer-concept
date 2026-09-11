@@ -29,6 +29,8 @@ export const doors = {
         <li><strong>The recipient waits as they choose.</strong> A coffee and a house sale do not need the same wait. Kaspa does not pick that policy for them.</li>
       </ol>
       <p>The playground slows this down so you can press the stages. Use it after this page, not instead of reading.</p>
+      <h2>Cash, a bank, and this ledger</h2>
+      <p>Cash in a hand: no undo, whoever holds it can spend it, no company in the middle. A bank transfer: the bank can reverse, freeze, or ask who you are. Kaspa is closer to public cash than to a bank. That is the scheme. It is not a better bank. If you need a chargeback, use a bank or a card. If you need a court, use a court. MIX cannot do those jobs.</p>
       <h2>There is no undo</h2>
       <p>Wrong <code>kaspa:</code> string, wrong amount, or <code>kaspatest:</code> sent as if it were mainnet: nobody here, not miners, not Discord, can reverse it. The recipient can send it back. That is a new payment. Practice on Testnet-10 first.</p>
       <h2>Who can see this</h2>
@@ -100,6 +102,8 @@ export const doors = {
       </ul>
       <h2>Do not mix layers</h2>
       <p>Keys on L1 are coins the network will spend. An exchange balance is a company claim. Wrap lab is a Testnet-10 receipt, not L1 cash. PegLab is a toy peg that is meant to break. Town tKAS is faucet money in one browser. Lightning channels and Cashu mints are the same kind of split: a layer or an operator is not the base coin. Solana Devnet is not mainnet. Testnet-10 is not cheaper mainnet KAS.</p>
+      <h2>Beyond this map</h2>
+      <p>Bitcoin and Ethereum are still crypto. The rest of the world already has escrow agents, notaries, joint accounts, letters of credit, and courts. A covenant is a spending rule that does not name a person as the referee. That is worth inspecting. It is not a replacement until independent people hold independent keys, wallets implement the rule, and someone will hear a dispute. Town does not meet that test. One browser holding every key is a puppet show, not three counterparties.</p>
       <h2>What speed does not buy</h2>
       <p>It does not remove miner concentration. It does not make every wallet support covenants. It does not make a repository into a product. It does not make a price chart into evidence. The skeptical list is the same as for any PoW coin, plus the extra node cost of a fast DAG.</p>
       <p>Door 3 is the dated machine: KIPs, builder network, node. If you only wanted the map, open status and the playground next.</p>
@@ -112,6 +116,7 @@ export const doors = {
       ['Door 3', 'Dated status, builder path, what not to claim.', '/door-3'],
       ['The tradeoffs', 'Node cost, mining concentration, what speed does not solve.', '/skeptical-case'],
       ['Best practices', 'Keys, verify, node versus explorer.', '/best-practices'],
+      ['The rest of the scheme', 'Banks, courts, trustees. Not a Kaspa replacement pitch.', '/mixer#world'],
       ['Sources', 'How a claim is checked here.', '/sources'],
     ],
   },
@@ -202,6 +207,7 @@ export const doors = {
         <li>Are you calling a local model a live app, or a Testnet-10 lab a mainnet product?</li>
         <li>Did you verify on a node or an explorer yourself, or only on a screenshot?</li>
         <li>Would the sentence still be true on Bitcoin or Ethereum without renaming the brand?</li>
+        <li>Are you claiming this replaces a bank, a court, a trustee, or a notary? Name the job they still do that this ledger does not.</li>
       </ol>
       <p>If step 5 fails, you were talking about a market, not the machine. Take it to Moonboy and leave it there.</p>
       <h2>What an expert still owes</h2>

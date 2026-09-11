@@ -46,7 +46,7 @@ export const mixerPage = {
       </div>
     </section>
     <section class="chapter" id="parameters">
-      <div class="section-title"><h2>Other parameters</h2><p>Things a complete learn/explore site needs that neither source is alone.</p></div>
+      <div class="section-title"><h2>Other parameters</h2><p>Things a complete learn/explore site needs that neither source has by itself.</p></div>
       <div class="mixer-params">
         <a href="/peglab"><strong>PegLab</strong><p>A dapp unit that depegs on purpose. Engine and live lab.</p></a>
         <a href="/explore"><strong>Live DAG</strong><p>kaspa.stream and the Graph Inspector. No ticker required.</p></a>
@@ -56,6 +56,7 @@ export const mixerPage = {
         <a href="/search"><strong>Search</strong><p>Find a payment, a door, a node step, or a claim.</p></a>
         <a href="/moonboy"><strong>Moonboy refusal</strong><p>Price predictions are not intel.</p></a>
         <a href="/best-practices"><strong>Other-chain practices</strong><p>Keys, verify, node versus explorer. Same as Bitcoin, Ethereum, Monero. Then Kaspa Silver.</p></a>
+        <a href="/mixer#world"><strong>The rest of the scheme</strong><p>Banks, cash, trustees, courts. Jobs this ledger will not do.</p></a>
       </div>
     </section>
     <section class="chapter" id="how">
@@ -78,6 +79,18 @@ export const mixerPage = {
         <tr><th>Town / playground tKAS</th><td>Faucet money. One browser holds every key</td><td>Mainnet KAS, or three independent people</td></tr>
         <tr><th>kaspa.stream / this site</th><td>A window</td><td>Your node</td></tr>
       </tbody></table></div>
+    </section>
+    <section class="chapter" id="world">
+      <div class="section-title"><h2>The rest of the scheme</h2><p>Crypto is one tool. Banks, cash, trustees, and courts still do jobs this ledger will not. MIX names the analog so the model is not a pitch.</p></div>
+      <div class="table-scroll" role="region" aria-label="Analog world versus MIX" tabindex="0"><table><thead><tr><th>Job</th><th>Analog world</th><th>MIX / Kaspa today</th><th>Delusional claim</th></tr></thead><tbody>
+        <tr><th>Undo a mistaken payment</th><td>Bank, card network, court</td><td>No undo. A return is a new payment</td><td>MIX or Discord can reverse it</td></tr>
+        <tr><th>Three-party escrow</th><td>Three people, a solicitor, separate keys</td><td>Town: one browser holds every key</td><td>Town is a real market of counterparties</td></tr>
+        <tr><th>A dollar</th><td>Cash, a bank deposit</td><td>PegLab is built to depeg</td><td>This is a stable</td></tr>
+        <tr><th>Delayed release</th><td>Trustee, time deposit, will</td><td>A vault model you can break. TN10 lab</td><td>An inheritance product is live</td></tr>
+        <tr><th>Prove a payment happened</th><td>Statement, receipt, your own records</td><td>Explorer is a window. A node is the check</td><td>A screenshot settles a dispute</td></tr>
+        <tr><th>Freeze or name a person</th><td>Court, bank, notary</td><td>A public key is not a legal identity</td><td>Kaspa KYC or MIX support</td></tr>
+      </tbody></table></div>
+      <p>If the job needs a person with a duty, hire that person. If the job is “can this rule fail,” break the model. Do not mix those two sentences.</p>
     </section>
     ${liveDagInvite()}
     <nav class="reading-next" aria-label="Start mixer concept"><p>Start</p><a href="/#doors">Pick a door <span aria-hidden="true">→</span></a></nav>`,
