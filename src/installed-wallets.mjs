@@ -88,10 +88,12 @@ async function connectKasware() {
     throw new Error('Kasware is not in this tab. Install the extension, unlock it, then connect.');
   }
   const quiet = await kaswareAccountsQuiet();
-  if (quiet[0]) return {id: 'kasware', address: String(quiet[0])};
-  const accounts = await withTimeout(wallet.requestAccounts(), 45000, 'Kasware connect timed out');
-  if (!accounts?.[0]) throw new Error('Kasware returned no account.');
-  return {id: 'kasware', address: String(accounts[0])};
+  const quietAddress = String(quiet?.[0]?.address || quiet?.[0] || '');
+  if (quietAddress) return {id: 'kasware', address: quietAddress};
+  const accounts = await withTimeout(wallet.requestAccounts(), 45000, 'Kasware connect timed out. Open Kasware, unlock it, pick an account, and approve.');
+  const address = String(accounts?.[0]?.address || accounts?.[0] || '');
+  if (!address) throw new Error('Kasware returned no account. Approve Log in in the Kasware popup.');
+  return {id: 'kasware', address};
 }
 
 async function connectKastle() {

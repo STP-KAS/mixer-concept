@@ -8,7 +8,7 @@ export const mixerPage = {
   body: `<div class="page-intro intro-mixer">
       <p class="eyebrow">MIX · version</p>
       <h1>mixer concept</h1>
-      <p class="lead">Parker’s inspectable Kaspa models on STP’s doors, plus the parameters a learn/explore site needs that neither source is alone.</p>
+      <p class="lead">Parker’s inspectable Kaspa models on STP’s doors, plus the parameters a learn/explore site needs that neither source has by itself.</p>
     </div>
     <p class="mix-credit">Not kaspaexplained.com. Not a token. Not a bank. Door principles stay. Kaspa intel on the doors is Parker’s models plus dated labels.</p>
     <section class="chapter" id="labels">
