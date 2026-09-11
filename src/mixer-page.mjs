@@ -89,6 +89,7 @@ export const mixerPage = {
         <tr><th>Delayed release</th><td>Trustee, time deposit, will</td><td>A vault model you can break. TN10 lab</td><td>An inheritance product is live</td></tr>
         <tr><th>Prove a payment happened</th><td>Statement, receipt, your own records</td><td>Explorer is a window. A node is the check</td><td>A screenshot settles a dispute</td></tr>
         <tr><th>Freeze or name a person</th><td>Court, bank, notary</td><td>A public key is not a legal identity</td><td>Kaspa KYC or MIX support</td></tr>
+        <tr><th>One global marketplace book</th><td>The world happens in parallel. A bank still serializes your account. An exchange serializes a ticker</td><td>UTXO spends are local. A global AMM is a different problem. Sutton 11 Sep 2026 is a hypothesis, not a product</td><td>Kaspa already runs global DeFi because blocks are parallel</td></tr>
       </tbody></table></div>
       <p>If the job needs a person with a duty, hire that person. If the job is “can this rule fail,” break the model. Do not mix those two sentences.</p>
     </section>
