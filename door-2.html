@@ -1,0 +1,162 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Door 2 · Intermediate · Knows crypto, not Kaspa · MIX</title><meta name="description" content="Intermediate. Kaspa is still proof of work. Parallel honest blocks are kept and ordered. Speed is not a new security story. Compare it to the chain you already know, then check what is actually live."><link rel="canonical" href="https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club/door-2"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta property="og:title" content="Door 2 · Intermediate · Knows crypto, not Kaspa"><meta property="og:description" content="Intermediate. Kaspa is still proof of work. Parallel honest blocks are kept and ordered. Speed is not a new security story. Compare it to the chain you already know, then check what is actually live."><meta property="og:image" content="https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club/og-kaspa-explained.png"><link rel="stylesheet" href="/assets/app.css?v=mixer-real"><link rel="stylesheet" href="/assets/mixer-visuals.css"><link rel="stylesheet" href="/assets/use-case-demo.css"><link rel="stylesheet" href="/assets/network-diagram.css"><link rel="stylesheet" href="/assets/mechanism-diagrams.css"><link rel="stylesheet" href="/assets/flow-diagrams.css"><script>try{document.documentElement.removeAttribute('hidden');delete document.documentElement.dataset.welcome;const t=new URLSearchParams(location.search).get('theme')||localStorage.getItem('kaspa-theme');if(t==='dark')document.documentElement.dataset.theme='dark';if(sessionStorage.getItem('kaspa-welcome-seen'))document.documentElement.dataset.welcomeSeen='1';}catch{}</script><script type="module" src="/assets/app.mjs?v=mixer-real"></script></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="/"><img src="/favicon.svg" width="28" height="28" alt="">MIX</a><a class="version-chip" href="/mixer">mixer concept</a><nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="/#doors">Doors</a><a href="/playground">Play</a><a href="/explore">Explore</a><a href="/help">Help</a><a href="/peglab">PegLab</a><a href="/covenants">Town</a><a href="/status">Status</a></nav><div class="header-tools"><a href="/wallet">Wallet</a><a href="/search" aria-label="Search explanations">Search</a><button class="theme-button" data-theme-toggle aria-label="Dark appearance" aria-pressed="false">◐</button><button class="menu-button" data-menu aria-expanded="false" aria-controls="main-nav">Menu</button></div></div></header><main class="main" id="main"><div class="page-intro intro-door">
+      <p class="eyebrow">Door 2</p>
+      <h1>Intermediate · Knows crypto, not Kaspa</h1>
+      <p class="lead">Intermediate. Kaspa is still proof of work. Parallel honest blocks are kept and ordered. Speed is not a new security story. Compare it to the chain you already know, then check what is actually live.</p>
+    </div>
+    <p class="door-as" data-door-as hidden></p>
+    <div class="door-top">
+      <aside class="door-principles">
+    <p class="eyebrow">Door principles</p>
+    <ul>
+      <li>Who is reading comes first.</li>
+      <li>Live, roadmap, research, and wrong are different labels.</li>
+      <li>Price talk is not intel.</li>
+      <li>A model you can break beats a lecture.</li>
+    </ul>
+  </aside>
+      <aside class="door-status" aria-label="Dated Kaspa labels">
+    <p class="eyebrow">Kaspa now</p>
+    <p class="small">Checked 6 September 2026, 10:20 UTC. Labels, not a pitch.</p>
+    <ul><li><span class="status-tag">Live</span> GHOSTDAG</li><li><span class="status-tag">Live protocol</span> Toccata</li><li><span class="status-tag">v1.0.0</span> Silverscript</li><li><span class="status-tag">Isolated beta</span> Kaspa Studio</li><li><span class="status-tag">Prototype</span> Argent</li><li><span class="status-tag">Research</span> vProgs</li><li><span class="status-tag">Proposed</span> DAGKnight</li></ul>
+    <p class="small"><a href="/status">Full status with sources</a></p>
+  </aside>
+    </div>
+    <div class="door-model">
+      <p class="eyebrow">Kaspa intel · Parker’s model</p>
+      <h2>A DAG is not a free pass to spend twice.</h2>
+      <p>After GHOSTDAG orders the blocks, the ledger still spends an output only once. Compare that to the chain you already know, then check what is live versus research.</p>
+      <figure class="experiment spend" data-lab="spend"><div class="experiment-label"><span>One output, two spending attempts</span><span>Constructed example</span></div>
+    <div class="spend-scene"><div class="unspent-object"><span class="object-label">Available output</span><strong>10 KAS</strong><span>Both attempts refer to this same output.</span></div><div class="split-connector" aria-hidden="true">↗<br>↘</div><div class="attempts"><div class="spend-attempt" data-attempt="alice" data-valid="true"><span>Pay Alice</span><strong>10 KAS</strong><span class="outcome" data-spend-outcome="alice">Accepted</span></div><div class="spend-attempt" data-attempt="bob" data-valid="false"><span>Pay Bob</span><strong>10 KAS</strong><span class="outcome" data-spend-outcome="bob">Already spent</span></div></div></div>
+    <div class="step-control" role="group" aria-label="Illustrative agreed order"><button data-first="alice" aria-pressed="true">Alice’s payment first</button><button data-first="bob" aria-pressed="false">Bob’s payment first</button></div>
+    <figcaption class="experiment-answer" data-spend-answer aria-live="polite">Alice’s payment consumes the output. Bob’s attempt cannot spend it again. Keeping both blocks does not make both payments valid.</figcaption>
+    <p class="model-note">The ordering is chosen here to expose the consequence. It is not a GHOSTDAG calculation. Fees are omitted from this conservation example.</p></figure>
+      <figure class="experiment network network-intro" data-lab="network">
+    <div class="experiment-label"><span>Two miners. One network.</span><div class="network-playback"><button class="quiet-button" data-network-replay>Watch it happen</button><button class="quiet-button" data-network-reset>Reset</button></div></div>
+    <div class="network-workbench"><div class="network-stage"><div class="dag-result" data-dag-result><div class="diagram-caption"><strong>Two miners. Two independent blocks.</strong><p>Miner 2 found C before hearing about B. Both blocks build on A.</p><small>Arrows reference earlier blocks.</small></div><svg class="network-drawing ledger-drawing drawing-wide" viewBox="0 0 720 380" role="group" aria-label="Parallel block references"><defs><marker id="network-wide" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="currentColor" stroke-width="1.4"/></marker></defs><path class="ledger-reference" data-from="B" data-to="A" d="M289 97.5925925925926 L146 150.55555555555554" marker-end="url(#network-wide)"/><circle class="ledger-port" cx="289" cy="97.5925925925926" r="2.5"/><path class="ledger-reference" data-from="C" data-to="A" d="M289 244.66666666666666 L146 197" marker-end="url(#network-wide)"/><circle class="ledger-port" cx="289" cy="244.66666666666666" r="2.5"/><g class="diagram-block ledger-block" data-block="A" role="img" aria-label="Block A. Earlier block. Known to both" transform="translate(80 175)">
+      <path class="ledger-stack" d="M-53 -42 H60 V51 H-53 Z M-50 -39 H63 V54 H-50"/>
+      <rect class="ledger-sheet" x="-56" y="-49" width="112" height="96" rx="1"/>
+      <path class="ledger-header" d="M-56 -49 H56 V-10 H-56 Z"/>
+      <text class="ledger-id" x="-44" y="-23">A</text>
+      <text class="ledger-type" x="-18" y="-30">BLOCK</text>
+      <text class="ledger-parent" x="-18" y="-17">earlier</text>
+      <text class="ledger-row-label" x="-44" y="5">TRANSACTIONS</text>
+      <g class="ledger-transactions" aria-hidden="true"><rect x="-44" y="11" width="5" height="5"/><path d="M-33 13.5 H38"/><path class="ledger-row-end" d="M42 11 V16"/><rect x="-44" y="22" width="5" height="5"/><path d="M-33 24.5 H20"/><path class="ledger-row-end" d="M42 22 V27"/><rect x="-44" y="33" width="5" height="5"/><path d="M-33 35.5 H38"/><path class="ledger-row-end" d="M42 33 V38"/></g>
+      <text class="ledger-owner" y="77" text-anchor="middle">Earlier block</text>
+    </g><g class="diagram-block ledger-block" data-block="B" role="img" aria-label="Block B. Miner 1 · 100 ms. References A" transform="translate(350 75)">
+      <path class="ledger-stack" d="M-53 -42 H60 V51 H-53 Z M-50 -39 H63 V54 H-50"/>
+      <rect class="ledger-sheet" x="-56" y="-49" width="112" height="96" rx="1"/>
+      <path class="ledger-header" d="M-56 -49 H56 V-10 H-56 Z"/>
+      <text class="ledger-id" x="-44" y="-23">B</text>
+      <text class="ledger-type" x="-18" y="-30">BLOCK</text>
+      <text class="ledger-parent" x="-18" y="-17">ref A</text>
+      <text class="ledger-row-label" x="-44" y="5">TRANSACTIONS</text>
+      <g class="ledger-transactions" aria-hidden="true"><rect x="-44" y="11" width="5" height="5"/><path d="M-33 13.5 H38"/><path class="ledger-row-end" d="M42 11 V16"/><rect x="-44" y="22" width="5" height="5"/><path d="M-33 24.5 H20"/><path class="ledger-row-end" d="M42 22 V27"/><rect x="-44" y="33" width="5" height="5"/><path d="M-33 35.5 H38"/><path class="ledger-row-end" d="M42 33 V38"/></g>
+      <text class="ledger-owner" y="77" text-anchor="middle">Miner 1 · 100 ms</text>
+    </g><g class="diagram-block ledger-block" data-block="C" role="img" aria-label="Block C. Miner 2 · 400 ms. References A" transform="translate(350 265)">
+      <path class="ledger-stack" d="M-53 -42 H60 V51 H-53 Z M-50 -39 H63 V54 H-50"/>
+      <rect class="ledger-sheet" x="-56" y="-49" width="112" height="96" rx="1"/>
+      <path class="ledger-header" d="M-56 -49 H56 V-10 H-56 Z"/>
+      <text class="ledger-id" x="-44" y="-23">C</text>
+      <text class="ledger-type" x="-18" y="-30">BLOCK</text>
+      <text class="ledger-parent" x="-18" y="-17">ref A</text>
+      <text class="ledger-row-label" x="-44" y="5">TRANSACTIONS</text>
+      <g class="ledger-transactions" aria-hidden="true"><rect x="-44" y="11" width="5" height="5"/><path d="M-33 13.5 H38"/><path class="ledger-row-end" d="M42 11 V16"/><rect x="-44" y="22" width="5" height="5"/><path d="M-33 24.5 H20"/><path class="ledger-row-end" d="M42 22 V27"/><rect x="-44" y="33" width="5" height="5"/><path d="M-33 35.5 H38"/><path class="ledger-row-end" d="M42 33 V38"/></g>
+      <text class="ledger-owner" y="77" text-anchor="middle">Miner 2 · 400 ms</text>
+    </g></svg><svg class="network-drawing ledger-drawing drawing-small" viewBox="0 0 360 350" role="group" aria-label="Parallel block references"><defs><marker id="network-small" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="currentColor" stroke-width="1.4"/></marker></defs><path class="ledger-reference" data-from="B" data-to="A" d="M224 65 L141 65" marker-end="url(#network-small)"/><circle class="ledger-port" cx="224" cy="65" r="2.5"/><path class="ledger-reference" data-from="C" data-to="A" d="M14 245 H7 V65 H9" marker-end="url(#network-small)"/><circle class="ledger-port" cx="14" cy="245" r="2.5"/><g class="diagram-block ledger-block" data-block="A" role="img" aria-label="Block A. Earlier block. Known to both" transform="translate(75 65)">
+      <path class="ledger-stack" d="M-53 -42 H60 V51 H-53 Z M-50 -39 H63 V54 H-50"/>
+      <rect class="ledger-sheet" x="-56" y="-49" width="112" height="96" rx="1"/>
+      <path class="ledger-header" d="M-56 -49 H56 V-10 H-56 Z"/>
+      <text class="ledger-id" x="-44" y="-23">A</text>
+      <text class="ledger-type" x="-18" y="-30">BLOCK</text>
+      <text class="ledger-parent" x="-18" y="-17">earlier</text>
+      <text class="ledger-row-label" x="-44" y="5">TRANSACTIONS</text>
+      <g class="ledger-transactions" aria-hidden="true"><rect x="-44" y="11" width="5" height="5"/><path d="M-33 13.5 H38"/><path class="ledger-row-end" d="M42 11 V16"/><rect x="-44" y="22" width="5" height="5"/><path d="M-33 24.5 H20"/><path class="ledger-row-end" d="M42 22 V27"/><rect x="-44" y="33" width="5" height="5"/><path d="M-33 35.5 H38"/><path class="ledger-row-end" d="M42 33 V38"/></g>
+      <text class="ledger-owner" y="77" text-anchor="middle"><tspan x="0">Earlier block</tspan></text>
+    </g><g class="diagram-block ledger-block" data-block="B" role="img" aria-label="Block B. Miner 1 · 100 ms. References A" transform="translate(285 65)">
+      <path class="ledger-stack" d="M-53 -42 H60 V51 H-53 Z M-50 -39 H63 V54 H-50"/>
+      <rect class="ledger-sheet" x="-56" y="-49" width="112" height="96" rx="1"/>
+      <path class="ledger-header" d="M-56 -49 H56 V-10 H-56 Z"/>
+      <text class="ledger-id" x="-44" y="-23">B</text>
+      <text class="ledger-type" x="-18" y="-30">BLOCK</text>
+      <text class="ledger-parent" x="-18" y="-17">ref A</text>
+      <text class="ledger-row-label" x="-44" y="5">TRANSACTIONS</text>
+      <g class="ledger-transactions" aria-hidden="true"><rect x="-44" y="11" width="5" height="5"/><path d="M-33 13.5 H38"/><path class="ledger-row-end" d="M42 11 V16"/><rect x="-44" y="22" width="5" height="5"/><path d="M-33 24.5 H20"/><path class="ledger-row-end" d="M42 22 V27"/><rect x="-44" y="33" width="5" height="5"/><path d="M-33 35.5 H38"/><path class="ledger-row-end" d="M42 33 V38"/></g>
+      <text class="ledger-owner" y="77" text-anchor="middle"><tspan x="0">Miner 1</tspan><tspan x="0" dy="17">100 ms</tspan></text>
+    </g><g class="diagram-block ledger-block" data-block="C" role="img" aria-label="Block C. Miner 2 · 400 ms. References A" transform="translate(75 245)">
+      <path class="ledger-stack" d="M-53 -42 H60 V51 H-53 Z M-50 -39 H63 V54 H-50"/>
+      <rect class="ledger-sheet" x="-56" y="-49" width="112" height="96" rx="1"/>
+      <path class="ledger-header" d="M-56 -49 H56 V-10 H-56 Z"/>
+      <text class="ledger-id" x="-44" y="-23">C</text>
+      <text class="ledger-type" x="-18" y="-30">BLOCK</text>
+      <text class="ledger-parent" x="-18" y="-17">ref A</text>
+      <text class="ledger-row-label" x="-44" y="5">TRANSACTIONS</text>
+      <g class="ledger-transactions" aria-hidden="true"><rect x="-44" y="11" width="5" height="5"/><path d="M-33 13.5 H38"/><path class="ledger-row-end" d="M42 11 V16"/><rect x="-44" y="22" width="5" height="5"/><path d="M-33 24.5 H20"/><path class="ledger-row-end" d="M42 22 V27"/><rect x="-44" y="33" width="5" height="5"/><path d="M-33 35.5 H38"/><path class="ledger-row-end" d="M42 33 V38"/></g>
+      <text class="ledger-owner" y="77" text-anchor="middle"><tspan x="0">Miner 2</tspan><tspan x="0" dy="17">400 ms</tspan></text>
+    </g></svg></div><div class="block-inspection" role="status" hidden><strong data-block-title>Inspect a block</strong><p data-block-detail>Select A, B, C, or D in the scene to see its references.</p></div><div class="network-presets" role="group" aria-label="Compare message delays"><button data-delay-preset="100" aria-pressed="false">News arrives quickly <span>100 ms</span></button><button data-delay-preset="500" aria-pressed="true">News arrives late <span>500 ms</span></button></div><div class="scene-tabs" role="group" aria-label="Views of this example"><button data-network-view="connections" aria-pressed="true">Block connections</button><button data-network-view="messages" aria-pressed="false">What miners see</button></div>
+    <div class="network-scene" data-message-view hidden>
+      <div class="miner-view"><span class="object-label">Miner 1</span><div class="miner-desk"><span class="desk-label">Blocks received or found</span><div class="known-blocks" data-miner-one><span>A</span><span>B</span></div><p data-miner-one-note>Found B at 100 ms.</p></div></div>
+      <div class="message-space" role="img" aria-label="B is still on its way to miner 2" data-network-messages><div class="message-track"><span class="track-label">B →</span><div class="track"><i data-message-b>B</i></div></div><div class="message-track"><span class="track-label">← C</span><div class="track"><i data-message-c>C</i></div></div><p>Messages take time</p></div>
+      <div class="miner-view"><span class="object-label">Miner 2</span><div class="miner-desk"><span class="desk-label">Blocks received or found</span><div class="known-blocks" data-miner-two><span>A</span><span>C</span></div><p data-miner-two-note>Found C without knowing B.</p></div></div>
+    </div>
+    <details class="timeline-disclosure"><summary>Inspect the timing</summary><div class="timeline-control"><label class="range-control"><span>Time in the example <strong data-network-time>400 ms</strong></span><input type="range" min="0" max="1200" step="1" value="400" data-time></label><div class="event-shortcuts"><button data-event-time="100">B found</button><button data-event-time="400">C found</button><button data-event-time="1200">Both delivered</button></div></div></details></div>
+    <details class="network-advanced"><summary>Adjust the delay and inspect a block</summary><aside class="network-inspector"><label class="range-control"><span>Message delay <strong data-network-delay>500 ms</strong></span><input type="range" min="0" max="800" step="1" value="500" data-delay></label><label class="exact-control">Exact delay <span><input data-delay-number type="number" min="0" max="800" step="1" value="500"> ms</span></label><div class="decision-band"><span>At <span data-network-clock>400 ms</span></span><strong data-network-decision>C references A.</strong><p data-network-reason>B has not arrived. Both miners worked from the information they had.</p></div></aside></details></div>
+    <p class="sr-only" data-network-announcement aria-live="polite"></p><figcaption><p class="model-note">An illustrative two-miner model. Discoveries stay fixed at 100 and 400 ms. The same delay applies both ways. Packet positions show elapsed delivery, not physical distance.</p></figcaption>
+    <details class="detail"><summary>Model assumptions and event times</summary><div class="detail-body"><p>Delivery occurs before discovery at an exact tie. Real mining is random. D is a possible later block, not a timed discovery. This example calculates neither GHOSTDAG nor confirmation confidence.</p><div class="table-scroll" tabindex="0" role="region" aria-label="Network events"><table><thead><tr><th>Time</th><th>Event</th></tr></thead><tbody data-network-events><tr><td>0 ms</td><td>Both miners know A.</td></tr><tr><td>100 ms</td><td>Miner 1 finds B, referencing A.</td></tr><tr><td>400 ms</td><td>Miner 2 finds C, referencing A.</td></tr><tr><td>600 ms</td><td>Miner 2 receives B.</td></tr><tr><td>900 ms</td><td>Miner 1 receives C.</td></tr></tbody></table></div></div></details>
+  </figure>
+    </div>
+    <div class="door-intel-body"><h2>The one-sentence difference</h2>
+      <p>Bitcoin selects a chain and orphans the rest. Kaspa represents concurrent proof-of-work in a DAG and orders it with GHOSTDAG. The double-spend check still happens after ordering. A DAG is not a free pass to spend twice.</p>
+      <p>If you already think in UTXOs, fees, and confirmation policy, you can skip Door 1. Stay here until you can place Kaspa without borrowing Ethereum’s words.</p>
+      <h2>Against the rest of the map</h2>
+      <p><strong>Bitcoin.</strong> Same PoW cash lineage, UTXO ledger, no premine. Kaspa’s block interval is much shorter. That does not copy Bitcoin’s settlement culture. Recipients still pick a policy. Node bandwidth and validation cost rise with the extra blocks. If a Bitcoiner asks “is it final?”, the honest answer is: inclusion, acceptance, and the recipient’s wait are three different things. Same as Bitcoin, faster blocks.</p>
+      <p><strong>Ethereum.</strong> Ethereum moved to proof of stake and an account virtual machine. Kaspa stayed with miners and UTXOs. Toccata added spending rules (covenants), covenant IDs, a ZK precompile, and sequencing lanes. That is not the EVM. You do not deploy a Solidity app onto Kaspa L1 today and get Ethereum’s tooling. “Smart contracts on Kaspa” is a sentence that needs a label: covenants are live protocol; application compilers are not all stable.</p>
+      <p><strong>High-throughput PoS and L2s.</strong> Fast inclusion is often a sequencer or a validator set. Kaspa’s speed is many proof-of-work blocks. Honest work that arrives late is kept, not discarded. 100 BPS is a research target, not a spec. Crescendo’s 10 BPS is live. If you came from Solana, do not map TPS slogans onto block rate. Nodes still receive, validate, and store every block.</p>
+      <h2>UTXO, not an account VM</h2>
+      <p>Coins live as unspent outputs. A payment consumes outputs and creates new ones. Change is an output back to you. A covenant is a spending rule attached to an output: wait, limit, name the recipient, require a proof. That is closer to Bitcoin Script than to an EVM contract with storage.</p>
+      <p>Shared execution among many users (a lending pool, an AMM with one global book) is a different problem. Covenants do not by themselves give you that. vProgs are the research name for based programs with validity proofs. They are not a product testnet you can treat as live.</p>
+      <p>11 Sep 2026. Michael Sutton’s working hypothesis, not a KIP: the world does not update through one sequence. Related events still need relative order (a double spend is the smallest case). That is not a reason to send every state change through a constant number of sequential bottlenecks. He wants app designs that partition, parallelize, or replicate state, not a system bent toward one shared book. Computational scalability is the deeper point in that thread. This is a design argument. It does not ship global DeFi. Source: <a href="https://x.com/michaelsuttonil/status/2098204180406026482">@michaelsuttonil, 11 Sep 2026</a>.</p>
+      <h2>Live versus later</h2>
+      <p>Use these labels. Mix them and you are pitching.</p>
+      <ul>
+        <li><strong>Live.</strong> GHOSTDAG. 10 BPS (Crescendo). Toccata protocol rules on mainnet. rusty-kaspa v2.0.1 is the maintenance tag checked here.</li>
+        <li><strong>v1.0.0.</strong> SilverScript compiler tagged 9 Sep 2026. Application readiness is separate. MIX Town still pins v1-rc1 until retargeted.</li>
+        <li><strong>Prototype.</strong> Argent. Examples exist. The README says it is not release-ready.</li>
+        <li><strong>Isolated beta.</strong> Parker’s Kaspa Studio, branch <code>studio-beta</code>, 9 Sep 2026. Local workbench. Not this public MIX site. Does not broadcast. V5 and V6 stay withdrawn.</li>
+        <li><strong>Research.</strong> vProgs. Repository existence is not production. Sutton, 11 Sep 2026: do not force every mutation through a constant sequential bottleneck. Hypothesis, not a product.</li>
+        <li><strong>Proposed.</strong> DAGKnight. The rusty <code>dagknight</code> branch is not merged. No mainnet activation is documented in the checked KIP or node releases.</li>
+        <li><strong>Local model.</strong> Dated 8 September 2026. Inherited budget, atomic offer completion, competing execution, a correction bounty, and a permission arena. You can break them. They do not sign or submit.</li>
+        <li><strong>Testnet lab.</strong> Existing covenant primitives on Testnet-10. This site’s Town is that lab. One browser holds every key. That is not three independent people.</li>
+        <li><strong>Withdrawn.</strong> Parker’s hosted V5 and V6, 8 September 2026. Town at /covenants stays. MIX does not ship those versions.</li>
+      </ul>
+      <p>A merged Active KIP is law. A tweet, a Discord rumor, and a forum thread are not. Toccata is consensus. silverc is a compiler. People still mix those two in chat.</p>
+      <h2>Practices that do not change with the chain</h2>
+      <p>Bitcoin, Ethereum, and Monero already settled these. Kaspa does not get a waiver.</p>
+      <ul>
+        <li>Keys you hold versus a balance at a company.</li>
+        <li>Never paste a recovery phrase. No vendor, no Discord helper, no website.</li>
+        <li>An explorer is a window. A node is the check.</li>
+        <li>Compiler success, a local VM, and network acceptance are three facts. Parker’s Studio beta says the same. MIX does not ship that workbench.</li>
+        <li>A Kasware or Kastle app still trusts whoever answers RPC unless it talks to your kaspad.</li>
+      </ul>
+      <h2>Do not mix layers</h2>
+      <p>Keys on L1 are coins the network will spend. An exchange balance is a company claim. Wrap lab is a Testnet-10 receipt, not L1 cash. PegLab is a toy peg that is meant to break. Town tKAS is faucet money in one browser. Lightning channels and Cashu mints are the same kind of split: a layer or an operator is not the base coin. Solana Devnet is not mainnet. Testnet-10 is not cheaper mainnet KAS.</p>
+      <h2>Beyond this map</h2>
+      <p>Bitcoin and Ethereum are still crypto. The rest of the world already has escrow agents, notaries, joint accounts, letters of credit, and courts. A covenant is a spending rule that does not name a person as the referee. That is worth inspecting. It is not a replacement until independent people hold independent keys, wallets implement the rule, and someone will hear a dispute. Town does not meet that test. One browser holding every key is a puppet show, not three counterparties.</p>
+      <h2>What speed does not buy</h2>
+      <p>It does not remove miner concentration. It does not make every wallet support covenants. It does not make a repository into a product. It does not make a price chart into evidence. The skeptical list is the same as for any PoW coin, plus the extra node cost of a fast DAG.</p>
+      <p>Door 3 is the dated machine: KIPs, builder network, node. If you only wanted the map, open status and the playground next.</p>
+      <p>Questions: <a href="/help">Help</a>. Blocks, Testnet-10 explorer, live DAG: <a href="/explore">Explore</a>.</p></div>
+    <details class="door-film-fold"><summary>Optional film · Kaspa Silver</summary><figure class="door-film">
+    <video controls playsinline preload="metadata" src="/media/kaspa-silver.mp4">
+      Your browser cannot play this film. <a href="/media/kaspa-silver.mp4">Open the file</a>.
+    </video>
+    <figcaption class="small">Kaspa Silver: what Kaspa is.</figcaption>
+  </figure></details>
+    <p class="small">I am… these people land on this door.</p>
+    <div class="door-people" aria-label="People on this door"><a href="/door-2?as=crypto-not-kaspa">Knows crypto, not Kaspa</a><a href="/door-2?as=institution">Institution (speculative)</a><a href="/door-2?as=cyberpunk">Cyberpunk</a><a href="/door-2?as=other-chain">High-tech from another chain</a></div>
+    <section class="chapter">
+      <div class="section-title"><h2>Continue</h2><p>Help is questions. Explore is the live ledger. The playground is the mechanics.</p></div>
+      <nav class="topic-list" aria-label="Next reading"><a href="/help"><div><strong>Help</strong><p>Pick the Discord room. Facts, not a seed or a price.</p></div><span aria-hidden="true">↗</span></a><a href="/explore"><div><strong>Explore</strong><p>kaspa.stream, tn10.kaspa.stream, Graph Inspector.</p></div><span aria-hidden="true">↗</span></a><a href="/playground"><div><strong>Playground</strong><p>Delay, double spend, mining share, spending rules. Bring tKAS if you have it.</p></div><span aria-hidden="true">↗</span></a><a href="/covenants"><div><strong>Town</strong><p>Testnet-10 contract lab. Game rules on real spends. One browser holds every key.</p></div><span aria-hidden="true">↗</span></a><a href="/node"><div><strong>Node</strong><p>TN10 node plus CPU miner, or a mainnet follower. Do not mix the flags.</p></div><span aria-hidden="true">↗</span></a></nav>
+      <nav class="topic-list" aria-label="Next reading"><a href="/status"><div><strong>What is live</strong><p>Live, roadmap, research, wrong.</p></div><span aria-hidden="true">↗</span></a><a href="/door-3"><div><strong>Door 3</strong><p>Dated status, builder path, what not to claim.</p></div><span aria-hidden="true">↗</span></a><a href="/skeptical-case"><div><strong>The tradeoffs</strong><p>Node cost, mining concentration, what speed does not solve.</p></div><span aria-hidden="true">↗</span></a><a href="/best-practices"><div><strong>Best practices</strong><p>Keys, verify, node versus explorer.</p></div><span aria-hidden="true">↗</span></a><a href="/mixer#world"><div><strong>The rest of the scheme</strong><p>Banks, courts, trustees. Not a Kaspa replacement pitch.</p></div><span aria-hidden="true">↗</span></a><a href="/sources"><div><strong>Sources</strong><p>How a claim is checked here.</p></div><span aria-hidden="true">↗</span></a></nav>
+    </section>
+    <p class="small"><a href="/#doors">Back to the four doors</a></p></main><footer class="site-footer"><p>MIX · mixer concept · mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club<br>Parker’s Kaspa Explained. STP doors and Node. PegLab. Live DAG.</p><nav aria-label="Footer"><a href="/mixer">mixer concept</a><a href="/help">Help</a><a href="/explore">Explore</a><a href="/best-practices">Best practices</a><a href="/status">Current status</a><a href="/peglab">PegLab</a><a href="/search">Search</a></nav><p class="community-rules">Rules for entering the Kaspa community: when engaging online, be mature. No price predictions. Build. Share ideas. Keep a positive critical mindset.</p></footer></body></html>

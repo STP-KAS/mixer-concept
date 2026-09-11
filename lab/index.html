@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PegLab — Kaspa unit for dapps, not a bank dollar</title>
+  <meta name="description" content="PegLab is a Kaspa-native alternative to centralized stablecoins for dapps. Testnet-10 lab. Not USD. Will depeg if you treat it as a dollar.">
+  <meta name="apple-itunes-app" content="app-id=6759102359">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="banner">TESTNET-10 LAB · NOT USD · NOT USDT/USDC · WILL DEPEG IF YOU TREAT IT AS A DOLLAR</div>
+  <header class="nav">
+    <a class="brand" href="/" title="MIX home">MIX · PegLab</a>
+    <nav>
+      <a href="/peglab">Engine</a>
+      <a href="./VISION.md">Vision</a>
+      <a href="./MAINNET.md">Mainnet</a>
+      <a href="./KACHAT.md">KaChat</a>
+    </nav>
+    <a class="bal" data-balances hidden title="This wallet's KAS or tKAS from KasWare.">
+      <span data-kas-balance>KAS 0.0</span>
+    </a>
+    <div class="who" data-who hidden>
+      <button type="button" class="who-name" data-copy-who="name" title="Copy kasname">—</button>
+      <button type="button" class="who-addr" data-copy-who="addr" title="Copy Kaspa address">—</button>
+    </div>
+    <button class="btn ghost" type="button" data-wallet-connect data-idle-label="Log in">Log in</button>
+    <button class="btn ghost" type="button" data-wallet-logout hidden>Log out</button>
+  </header>
+  <div class="masthead">
+    <p class="eyebrow">PegLab · Kaspa Testnet-10</p>
+    <h1>A unit for dapps on Kaspa.<br>Not a bank stablecoin.</h1>
+    <p class="lead">Dapps need something stable enough to invoice, escrow, and pay fees. They should not have to wait on Circle or Tether. PegLab is that alternative <em>idea</em>: a covenant unit sequenced on Kaspa, backed by locked tKAS. This page is the teaching build. If you call tPEG a US dollar, it will depeg. We show that on purpose.</p>
+  </div>
+  <section class="idea" id="what">
+    <div class="idea-grid">
+      <article>
+        <p class="eyebrow">The idea</p>
+        <h2>Skip centralized stables for dapps.</h2>
+        <p>USDT/USDC are cash in a company. Fine for a listed dollar. Bad as the only way a Kaspa app can run. PegLab explores a Kaspa-native unit: lock tKAS, issue tPEG, redeem under a spend rule. The dapp talks to Kaspa, not to an issuer.</p>
+        <p>This lab is cheap on purpose (tiny pool, one admin price). That is why a dollar peg fails here. The takeaway is not “ship this as money.” It is “dapps can settle on Kaspa rules; a fake $1 is not the product.”</p>
+      </article>
+      <article>
+        <p class="eyebrow">How to try it</p>
+        <ol class="how">
+          <li>Stay on this page. Testnet-10 only. No seed goes in the box.</li>
+          <li><strong>A</strong> — Connect <strong>KasWare</strong>, switch it to Testnet 10, see your tKAS balance.<br><strong>B</strong> — No wallet? <strong>Make local wallet + fund from host</strong> (1 tKAS from the host address).</li>
+          <li>Click <strong>Run depeg lab</strong> below.</li>
+          <li>Read three numbers: admin price, pool price, redeem price. They will not match. That is why this is not USDT.</li>
+        </ol>
+      </article>
+    </div>
+    <dl class="is-isnot">
+      <div><dt>Is</dt><dd>A Testnet-10 lab for dapp settlement on Kaspa</dd></div>
+      <div><dt>Is not</dt><dd>USD, USDT, USDC, a bank, or a token sale</dd></div>
+      <div><dt>tPEG</dt><dd>A claim on locked tKAS, not a dollar</dd></div>
+      <div><dt>Next</dt><dd>A finished conversation on a phone — <a href="./VISION.md">VISION.md</a>. Not a dollar.</dd></div>
+    </dl>
+  </section>
+  <section class="wallet-bar" id="wallet-bar">
+    <p class="eyebrow">Test with tKAS · Testnet-10 only</p>
+    <h2>Own KasWare, or make a local wallet funded by the host.</h2>
+    <p class="note">This page never asks for a seed. KasWare stays in the extension. A local wallet is a disposable Testnet-10 key in this tab, paid from the host address below.</p>
+    <p class="host-line">Host tKAS: <code id="host-address"></code> · <strong id="host-balance">checking…</strong></p>
+    <p class="status" id="wallet-status" role="status"></p>
+    <div class="wallet-paths">
+      <article class="path">
+        <p class="path-kicker">A · I already have KasWare</p>
+        <h3>Open KasWare and show my tKAS</h3>
+        <p>Connect the extension, switch it to Testnet 10, then we show that address and its tKAS balance.</p>
+        <div class="controls">
+          <button type="button" id="connect-kasware" class="primary">Connect KasWare</button>
+          <a class="quiet-link" href="https://www.kasware.xyz" target="_blank" rel="noopener">Install KasWare</a>
+        </div>
+        <dl class="wallet-facts">
+          <div><dt>KasWare</dt><dd id="kw-state">Not connected</dd></div>
+          <div><dt>Address</dt><dd><code id="kw-address">—</code></dd></div>
+          <div><dt>Network</dt><dd id="kw-network">—</dd></div>
+          <div><dt>tKAS</dt><dd id="kw-balance">—</dd></div>
+        </dl>
+        <p class="warn" id="kw-warn" hidden></p>
+        <div class="controls">
+          <button type="button" id="fund-kasware" hidden>Send 1 host tKAS to this KasWare</button>
+        </div>
+      </article>
+      <article class="path">
+        <p class="path-kicker">B · I don’t have a tKAS wallet</p>
+        <h3>Make one here, paid from the host</h3>
+        <p>Creates a local Testnet-10 wallet in this tab and sends <strong>1 tKAS</strong> from <code class="host-inline"></code>.</p>
+        <div class="controls">
+          <button type="button" id="make-local" class="primary">Make local wallet + fund from host</button>
+          <button type="button" id="fund-local">Fund local wallet again</button>
+        </div>
+        <dl class="wallet-facts">
+          <div><dt>Local wallet</dt><dd id="local-state">None yet</dd></div>
+          <div><dt>Address</dt><dd><code id="local-address">—</code></dd></div>
+          <div><dt>tKAS</dt><dd id="local-balance">—</dd></div>
+        </dl>
+        <details class="secret">
+          <summary>Show local private key (Testnet-10 hex, not a seed)</summary>
+          <pre id="local-key">No local wallet in this tab.</pre>
+        </details>
+      </article>
+    </div>
+    <p class="active-line">Using for this page: <strong id="active-wallet">none yet</strong></p>
+  </section>
+  <main>
+    <section class="board">
+      <article class="card">
+        <h2>Live state</h2>
+        <div class="metrics" id="metrics"></div>
+        <div class="holders" id="holders"></div>
+        <div class="controls">
+          <button id="mint" class="primary">Mint 100 tPEG</button>
+          <button id="swap">Swap 0.2 tKAS through pool</button>
+          <button id="redeem">Redeem 40 tPEG</button>
+          <button id="oracle" class="danger">Post oracle +25%</button>
+          <button id="stale">Expire oracle</button>
+          <button id="pause">Pause</button>
+          <button id="reset">Reset genesis</button>
+        </div>
+      </article>
+      <article class="card">
+        <h2>Wallet prompt</h2>
+        <pre class="prompt" id="prompt"></pre>
+      </article>
+    </section>
+    <section class="kachat card" id="kachat">
+      <p class="eyebrow">First dapp · KaChat</p>
+      <h2>How KaChat would use this unit</h2>
+      <p class="note">KaChat is already encrypted chat plus native KAS pay. PegLab is the unit so a price in a thread is not an FX trade. This lab is not money inside KaChat 4.x.</p>
+      <div class="idea-grid">
+        <article>
+          <h3>In the chat</h3>
+          <ul class="how">
+            <li>Quote and pay “20 units” so the number does not move with KAS.</li>
+            <li>Timeout pay: they claim, or you reclaim — same shape as <code>KaChatPayTimeout</code>.</li>
+            <li>Tips, splits, stakes: lock / release / refund on L1. Chat is only the talk.</li>
+            <li>KAS stays postage (sponsor fee or grams). The pay button is the unit.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>To make it real</h3>
+          <ol class="how">
+            <li>Live Testnet-10 series: transfer + redeem on chain, indexer sees balances.</li>
+            <li>KaChat’s wallet signs those covenants (not only KasWare on the web).</li>
+            <li>Pay payload next to <code>kchat:1:pay</code>. No <code>$</code> on tPEG.</li>
+            <li>Mainnet only as a KAS receipt — or a named USD later. Not this tiny pool.</li>
+          </ol>
+        </article>
+      </div>
+      <aside class="kachat-pc" id="kachat-pc">
+        <p class="path-kicker">Desktop</p>
+        <h3>KaChat does not support PC</h3>
+        <p>KaChat is published for iOS and Android only. There is no supported client for Windows, macOS, or Linux, and a desktop browser cannot open the app.</p>
+        <p>To use KaChat, open this page on an iPhone, iPad, or Android device. If the app is installed, it will launch. If it is not, you will be directed to the App Store or Google Play.</p>
+        <p><a class="quiet-link" href="./KACHAT.md">Full brief</a></p>
+      </aside>
+      <div class="kachat-mobile" id="kachat-mobile">
+        <div class="controls">
+          <a class="primary" id="open-kachat" href="https://apps.apple.com/us/app/kachat/id6759102359">Open KaChat</a>
+          <a class="quiet-link" href="./KACHAT.md">Full brief</a>
+        </div>
+        <p class="note">This button opens the KaChat app if it is installed. Otherwise it goes to the App Store or Google Play.</p>
+      </div>
+    </section>
+    <section class="vision card" id="vision">
+      <p class="eyebrow">Beyond the chain</p>
+      <h2>The job is a finished conversation</h2>
+      <p class="note">The covenant is the court file. People live in a thread on a phone. KaChat does not support PC. tPEG is not a US dollar. The product is: agree a number, pay it, claim or reclaim — without an FX trade and without sending anyone to Circle to finish a Kaspa chat.</p>
+      <div class="idea-grid">
+        <article>
+          <h3>What “done” looks like</h3>
+          <ol class="how">
+            <li>Two people already talking in KaChat on their phones.</li>
+            <li>A quote that stays still for the timeout — not a KAS price that moved while they argued.</li>
+            <li>Pay, claim, or reclaim. Postage is KAS in the background (sponsor or grams).</li>
+            <li>If the unit is a KAS receipt, the UI says sompi, not <code>$</code>. A named USD later is a different asset with a named issuer.</li>
+          </ol>
+        </article>
+        <article>
+          <h3>To-do, in order</h3>
+          <ol class="how">
+            <li>Keep this lab honest (depeg demo, no raise against tPEG). Phone opens KaChat; PC is told it cannot.</li>
+            <li>Live Testnet-10 <strong>receipt</strong> + indexer. Wallets verify series hashes, not the word tPEG.</li>
+            <li>KaChat signs that receipt on testnet. Timeout pay in a 1:1 thread. Zero-KAS receivers still work.</li>
+            <li>Then groups, tips, stakes, agents, merchant QR. Mainnet only as a receipt after review. Hosted USD only if an issuer exists.</li>
+          </ol>
+        </article>
+      </div>
+      <div class="controls">
+        <a class="primary" href="./VISION.md">Full vision and checklist</a>
+        <a class="quiet-link" href="./MAINNET.md">What mainnet would take</a>
+        <a class="quiet-link" href="./STABLES-GUIDE.md">Capital ladder</a>
+      </div>
+    </section>
+    <section class="lab card">
+      <h2>Depeg lab</h2>
+      <p class="note">Five scripted steps. A tiny pool and an admin price cannot hold $1. That is the warning for any dapp that wants a “Kaspa stable” without reserves. Target, pool, and redeem will disagree.</p>
+      <div class="controls">
+        <button id="demo" class="primary">Run depeg lab</button>
+      </div>
+      <div class="steps" id="steps"></div>
+    </section>
+  </main>
+  <footer>
+    <p class="note">Anybody can compile a similarly named series. A name is not authenticity. Redeem is tKAS at an admin price, not dollars. Pause is a brake, not a peg.</p>
+    <p class="note">Host Testnet-10 address: <code>kaspatest:qzpvdakagvwfm95g8pv9ndpupjtndgjfhmve08cg3tv5wgfytjzf7cudwwzv0</code>. Seed is not in git. <a href="./VISION.md">VISION.md</a> · <a href="./MAINNET.md">MAINNET.md</a> · <a href="./IDEA.md">IDEA.md</a> · <a href="./KACHAT.md">KACHAT.md</a> · <a href="./STABLES-GUIDE.md">STABLES-GUIDE.md</a></p>
+  </footer>
+  <script src="./wallets.js"></script>
+  <script type="module" src="./wallet.js"></script>
+  <script type="module" src="./app.js"></script>
+  <script>
+    (function () {
+      var section = document.getElementById('kachat');
+      var link = document.getElementById('open-kachat');
+      var iosStore = 'https://apps.apple.com/us/app/kachat/id6759102359';
+      var play = 'https://play.google.com/store/apps/details?id=com.kachat.app';
+      var androidIntent =
+        'intent://kapost#Intent;scheme=kachat;package=com.kachat.app;S.browser_fallback_url=' +
+        encodeURIComponent(play) +
+        ';end';
+      function phoneKind(ua) {
+        if (/Android/i.test(ua)) return 'android';
+        if (/iPhone|iPad|iPod/i.test(ua)) return 'ios';
+        if (navigator.platform === 'MacIntel' && (navigator.maxTouchPoints || 0) > 1) return 'ios';
+        return '';
+      }
+      var kind = phoneKind(navigator.userAgent || '');
+      if (section) section.classList.add(kind ? 'on-phone' : 'on-pc');
+      if (!link || !kind) return;
+      function stillHere(started) {
+        if (document.hidden || document.visibilityState === 'hidden') return false;
+        if (Date.now() - started > 2500) return false;
+        return true;
+      }
+      function trySchemeThenStore(scheme, store) {
+        var started = Date.now();
+        window.location.href = scheme;
+        setTimeout(function () {
+          if (!stillHere(started)) return;
+          window.location.href = store;
+        }, 1100);
+      }
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        if (kind === 'android') {
+          var ua = navigator.userAgent || '';
+          var chromeLike = /Chrome|Edg|SamsungBrowser/i.test(ua) && !/Firefox/i.test(ua);
+          if (chromeLike) {
+            window.location.href = androidIntent;
+            return;
+          }
+          trySchemeThenStore('kachat://kapost', play);
+          return;
+        }
+        trySchemeThenStore('kachat://', iosStore);
+      });
+    })();
+  </script>
+</body>
+</html>
