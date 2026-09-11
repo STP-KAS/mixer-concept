@@ -5,7 +5,7 @@ export const communityRules =
 
 export const xHandles = [
   ['Yonatan Sompolinsky', '@hashdag', 'https://x.com/hashdag', 'Founder / research'],
-  ['Michael Sutton', '@michaelsuttonil', 'https://x.com/michaelsuttonil', 'Lead protocol'],
+  ['Michael Sutton', '@michaelsuttonil', 'https://x.com/michaelsuttonil', 'Lead protocol. 11 Sep 2026: parallel world, local order. Hypothesis, not a KIP'],
   ['Ori Newman', '@OriNewman', 'https://x.com/OriNewman', 'Core. GitHub someone235'],
   ['coderofstuff', '@coderofstuff_', 'https://x.com/coderofstuff_', 'Core contributor'],
   ['FreshAir08', '@FreshAir08', 'https://x.com/FreshAir08', 'Research / fees'],

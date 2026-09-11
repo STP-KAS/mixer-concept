@@ -77,6 +77,7 @@ export const doors = {
       <h2>UTXO, not an account VM</h2>
       <p>Coins live as unspent outputs. A payment consumes outputs and creates new ones. Change is an output back to you. A covenant is a spending rule attached to an output: wait, limit, name the recipient, require a proof. That is closer to Bitcoin Script than to an EVM contract with storage.</p>
       <p>Shared execution among many users (a lending pool, an AMM with one global book) is a different problem. Covenants do not by themselves give you that. vProgs are the research name for based programs with validity proofs. They are not a product testnet you can treat as live.</p>
+      <p>11 Sep 2026. Michael Sutton’s working hypothesis, not a KIP: the world does not update through one sequence. Related events still need relative order (a double spend is the smallest case). That is not a reason to send every state change through a constant number of sequential bottlenecks. He wants app designs that partition, parallelize, or replicate state, not a system bent toward one shared book. Computational scalability is the deeper point in that thread. This is a design argument. It does not ship global DeFi. Source: <a href="https://x.com/michaelsuttonil/status/2098204180406026482">@michaelsuttonil, 11 Sep 2026</a>.</p>
       <h2>Live versus later</h2>
       <p>Use these labels. Mix them and you are pitching.</p>
       <ul>
@@ -84,7 +85,7 @@ export const doors = {
         <li><strong>v1.0.0.</strong> SilverScript compiler tagged 9 Sep 2026. Application readiness is separate. MIX Town still pins v1-rc1 until retargeted.</li>
         <li><strong>Prototype.</strong> Argent. Examples exist. The README says it is not release-ready.</li>
         <li><strong>Isolated beta.</strong> Parker’s Kaspa Studio, branch <code>studio-beta</code>, 9 Sep 2026. Local workbench. Not this public MIX site. Does not broadcast. V5 and V6 stay withdrawn.</li>
-        <li><strong>Research.</strong> vProgs. Repository existence is not production.</li>
+        <li><strong>Research.</strong> vProgs. Repository existence is not production. Sutton, 11 Sep 2026: do not force every mutation through a constant sequential bottleneck. Hypothesis, not a product.</li>
         <li><strong>Proposed.</strong> DAGKnight. The rusty <code>dagknight</code> branch is not merged. No mainnet activation is documented in the checked KIP or node releases.</li>
         <li><strong>Local model.</strong> Dated 8 September 2026. Inherited budget, atomic offer completion, competing execution, a correction bounty, and a permission arena. You can break them. They do not sign or submit.</li>
         <li><strong>Testnet lab.</strong> Existing covenant primitives on Testnet-10. This site’s Town is that lab. One browser holds every key. That is not three independent people.</li>
@@ -146,7 +147,7 @@ export const doors = {
         <li><strong>Covenants on L1.</strong> Toccata. Spending rules travel with the output. Live protocol. Wallet and indexer support is separate.</li>
         <li><strong>SilverScript.</strong> Official tag v1.0.0 on 9 Sep 2026. Toccata is not this compiler. MIX Town and Parker’s Studio beta still pin v1-rc1 until retargeted. Application readiness is separate.</li>
         <li><strong>Argent.</strong> Prototype language. Not release-ready per its own README.</li>
-        <li><strong>vProgs.</strong> Research: based programs and validity proofs. Do not demo them as a mainnet product.</li>
+        <li><strong>vProgs.</strong> Research: based programs and validity proofs. Do not demo them as a mainnet product. Sutton’s 11 Sep 2026 thread is a design hypothesis about parallel economic events, not a live shared-state app.</li>
       </ol>
       <h2>Labs, dated 8–9 September 2026</h2>
       <p>These labs are not mainnet products.</p>
