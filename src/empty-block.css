@@ -1,0 +1,57 @@
+html:has(.empty-block-page){overflow-x:clip}
+.empty-block-page{overflow-x:clip}
+.eb-exhibit{--eb-paper:var(--paper,#fff);--eb-soft:var(--soft,#eef0f3);--eb-ink:var(--text,#21252b);--eb-muted:var(--muted,#626a75);--eb-rule:var(--rule,#dce0e5);--eb-green:var(--green,#247967);--eb-pale:var(--green-soft,#e6f3ee);--eb-copper:var(--copper,#a65f31);color:var(--eb-ink);background:var(--eb-paper);border:1px solid var(--eb-rule);border-radius:24px;overflow:hidden;margin-block:36px;box-shadow:var(--shadow);max-width:100%;min-width:0}
+.main:has([data-empty-block-economy]){overflow-x:clip}
+.main:has([data-empty-block-economy]) .action-row{flex-wrap:wrap}
+.main:has([data-empty-block-economy]) .source-line{overflow-wrap:anywhere}
+.main:has([data-empty-block-economy]) .chapter,
+.main:has([data-empty-block-economy]) .reading-rows{min-width:0;max-width:100%}
+.main:has([data-empty-block-economy]) .table-scroll{display:block;width:100%;max-width:100%;overflow-x:auto}
+.main:has([data-empty-block-economy]) .table-scroll table{width:100%;table-layout:fixed}
+.main:has([data-empty-block-economy]) .table-scroll td,
+.main:has([data-empty-block-economy]) .table-scroll th{min-width:0;overflow-wrap:anywhere}
+.eb-heading{display:flex;justify-content:space-between;align-items:end;gap:16px 32px;padding:28px 28px 18px}
+.eb-heading h2{margin:0;font-size:clamp(1.6rem,2.6vw,2.2rem)}
+.eb-heading>p{margin:0;max-width:36ch;font-size:.875rem;color:var(--eb-muted)}
+.eb-strip{display:flex;flex-wrap:wrap;gap:6px;padding:8px 28px 18px;min-height:52px;background:var(--eb-soft);border-block:1px solid var(--eb-rule)}
+.eb-cell{width:28px;height:36px;min-height:36px;padding:0;border:1px solid var(--eb-rule);border-radius:7px;background:var(--eb-paper);color:var(--eb-green);font-size:.75rem;font-weight:700}
+.eb-cell[data-empty=true]{background:transparent;box-shadow:inset 0 0 0 1px var(--eb-rule);color:transparent}
+.eb-cell[data-empty=false]{background:var(--eb-pale);border-color:var(--eb-green)}
+.eb-caption{margin:0;padding:16px 28px 8px;font-size:.9375rem;max-width:none}
+.eb-meters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:12px 28px 8px;border:1px solid var(--eb-rule);border-radius:14px;overflow:hidden}
+.eb-meters>div{padding:14px 16px}
+.eb-meters>div+div{border-left:1px solid var(--eb-rule)}
+.eb-meters span,.eb-meters strong{display:block}
+.eb-meters span{font-size:.75rem;color:var(--eb-muted);margin-bottom:6px}
+.eb-meters strong{font-size:1.05rem;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.eb-board{display:grid;grid-template-columns:1fr 1.2fr;gap:28px;padding:20px 28px 8px}
+.eb-board h3{font-size:1.05rem;margin-bottom:12px}
+.eb-policies,.eb-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.eb-policies button{border:1px solid var(--eb-rule);background:var(--eb-paper);border-radius:10px;padding:8px 12px;font-size:.875rem}
+.eb-policies button[aria-pressed=true]{background:var(--eb-pale);border-color:var(--eb-green);color:var(--eb-green)}
+.eb-fillers{display:flex;flex-wrap:wrap;gap:8px}
+.eb-fillers button{display:flex;align-items:center;gap:8px;border:1px solid var(--eb-rule);background:var(--eb-paper);border-radius:10px;padding:8px 12px;font-size:.8125rem;text-align:left}
+.eb-fillers button span{display:grid;place-items:center;width:22px;height:22px;border-radius:6px;background:var(--eb-pale);color:var(--eb-green);font-weight:700}
+.eb-fillers button:hover{border-color:var(--eb-green)}
+.eb-story,.eb-live{padding:8px 28px 24px}
+.eb-story ol{margin:0 0 12px;padding-left:1.2rem}
+.eb-story li{margin:8px 0;color:var(--eb-muted);font-size:.9375rem}
+.eb-story li[data-current=true]{color:var(--eb-ink)}
+.eb-story li strong{display:block;color:var(--eb-ink)}
+.eb-num{font-variant-numeric:tabular-nums;white-space:nowrap}
+@media(max-width:900px){
+  .eb-heading{flex-direction:column;align-items:flex-start}
+  .eb-heading>p{max-width:none}
+  .eb-board{grid-template-columns:1fr}
+  .eb-meters{grid-template-columns:1fr 1fr}
+  .eb-meters>div:nth-child(n+3){border-top:1px solid var(--eb-rule)}
+  .eb-meters>div:nth-child(3){border-left:0}
+  .eb-heading,.eb-caption,.eb-board,.eb-story,.eb-live{padding-inline:20px}
+  .eb-strip{padding-inline:20px}
+}
+@media(max-width:520px){
+  .eb-meters{grid-template-columns:1fr}
+  .eb-meters>div+div{border-left:0;border-top:1px solid var(--eb-rule)}
+  .eb-actions{flex-direction:column;align-items:stretch}
+  .eb-num{white-space:normal}
+}

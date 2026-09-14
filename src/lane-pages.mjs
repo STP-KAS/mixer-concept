@@ -37,6 +37,7 @@ export const lanePages = [
         ['Verify, do not screenshot', '<p>ethereum.org: run a node if you want the rules checked by you. An explorer is a window onto data someone else indexed. kaspa.stream and tn10.kaspa.stream are windows. rusty-kaspa is the check. A screenshot of an explorer is not a primary source.</p>'],
         ['Compiler, VM, and acceptance are three facts', '<p>ethereum.org verifies bytecode against source before calling a contract checked. Parker’s Studio beta says the same split: compiler success, local VM, and network acceptance. MIX Town is Testnet-10. A SilverScript v1.0.0 tag is not production apps. Isolated Studio is not this public site. Hosted V5 and V6 are withdrawn.</p>'],
         ['Inclusion is not the recipient’s wait', '<p>Bitcoin recipients pick a confirmation policy. Kaspa is faster blocks, same split: send, include, accept, then the recipient waits as they choose. 10 BPS is not irreversible coffee.</p>'],
+        ['Paid is not delivered', '<p>Parker’s 14 Sep 2026 HTTP 402 reviews: a Testnet-10 claim is not proof the file or the stream arrived. Remaining escrow is the live amount. The covenant id must match the UTXO. MIX does not ship those rails.</p>'],
         ['The rest of the scheme', '<p>A bank can reverse. A court can freeze. A trustee can wait. A notary can name a person. Kaspa does not do those jobs. MIX Town is not three people. PegLab is not a dollar. If the job needs a person with a duty, that is still analog. <a href="/mixer#world">Table on mixer concept</a>.</p>'],
         ['Kaspa Silver’s attitude', '<p>He explains the machine. Fair launch, proof of work, the DAG, what shipped. He does not owe you a price. That honesty is the practice: if a clip cannot point at a rule, a release, or a dated observation, skip it.</p>'],
         ['Aviv Zohar', '<p>GHOST co-author. Research first. Site: <a href="https://avivz.net" target="_blank" rel="noopener noreferrer">avivz.net</a>. X: <a href="https://x.com/Avivz78" target="_blank" rel="noopener noreferrer">@Avivz78</a>.</p>'],
@@ -67,10 +68,12 @@ export const lanePages = [
       ${rows([
         ['What kaspa.stream is', '<p>A block explorer with real-time network insight. Paste an address or a transaction. Watch new blocks land. It is a window onto the ledger, not a trading desk, and not a node. ethereum.org says the same of Etherscan: useful, not the check.</p><p><a href="https://kaspa.stream/" target="_blank" rel="noopener noreferrer">Open kaspa.stream ↗</a></p>'],
         ['Testnet-10 explorer', `<p>Same kind of window, for Testnet-10. Paste a <code>kaspatest:</code> address or a test tx. Mainnet kaspa.stream will not show those coins.</p><p>${link('Open tn10.kaspa.stream','https://tn10.kaspa.stream/')}</p>`],
+        ['Empty blocks are inventory', '<p>A block with only a coinbase still has parents and still pays the subsidy. The leftover slot is capacity: a receipt, postage, a 402, a till ticket. Classroom first, then one live sink sample.</p><p><a href="/empty-block">Open the empty block economy</a></p>'],
         ['What the Graph Inspector is', `<p>kgi.kaspad.net draws the blockDAG as it grows. Parallel blocks are the point. A candle chart is not. If the picture stops, treat it as paused, not as a failed network.</p><p><a href="${KGI}" target="_blank" rel="noopener noreferrer">Open the Graph Inspector ↗</a></p>`],
         ['Official explorer', '<p>explorer.kaspa.org is the other public ledger view. Use either. Cross-check if a number matters.</p>'],
       ])}
       ${pinList([
+        ['Empty block economy', 'Macro fees and micro fillers on leftover 10 BPS slots.', '/empty-block'],
         ['kaspa.stream', 'Explorer for ordinary reading of blocks and txs. A window, not a node.', 'https://kaspa.stream/'],
         ['tn10.kaspa.stream', 'Testnet-10 explorer. kaspatest: addresses live here.', 'https://tn10.kaspa.stream/'],
         ['Graph Inspector', 'Live blockDAG.', KGI],

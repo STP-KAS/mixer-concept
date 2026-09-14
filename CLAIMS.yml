@@ -1,5 +1,5 @@
-last_checked: 2026-09-09
-recheck_after: 2026-09-16
+last_checked: 2026-09-14
+recheck_after: 2026-09-21
 claims:
   proof_of_work:
     status: live
@@ -28,8 +28,8 @@ claims:
 
   network_snapshot:
     status: measurement_sensitive
-    recheck_after: 2026-09-07
-    summary: At 2026-09-06 10:20 UTC the public endpoints reported DAA score 532696787, 27684582516.56962022 circulating KAS, a 2.18267645 KAS block reward, node v2.0.1, and synced state.
+    recheck_after: 2026-09-21
+    summary: Parker’s frozen observation at 2026-09-14 09:14:52 UTC via the blockDAG, coin supply, and block reward endpoints: virtual DAA score 539569173; circulating supply 27699582519.57160232 KAS; block reward 2.18267645 KAS; rusty-kaspa v2.0.1. This is a frozen snapshot, not a live label.
     source: https://api.kaspa.org/info/blockdag
     supporting_source: https://api.kaspa.org/info/coinsupply
     supporting_source_2: https://api.kaspa.org/info/blockreward
@@ -48,8 +48,8 @@ claims:
 
   scheduled_reward_step:
     status: measurement_sensitive
-    recheck_after: 2026-09-07
-    summary: At 2026-09-06 10:20 UTC, DAA 532696787 was above threshold 531207000. Schedule index 52 is active at 2.18267645 KAS per block. The next threshold is DAA 557505000 for 2.06017223 KAS per block; clock time remains an estimate.
+    recheck_after: 2026-09-21
+    summary: At 2026-09-14 09:14 UTC, DAA 539569173 was above threshold 531207000. Schedule index 52 is active at 2.18267645 KAS per block. The next threshold is DAA 557505000 for 2.06017223 KAS per block; clock time remains an estimate.
     source: https://api.kaspa.org/info/halving
     forbidden_copy:
       - The next reward step occurs at an exact wall-clock time
@@ -66,7 +66,7 @@ claims:
   toccata:
     status: daa_gated
     recheck_after: 2026-09-18
-    summary: The v2.0.0 release set Toccata's mainnet activation threshold at DAA score 474165565. The public BlockDAG response checked on 2026-09-06 was above that threshold; KIP-16, KIP-17, KIP-20, and KIP-21 read Active, while tool and product support remain separate claims.
+    summary: The v2.0.0 release set Toccata's mainnet activation threshold at DAA score 474165565. Parker’s 2026-09-14 public BlockDAG reading (DAA 539569173) was above that threshold; KIP-16, KIP-17, KIP-20, and KIP-21 read Active, while tool and product support remain separate claims.
     source: https://github.com/kaspanet/rusty-kaspa/releases/tag/v2.0.0
     supporting_source: https://api.kaspa.org/info/blockdag
     supporting_source_2: https://github.com/kaspanet/kips
@@ -105,6 +105,18 @@ claims:
     forbidden_copy:
       - vProgs is live on Kaspa mainnet
 
+  empty_blocks:
+    status: live_design
+    recheck_after: 2026-09-18
+    summary: A Kaspa block may contain only a coinbase. That block still carries parents, advances DAA-tracked time, and pays the subsidy. It is not a failed block. Ten BPS is a target interval, not a count of filled user transactions.
+    source: https://github.com/kaspanet/rusty-kaspa
+    supporting_source: https://api.kaspa.org/info/blockdag
+    forbidden_copy:
+      - Empty blocks are wasted work
+      - Empty blocks prove the network is unused
+      - Ten BPS guarantees ten filled blocks
+      - This classroom fill rate is a forecast of demand
+
   dagknight:
     status: research
     recheck_after: 2026-09-11
@@ -127,6 +139,17 @@ claims:
     forbidden_copy:
       - KCC-0020 is a ratified token standard
       - A merged KCC changes consensus
+
+  http402_metered_rails:
+    status: testnet_only
+    recheck_after: 2026-09-21
+    summary: Parker reviewed kaspahttp402 metered payment apps on Testnet-10 on 2026-09-14 (metered protocol, spigot, flume, kascade, quorum). TN10 claim and refund evidence is not mainnet product status. Remaining escrow is the live amount; the live UTXO must carry the claimed covenant id. Paid, delivered, and accepted stay separate facts. MIX does not ship those apps.
+    source: https://github.com/parker2017code/kaspahttp402-metered-protocol
+    supporting_source: https://github.com/parker2017code/kaspa-explained/commit/f359a8dca20992f41cc60ab409056c6da17e08a5
+    forbidden_copy:
+      - HTTP 402 rails are live mainnet products
+      - A Testnet-10 claim proves the file or stream arrived
+      - Instant finality on Kaspa payments
 
   throughput_context:
     status: narrative_guardrail

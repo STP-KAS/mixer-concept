@@ -18,6 +18,7 @@ export const mixerPage = {
         <article><h3>SilverScript v1.0.0 versus MIX v1-rc1</h3><div><p>The official compiler is tagged v1.0.0 (9 Sep 2026). Application readiness is separate. MIX Town still pins v1-rc1 until this site retargets. A compiler tag is not a dapp.</p></div></article>
         <article><h3>Studio is isolated</h3><div><p>Parker’s Kaspa Studio is branch studio-beta, 9 Sep 2026. Local workbench. Not this public MIX site. It does not broadcast. Compiler success, a local VM, and network acceptance stay three facts.</p></div></article>
         <article><h3>V5 and V6 withdrawn. Town is the TN10 lab.</h3><div><p>Hosted V5 and V6 stay withdrawn. Town at /covenants is Testnet-10. Game rules on real spends. One browser holds every key. That is not three independent people.</p></div></article>
+        <article><h3>HTTP 402 rails are TN10 labs</h3><div><p>Parker reviewed kaspahttp402 on 14 Sep 2026. Metered spend, claim, and refund on Testnet-10. Remaining escrow is the live amount. Paid is not delivered. Not mainnet products. MIX does not ship them.</p></div></article>
       </div>
     </section>
     <section class="chapter" id="both">
@@ -31,6 +32,7 @@ export const mixerPage = {
             <li>Spending-rule stories: fair exchange, helper budget, verified work</li>
             <li>A four-stop learning route with resume</li>
             <li>Town economy, wrap lab, sources you can check</li>
+            <li>Empty block economy: leftover 10 BPS slots as inventory</li>
           </ul>
         </article>
         <article>
@@ -49,6 +51,7 @@ export const mixerPage = {
       <div class="section-title"><h2>Other parameters</h2><p>Things a complete learn/explore site needs that neither source has by itself.</p></div>
       <div class="mixer-params">
         <a href="/peglab"><strong>PegLab</strong><p>A dapp unit that depegs on purpose. Engine and live lab.</p></a>
+        <a href="/empty-block"><strong>Empty block</strong><p>Ten slots a second. Fill leftover capacity. Not a dollar.</p></a>
         <a href="/explore"><strong>Live DAG</strong><p>kaspa.stream and the Graph Inspector. No ticker required.</p></a>
         <a href="/wallet"><strong>Wallet</strong><p>Kasware or Kastle hold keys. This page reads an indexer, not your node.</p></a>
         <a href="/help"><strong>Help</strong><p>Kaspa Discord rooms. Nobody here recovers a phrase.</p></a>
