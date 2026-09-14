@@ -68,6 +68,7 @@ export const pages = [
         <a href="/covenants"><span>Try</span><strong>Town</strong><p>A small Testnet-10 economy. Game rules on real spends.</p></a>
         <a href="/peglab"><span>Lab</span><strong>PegLab</strong><p>A dapp unit that depegs on purpose.</p></a>
         <a href="/node"><span>Run</span><strong>Node</strong><p>TN10 tKAS or a mainnet follower. Do not mix flags.</p></a>
+        <a href="/empty-block"><span>Use</span><strong>Empty block</strong><p>Ten slots a second. Fill one with a receipt, a stamp, a 402.</p></a>
       </nav>
       <section class="playground-invitation"><div><p class="eyebrow">Playground</p><h2>Bring your tKAS.<br>See the rules.</h2></div><div><p>Log in with Kasware on Testnet 10, make a local test wallet, or paste a kaspatest: address you already mine to. The models do not spend your coins unless you send.</p><a class="primary-button" href="/playground">Open the playground <span aria-hidden="true">↗</span></a></div></section>
       ${process.env.KASPA_RELEASE==='v1'?'':`<section class="playground-invitation"><div><p class="eyebrow">Sprout Harbor · Testnet-10</p><h2>Play a small KAS economy.</h2></div><div><p>Build a greenhouse, pay Pip, sell the harvest, deliver the food. Parker’s town, on free test coins. Production and physical delivery are game rules.</p><a class="primary-button" href="/covenants">Enter the town <span aria-hidden="true">↗</span></a></div></section>`}
@@ -77,6 +78,7 @@ export const pages = [
         ['Wallet','Kasware or Kastle holdings. Never a seed. The page reads an indexer, not your node.','/wallet'],
         ['mixer concept','What this version mixes, and why.','/mixer'],
         ['What is live','Dated status. Live, roadmap, research, wrong.','/status'],
+        ['Empty block economy','Macro fees, micro fillers. A coinbase-only block still counts.','/empty-block'],
       ]))}`,
   },
   {
@@ -151,7 +153,7 @@ export const pages = [
   {
     file:'build-on-kaspa.html', title:'Build on Kaspa', description:'Explore covenant rules and find current integration, compiler, and application-model documentation.',
     body:`${lessonContext('build-on-kaspa.html')}${intro('Build','Payments and spending rules','A spending rule can require a wait, limit the amount and name the recipient. Try breaking each condition, then see what building a complete application still requires.')}
-      <div class="action-row">${process.env.KASPA_RELEASE==='v1'?'':'<a class="primary-button" href="/applications">Try the Testnet-10 applications ↗</a>'}<a href="/money">Explore reserves, borrowing, and prediction payouts ↗</a></div>
+      <div class="action-row">${process.env.KASPA_RELEASE==='v1'?'':'<a class="primary-button" href="/applications">Try the Testnet-10 applications ↗</a>'}<a href="/empty-block">Empty block economy ↗</a><a href="/money">Explore reserves, borrowing, and prediction payouts ↗</a></div>
       ${section('spending-rules','A withdrawal with three conditions',vault(),'A covenant can constrain how an output is spent. Try a withdrawal against three conditions.')}
       ${section('start','Integration tasks',rows([
         ['Read the network',`<p>Use node or public-service interfaces for blocks, transactions, and accepted history. Know which service you trust and how it handles missing or changed data.</p><p>${link('Integration guide','https://docs.kaspa.org/integrate/getting-started')}</p>`],
@@ -188,7 +190,7 @@ export const pages = [
       <div class="snapshot"><div><span>DAA score</span><strong>${snapshot.daa}</strong></div><div><span>Block subsidy</span><strong>${snapshot.reward} KAS</strong></div><div><span>Circulating supply</span><strong>${snapshot.supply} KAS</strong></div><div><span>Reporting node</span><strong>v${snapshot.version} · synced</strong></div></div>
       <p class="source-line">${link('Public BlockDAG reading','https://api.kaspa.org/info/blockdag')} · ${link('Subsidy','https://api.kaspa.org/info/halving')} · ${link('Supply','https://api.kaspa.org/info/coinsupply')}</p>
       ${section('readiness','Protocol and tool status',`<div class="status-list">${snapshot.items.map(([name,state,text,url])=>`<article><div><span class="status-tag">${state}</span><h3>${name}</h3></div><div><p>${text}</p>${link('Inspect the source',url)}</div></article>`).join('')}</div>`)}
-      ${detail('How activation was checked', `<p>The v2.0.0 release set Toccata activation at DAA score 474,165,565. The September 6 public reading is above that threshold. KIP-16, KIP-17, KIP-20, and KIP-21 are marked Active in the checked repository.</p><p>This supports protocol activation, not universal wallet support, application adoption, or the absence of operational problems.</p><p>${link('Activation release','https://github.com/kaspanet/rusty-kaspa/releases/tag/v2.0.0')} · ${source('kips')}</p>`)}
+      ${detail('How activation was checked', `<p>The v2.0.0 release set Toccata activation at DAA score 474,165,565. Parker’s 14 September 2026 public reading (DAA 539,569,173) is above that threshold. KIP-16, KIP-17, KIP-20, and KIP-21 are marked Active in the checked repository.</p><p>This supports protocol activation, not universal wallet support, application adoption, or the absence of operational problems. Instant-finality claims remain wrong.</p><p>${link('Activation release','https://github.com/kaspanet/rusty-kaspa/releases/tag/v2.0.0')} · ${source('kips')}</p>`)}
       ${routes([['Inspect protocol specifications','KIPs, KCCs, and how their status differs.','/kips'],['Understand the evidence','What this site checks and what it cannot establish.','/sources']])}`,
   },
   {

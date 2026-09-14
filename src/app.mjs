@@ -9,6 +9,7 @@ document.querySelectorAll('[data-coordination]').forEach(mountCoordination);
 mountInstalledWallet();
 mountDoors();
 if (document.querySelector('[data-use-case-exhibit]')) void import('./use-case-demo.mjs');
+if (document.querySelector('[data-empty-block-economy]')) void import('./empty-block-ui.mjs');
 void import('./learning-ui.mjs');
 {
   const welcome = document.querySelector('.welcome[data-welcome]');

@@ -29,6 +29,7 @@ export function honestLabels() {
       <li><span class="status-tag">Isolated</span> Kaspa Studio is a local beta. Not this public site. Does not broadcast.</li>
       <li><span class="status-tag">Withdrawn</span> Hosted V5 and V6 stay withdrawn.</li>
       <li><span class="status-tag">TN10 lab</span> Town at /covenants is Testnet-10. One browser holds every key.</li>
+      <li><span class="status-tag">TN10 lab</span> HTTP 402 metered rails, Parker 14 Sep 2026. Not mainnet apps.</li>
     </ul>
     <p class="small"><a href="/status">Dated status</a> · <a href="/mixer#labels">Why these labels</a></p>
   </aside>`;

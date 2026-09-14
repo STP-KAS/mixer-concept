@@ -7,7 +7,7 @@
     "check:contracts:vm": "node scripts/check-contract-vm.mjs",
     "build:v1": "KASPA_RELEASE=v1 node scripts/build.mjs",
     "check:v1": "npm run build:v1 && KASPA_RELEASE=v1 node --test tests/routes.test.mjs && node --test tests/release-build.test.mjs tests/legacy-links.test.mjs",
-    "check": "npm run build && node --test tests/models.test.mjs tests/network-diagram.test.mjs tests/contract-signature.test.mjs tests/local-server.test.mjs tests/acceptance.test.mjs tests/money-models.test.mjs tests/routes.test.mjs tests/split-fee.test.mjs tests/wallet-load.test.mjs tests/submission-journal.test.mjs tests/setup-integrity.test.mjs tests/native-payment.test.mjs tests/public-recovery.test.mjs tests/public-asset-recovery.test.mjs tests/public-assets-state.test.mjs tests/coordination.test.mjs",
+    "check": "npm run build && node --test tests/models.test.mjs tests/network-diagram.test.mjs tests/contract-signature.test.mjs tests/local-server.test.mjs tests/acceptance.test.mjs tests/money-models.test.mjs tests/routes.test.mjs tests/split-fee.test.mjs tests/wallet-load.test.mjs tests/submission-journal.test.mjs tests/setup-integrity.test.mjs tests/native-payment.test.mjs tests/public-recovery.test.mjs tests/public-asset-recovery.test.mjs tests/public-assets-state.test.mjs tests/coordination.test.mjs tests/empty-block-economy.test.mjs",
     "check:copy": "node scripts/lint-copy.mjs",
     "check:posts": "node scripts/check-x-posts.mjs",
     "check:render": "node scripts/check-render.mjs",
@@ -25,7 +25,8 @@
     "serve:wrap": "npm run build && node server/wrap-poc.mjs",
     "check:wrap": "node --test tests/wrap-evm.test.mjs tests/wrap-evm-adapter.test.mjs tests/wrap-poc.test.mjs && node scripts/check-wrap-kaspa-adapter.mjs && node scripts/check-wrap-assets-api.mjs",
     "check:economy": "node --test tests/v4-economy-model.test.mjs tests/v4-economy-protocol.test.mjs && node scripts/check-v4-economy-vm.mjs",
-    "check:v4:recovery": "node scripts/check-v4-recovery-browser.mjs"
+    "check:v4:recovery": "node scripts/check-v4-recovery-browser.mjs",
+    "check:empty-block": "node --test tests/empty-block-economy.test.mjs && node scripts/check-empty-block-browser.mjs"
   },
   "devDependencies": {
     "playwright": "1.62.1",
