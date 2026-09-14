@@ -89,6 +89,7 @@ export const doors = {
         <li><strong>Proposed.</strong> DAGKnight. The rusty <code>dagknight</code> branch is not merged. No mainnet activation is documented in the checked KIP or node releases.</li>
         <li><strong>Local model.</strong> Dated 8 September 2026. Inherited budget, atomic offer completion, competing execution, a correction bounty, and a permission arena. You can break them. They do not sign or submit.</li>
         <li><strong>Testnet lab.</strong> Existing covenant primitives on Testnet-10. This site’s Town is that lab. One browser holds every key. That is not three independent people.</li>
+        <li><strong>TN10 lab.</strong> HTTP 402 / metered rails Parker reviewed 14 Sep 2026. Claim and refund evidence is Testnet-10. Not live mainnet apps. MIX does not ship them.</li>
         <li><strong>Withdrawn.</strong> Parker’s hosted V5 and V6, 8 September 2026. Town at /covenants stays. MIX does not ship those versions.</li>
       </ul>
       <p>A merged Active KIP is law. A tweet, a Discord rumor, and a forum thread are not. Toccata is consensus. silverc is a compiler. People still mix those two in chat.</p>
@@ -128,7 +129,7 @@ export const doors = {
     title: 'Advanced · Knows Kaspa',
     intel: 'Advanced. Skip the pitch. Check dated status, live versus research, and the tradeoffs. If a claim has no source, it is not intel. This door is the machine as of the last check, not a vision deck.',
     body: `<h2>Where the machine actually is</h2>
-      <p>Checked on this site: 6 September 2026. Snapshot DAA 532,696,787. rusty-kaspa v2.0.1. Block subsidy about 2.18 KAS. Circulating supply about 27.68 billion. Those numbers age. Open status before you quote them.</p>
+      <p>Checked from Parker’s 14 September 2026 snapshot, 09:14 UTC: DAA 539,569,173. rusty-kaspa v2.0.1. Block subsidy 2.18267645 KAS. Circulating supply about 27.70 billion. Those numbers age. Open status before you quote them.</p>
       <p>Toccata activated at DAA 474,165,565 (about 30 Jun 2026). KIPs 16, 17, 20, and 21 are marked Active in the checked repository. 10 BPS is live. SilverScript v1.0.0 is tagged. KCC-0020 is Draft. vProgs have no public product testnet. DAGKnight remains Proposed; the rusty <code>dagknight</code> branch is not merged.</p>
       <h2>Do not claim</h2>
       <ul>
@@ -149,12 +150,14 @@ export const doors = {
         <li><strong>Argent.</strong> Prototype language. Not release-ready per its own README.</li>
         <li><strong>vProgs.</strong> Research: based programs and validity proofs. Do not demo them as a mainnet product. Sutton’s 11 Sep 2026 thread is a design hypothesis about parallel economic events, not a live shared-state app.</li>
       </ol>
-      <h2>Labs, dated 8–9 September 2026</h2>
+      <h2>Labs, dated 8–14 September 2026</h2>
       <p>These labs are not mainnet products.</p>
       <ul>
         <li><strong>Local models.</strong> A child budget cannot expand its parent. Atomic completion cannot take custody. Two providers cannot charge the same output twice. A bounty pays a valid correction. A permission arena is for attacks you expect to fail. Break them here. They do not touch the chain.</li>
         <li><strong>Testnet contract lab.</strong> Allowance, bundle, group pledge, schedule, delayed vault. Real Testnet-10 spends of existing primitives. Town is that lab on this site. All three keys live in this browser.</li>
         <li><strong>Kaspa Studio.</strong> Isolated local beta on Parker’s <code>studio-beta</code> branch, 9 Sep 2026. Synthetic unfunded UTXOs. Compiler success, VM check, and network acceptance are separate. Not shipped on MIX. Does not broadcast.</li>
+        <li><strong>Metered payment rails.</strong> Dated 14 Sep 2026. Parker reviewed kaspahttp402 (metered protocol, spigot, flume, kascade, quorum) on Testnet-10. Remaining escrow is the live amount; do not subtract settlement twice. The live UTXO must carry the claimed covenant id. Repeat purchases need a rising voucher ceiling. Paid, delivered, and accepted stay three facts. Streaming meters delivered bytes, not decoded seconds. Quorum is a decision library, not an on-chain bond marketplace. MIX does not ship those apps.</li>
+        <li><strong>Parker education host.</strong> Dated 14 Sep 2026. kaspa-explained <code>main</code> <code>f359a8d</code> publishes the accepted static site through Cloudflare. MIX does not ship that worker, V5, V6, or Studio.</li>
         <li><strong>Withdrawn.</strong> Parker’s hosted V5 and V6, 8 September 2026. Town stays. MIX does not ship those versions.</li>
       </ul>
       <p>The digital-cash story is still the honest one: PoW, UTXO, fair launch. The DAG is how Kaspa tries to keep that story at a payment-like interval. That is a different shape from “EVM L2 on a PoS L1.” It is also earlier. Wallets, indexers, and compilers are catching up. Discord still spends most of its volume on wallet UX, fees, and “is SilverScript the hardfork?” No. Toccata is consensus. silverc is a compiler.</p>
@@ -195,6 +198,7 @@ export const doors = {
         <li><strong>Wrong.</strong> Contradicted by the node, the KIP status, or the dated snapshot. Say so.</li>
         <li><strong>Local model.</strong> You can break it here. It does not prove a mainnet product.</li>
         <li><strong>Testnet lab.</strong> Real tKAS, unaudited, one browser holding every key. Not mainnet, not independent counterparties.</li>
+        <li><strong>Paid is not delivered.</strong> A TN10 claim can settle while the file or the stream still fails. Parker’s 14 Sep 2026 HTTP 402 reviews keep those facts apart. Instant finality is still wrong.</li>
         <li><strong>Withdrawn.</strong> Parker’s hosted V5 and V6, 8 September 2026. Town stays. MIX does not ship those versions.</li>
       </ul>
       <p>A consensus rule can be live while every product on top is a prototype. A GitHub org is not production. Testnet-10 is not mainnet. “Core” is not a legal title. Yonatan’s rough core list on X is a starting map, not a badge.</p>

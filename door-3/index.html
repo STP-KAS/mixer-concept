@@ -16,15 +16,15 @@
   </aside>
       <aside class="door-status" aria-label="Dated Kaspa labels">
     <p class="eyebrow">Kaspa now</p>
-    <p class="small">Checked 6 September 2026, 10:20 UTC. Labels, not a pitch.</p>
-    <ul><li><span class="status-tag">Live</span> GHOSTDAG</li><li><span class="status-tag">Live protocol</span> Toccata</li><li><span class="status-tag">v1.0.0</span> Silverscript</li><li><span class="status-tag">Isolated beta</span> Kaspa Studio</li><li><span class="status-tag">Prototype</span> Argent</li><li><span class="status-tag">Research</span> vProgs</li><li><span class="status-tag">Proposed</span> DAGKnight</li></ul>
+    <p class="small">Checked 14 September 2026, 09:14 UTC. Labels, not a pitch.</p>
+    <ul><li><span class="status-tag">Live</span> GHOSTDAG</li><li><span class="status-tag">Live protocol</span> Toccata</li><li><span class="status-tag">v1.0.0</span> Silverscript</li><li><span class="status-tag">Isolated beta</span> Kaspa Studio</li><li><span class="status-tag">TN10 lab</span> HTTP 402 rails</li><li><span class="status-tag">Prototype</span> Argent</li><li><span class="status-tag">Research</span> vProgs</li><li><span class="status-tag">Proposed</span> DAGKnight</li></ul>
     <p class="small"><a href="/status">Full status with sources</a></p>
   </aside>
     </div>
     <div class="door-model">
-      <p class="eyebrow">Kaspa intel · dated 9 Sep 2026</p>
+      <p class="eyebrow">Kaspa intel · dated 14 Sep 2026</p>
       <h2>A live rule is not an app.</h2>
-      <p>Toccata is live. SilverScript v1.0.0 is tagged; MIX Town still pins v1-rc1. vProgs are research. DAGKnight is Proposed. Parker’s Kaspa Studio is an isolated local beta, not this site. Hosted V5 and V6 stay withdrawn. Town is the Testnet-10 lab. A delayed vault here is a model of a trustee or a time deposit, not an inheritance product.</p>
+      <p>Toccata is live. SilverScript v1.0.0 is tagged; MIX Town still pins v1-rc1. vProgs are research. DAGKnight is Proposed. Parker’s Kaspa Studio is an isolated local beta, not this site. HTTP 402 metered rails are Testnet-10 labs, not mainnet products. Hosted V5 and V6 stay withdrawn. Town is the Testnet-10 lab. A delayed vault here is a model of a trustee or a time deposit, not an inheritance product.</p>
       <figure class="experiment vault" data-lab="vault"><div class="experiment-label"><span>A withdrawal with three conditions</span><span>Constructed example</span></div>
     <div class="vault-scene"><div class="vault-balance"><span class="object-label">Locked output</span><strong data-vault-balance>10,000 KAS</strong><p>The remainder keeps the spending rule.</p></div><div class="vault-rules"><div data-check="0" data-pass="false"><span data-check-mark>×</span>Wait at least 60 example steps</div><div data-check="1" data-pass="true"><span data-check-mark>✓</span>Withdraw no more than 2,000 KAS</div><div data-check="2" data-pass="true"><span data-check-mark>✓</span>Use the authorized destination</div></div></div>
     <label class="select-control"><span>Attempt a withdrawal</span><select data-vault-action><option value="early">Too early: step 30</option><option value="large">Too much: 3,000 KAS</option><option value="wrong">Wrong destination</option><option value="valid">All conditions satisfied</option></select></label>
@@ -42,7 +42,7 @@
     <p class="model-note">Design model only. It does not sign, submit, or run the Kaspa VM. Town is the Testnet-10 lab for real covenant spends. One browser holds every key there.</p></figure>
     </div>
     <div class="door-intel-body"><h2>Where the machine actually is</h2>
-      <p>Checked on this site: 6 September 2026. Snapshot DAA 532,696,787. rusty-kaspa v2.0.1. Block subsidy about 2.18 KAS. Circulating supply about 27.68 billion. Those numbers age. Open status before you quote them.</p>
+      <p>Checked from Parker’s 14 September 2026 snapshot, 09:14 UTC: DAA 539,569,173. rusty-kaspa v2.0.1. Block subsidy 2.18267645 KAS. Circulating supply about 27.70 billion. Those numbers age. Open status before you quote them.</p>
       <p>Toccata activated at DAA 474,165,565 (about 30 Jun 2026). KIPs 16, 17, 20, and 21 are marked Active in the checked repository. 10 BPS is live. SilverScript v1.0.0 is tagged. KCC-0020 is Draft. vProgs have no public product testnet. DAGKnight remains Proposed; the rusty <code>dagknight</code> branch is not merged.</p>
       <h2>Do not claim</h2>
       <ul>
@@ -63,12 +63,14 @@
         <li><strong>Argent.</strong> Prototype language. Not release-ready per its own README.</li>
         <li><strong>vProgs.</strong> Research: based programs and validity proofs. Do not demo them as a mainnet product. Sutton’s 11 Sep 2026 thread is a design hypothesis about parallel economic events, not a live shared-state app.</li>
       </ol>
-      <h2>Labs, dated 8–9 September 2026</h2>
+      <h2>Labs, dated 8–14 September 2026</h2>
       <p>These labs are not mainnet products.</p>
       <ul>
         <li><strong>Local models.</strong> A child budget cannot expand its parent. Atomic completion cannot take custody. Two providers cannot charge the same output twice. A bounty pays a valid correction. A permission arena is for attacks you expect to fail. Break them here. They do not touch the chain.</li>
         <li><strong>Testnet contract lab.</strong> Allowance, bundle, group pledge, schedule, delayed vault. Real Testnet-10 spends of existing primitives. Town is that lab on this site. All three keys live in this browser.</li>
         <li><strong>Kaspa Studio.</strong> Isolated local beta on Parker’s <code>studio-beta</code> branch, 9 Sep 2026. Synthetic unfunded UTXOs. Compiler success, VM check, and network acceptance are separate. Not shipped on MIX. Does not broadcast.</li>
+        <li><strong>Metered payment rails.</strong> Dated 14 Sep 2026. Parker reviewed kaspahttp402 (metered protocol, spigot, flume, kascade, quorum) on Testnet-10. Remaining escrow is the live amount; do not subtract settlement twice. The live UTXO must carry the claimed covenant id. Repeat purchases need a rising voucher ceiling. Paid, delivered, and accepted stay three facts. Streaming meters delivered bytes, not decoded seconds. Quorum is a decision library, not an on-chain bond marketplace. MIX does not ship those apps.</li>
+        <li><strong>Parker education host.</strong> Dated 14 Sep 2026. kaspa-explained <code>main</code> <code>f359a8d</code> publishes the accepted static site through Cloudflare. MIX does not ship that worker, V5, V6, or Studio.</li>
         <li><strong>Withdrawn.</strong> Parker’s hosted V5 and V6, 8 September 2026. Town stays. MIX does not ship those versions.</li>
       </ul>
       <p>The digital-cash story is still the honest one: PoW, UTXO, fair launch. The DAG is how Kaspa tries to keep that story at a payment-like interval. That is a different shape from “EVM L2 on a PoS L1.” It is also earlier. Wallets, indexers, and compilers are catching up. Discord still spends most of its volume on wallet UX, fees, and “is SilverScript the hardfork?” No. Toccata is consensus. silverc is a compiler.</p>
