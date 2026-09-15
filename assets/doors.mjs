@@ -130,6 +130,7 @@ export const doors = {
     intel: 'Advanced. Skip the pitch. Check dated status, live versus research, and the tradeoffs. If a claim has no source, it is not intel. This door is the machine as of the last check, not a vision deck.',
     body: `<h2>Where the machine actually is</h2>
       <p>Checked from Parker’s 14 September 2026 snapshot, 09:14 UTC: DAA 539,569,173. rusty-kaspa v2.0.1. Block subsidy 2.18267645 KAS. Circulating supply about 27.70 billion. Those numbers age. Open status before you quote them.</p>
+      <p>Rechecked 15 Sep 2026: v2.0.1 is still the newest tagged node. vProgs still has no tags; master is still 28 Jul 2026. KIP-2 is still Proposed; 100 BPS is not in that document.</p>
       <p>Toccata activated at DAA 474,165,565 (about 30 Jun 2026). KIPs 16, 17, 20, and 21 are marked Active in the checked repository. 10 BPS is live. SilverScript v1.0.0 is tagged. KCC-0020 is Draft. vProgs have no public product testnet. DAGKnight remains Proposed; the rusty <code>dagknight</code> branch is not merged.</p>
       <h2>Do not claim</h2>
       <ul>
@@ -157,12 +158,13 @@ export const doors = {
         <li><strong>Testnet contract lab.</strong> Allowance, bundle, group pledge, schedule, delayed vault. Real Testnet-10 spends of existing primitives. Town is that lab on this site. All three keys live in this browser.</li>
         <li><strong>Kaspa Studio.</strong> Isolated local beta on Parker’s <code>studio-beta</code> branch, 9 Sep 2026. Synthetic unfunded UTXOs. Compiler success, VM check, and network acceptance are separate. Not shipped on MIX. Does not broadcast.</li>
         <li><strong>Metered payment rails.</strong> Dated 14 Sep 2026. Parker reviewed kaspahttp402 (metered protocol, spigot, flume, kascade, quorum) on Testnet-10. Remaining escrow is the live amount; do not subtract settlement twice. The live UTXO must carry the claimed covenant id. Repeat purchases need a rising voucher ceiling. Paid, delivered, and accepted stay three facts. Streaming meters delivered bytes, not decoded seconds. Quorum is a decision library, not an on-chain bond marketplace. MIX does not ship those apps.</li>
-        <li><strong>Parker education host.</strong> Dated 14 Sep 2026. kaspa-explained <code>main</code> <code>f359a8d</code> publishes the accepted static site through Cloudflare. MIX does not ship that worker, V5, V6, or Studio.</li>
+        <li><strong>Parker education host.</strong> Dated 14–15 Sep 2026. kaspa-explained <code>main</code> <code>acc7ac3</code> is the accepted static site through Cloudflare, plus disclosure/nav polish. MIX does not ship that worker, V5, V6, or Studio.</li>
         <li><strong>Withdrawn.</strong> Parker’s hosted V5 and V6, 8 September 2026. Town stays. MIX does not ship those versions.</li>
       </ul>
       <p>The digital-cash story is still the honest one: PoW, UTXO, fair launch. The DAG is how Kaspa tries to keep that story at a payment-like interval. That is a different shape from “EVM L2 on a PoS L1.” It is also earlier. Wallets, indexers, and compilers are catching up. Discord still spends most of its volume on wallet UX, fees, and “is SilverScript the hardfork?” No. Toccata is consensus. silverc is a compiler.</p>
       <h2>Builder path that does not lie</h2>
       <p>Testnet-10 is the builder network. Do not use testnet-12. Addresses start with <code>kaspatest:</code>. Official start: kaspa.org/build. This site’s Node tab is the Windows/Linux/mac path that actually ran: dedicated folder, rusty-kaspa v2.0.1, CPU miner on 16210, explorer tn10.kaspa.stream. GPU on public TN10 is physics, not etiquette.</p>
+      <p>Parker recheck 15 Sep 2026: the TN10 REST submit schema still omits <code>compute_budget</code>. If a spend needs that field, talk to a node. That API is not a full submit path.</p>
       <p>If you are mining tKAS, bring the address to the playground. This site does not drip faucet coins at you. Faucet: faucet-tn10.kaspanet.io. PegLab if someone says they need a stable for a dapp. It is a toy that will depeg. Not a business.</p>
       <h2>Costs you already know and should not skip</h2>
       <p>Node cost scales with block rate. Mining can still pool. A live opcode is not an audited app. A public node is not a miner and is not a wallet. Do not expose open RPC that can sign. Check kaspa.stream/nodes if you meant to be a public peer.</p>
