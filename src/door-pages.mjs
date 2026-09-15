@@ -45,9 +45,9 @@ const models = {
       ${network({introductory: true})}
     </div>`,
   3: () => `<div class="door-model">
-      <p class="eyebrow">Kaspa intel · dated 14 Sep 2026</p>
+      <p class="eyebrow">Kaspa intel · dated 15 Sep 2026</p>
       <h2>A live rule is not an app.</h2>
-      <p>Toccata is live. SilverScript v1.0.0 is tagged; MIX Town still pins v1-rc1. vProgs are research. DAGKnight is Proposed. Parker’s Kaspa Studio is an isolated local beta, not this site. HTTP 402 metered rails are Testnet-10 labs, not mainnet products. Hosted V5 and V6 stay withdrawn. Town is the Testnet-10 lab. A delayed vault here is a model of a trustee or a time deposit, not an inheritance product.</p>
+      <p>Toccata is live. rusty-kaspa v2.0.1 is still the newest tag (rechecked 15 Sep). SilverScript v1.0.0 is tagged; MIX Town still pins v1-rc1. vProgs are research, still untagged. DAGKnight is Proposed. Parker’s Kaspa Studio is an isolated local beta, not this site. HTTP 402 metered rails are Testnet-10 labs, not mainnet products. Hosted V5 and V6 stay withdrawn. Town is the Testnet-10 lab. A delayed vault here is a model of a trustee or a time deposit, not an inheritance product.</p>
       ${vault()}
       ${permission()}
     </div>`,

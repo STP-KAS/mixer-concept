@@ -18,9 +18,9 @@ git log HEAD..stp/main --oneline
 
 Parker watch is a 24-hour Grok schedule only. No persistent SHA poller. STP is not on this schedule. When Parker `main` or another kaspa-explained branch moves, extract intel into MIX doors and rebuild.
 
-Last seen 2026-09-14:
+Last seen 2026-09-15:
 
-- Parker `upstream/main` `f359a8dca20992f41cc60ab409056c6da17e08a5` (static Cloudflare publish; MIX does not ship that worker)
+- Parker `upstream/main` `acc7ac391f60e5ee2860977744e634d1386dbb1a` (disclosure/nav polish plus CLAIMS recheck; MIX does not ship Cloudflare worker or Studio)
 - Parker `upstream/studio-beta` `ba38e3be8027dbd3b985300d4a8db9bddd1c40c5` (isolated Kaspa Studio; not MIX runtime)
 - Parker `upstream/release/testnet-v2` `8ad2b604102694464a1206b4fdc66ddab09f37bf`
 - STP `stp/main` `3a1f31e613a850e57b26b58a9bfecbc9096d4c2f`

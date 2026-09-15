@@ -1,5 +1,5 @@
-last_checked: 2026-09-14
-recheck_after: 2026-09-21
+last_checked: 2026-09-15
+recheck_after: 2026-09-22
 claims:
   proof_of_work:
     status: live
@@ -98,8 +98,8 @@ claims:
 
   vprogs:
     status: research
-    recheck_after: 2026-09-11
-    summary: The vProgs repository describes early development and has no tagged release; it does not establish a live Kaspa application layer.
+    recheck_after: 2026-09-22
+    summary: Rechecked 2026-09-15 against the vProgs README, master feed, and tags: still early development/prototype, master still 28 Jul 2026, no releases or tags. Repository existence does not establish a live Kaspa application layer.
     source: https://github.com/kaspanet/vprogs
     supporting_source: https://github.com/kaspanet/vprogs/releases
     forbidden_copy:
@@ -119,8 +119,8 @@ claims:
 
   dagknight:
     status: research
-    recheck_after: 2026-09-11
-    summary: KIP-2 remains Proposed; development branch work exists; no mainnet activation is documented in the checked KIP or node releases. Mainnet uses GHOSTDAG.
+    recheck_after: 2026-09-22
+    summary: Rechecked 2026-09-15: KIP-2 remains Proposed. 100 BPS, netsplit, and partition-resilience are absent from that document. No mainnet activation is documented. Mainnet uses GHOSTDAG.
     source: https://raw.githubusercontent.com/kaspanet/kips/master/kip-0002.md
     supporting_source: https://github.com/kaspanet/rusty-kaspa/commit/90e406f8a7c692b171294d8d26b0f83eff530a60
     forbidden_copy:
@@ -139,6 +139,14 @@ claims:
     forbidden_copy:
       - KCC-0020 is a ratified token standard
       - A merged KCC changes consensus
+
+  tn10_rest_submit_drops_compute_budget:
+    status: builder_guardrail
+    recheck_after: 2026-09-22
+    summary: Rechecked 2026-09-15 against the live TN10 OpenAPI schema. SubmitTxModel still exposes only version, inputs, outputs, lockTime, and subnetworkId. compute_budget is not a submit field. Use a node if a spend needs it.
+    source: https://api-tn10.kaspa.org/openapi.json
+    forbidden_copy:
+      - the testnet-10 REST API forwards compute_budget correctly
 
   http402_metered_rails:
     status: testnet_only
