@@ -52,3 +52,12 @@ git fetch stp
 ## License
 
 Project-controlled code is under PolyForm Noncommercial 1.0.0. Educational content is CC BY-NC 4.0. See [LICENSE.md](LICENSE.md) and [THIRD_PARTY.md](THIRD_PARTY.md).
+
+---
+
+> **Standard disclaimer.** This GitHub, not the topic above.
+>
+> Intentions are good; thought process is questionable. STP remains delusional. Si vis pacem, para bellum.
+>
+> Intern at https://sixpack.wtf/  
+> X: https://x.com/StppStp · GitHub: https://github.com/STP-KAS
