@@ -4,7 +4,7 @@
 
 # MIX · mixer concept
 
-> **Status 26 Sep 2026:** the `.club` domain below does not resolve (NXDOMAIN at the registry), and GitHub Pages redirects to it, so the public site is offline. Use [Run locally](#run-locally).
+> **Status 26 Sep 2026:** the `.club` domain below does not resolve (NXDOMAIN at the registry) and was removed as the Pages custom domain. Pages now serves at [stp-kas.github.io/mixer-concept](https://stp-kas.github.io/mixer-concept/), but the build uses root paths (`/assets/…`), so styles and scripts do not load there yet. Use [Run locally](#run-locally).
 
 Public site: **https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club**
 
