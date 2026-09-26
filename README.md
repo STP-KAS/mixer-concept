@@ -4,6 +4,8 @@
 
 # MIX · mixer concept
 
+> **Status 26 Sep 2026:** the `.club` domain below does not resolve (NXDOMAIN at the registry), and GitHub Pages redirects to it, so the public site is offline. Use [Run locally](#run-locally).
+
 Public site: **https://mixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.club**
 
 Version **mixer concept** is the MIX of Parker’s [Kaspa Explained](https://github.com/parker2017code/kaspa-explained) and STP’s [doors overlay](https://github.com/STP-KAS/kaspaexplained-delusional-stp), plus PegLab, a live DAG, wallet, Node, and honest labels.
